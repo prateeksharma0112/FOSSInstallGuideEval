@@ -60,7 +60,7 @@ class EvaluationRunner:
             return run_result
 
         finished_at = datetime.now().astimezone()
-        self._write_json(evaluation_dir / "raw_response.json", llm_result.raw_response)
+        self._write_json(evaluation_dir / "llm_response.json", llm_result.llm_response)
         self._write_json(
             evaluation_dir / "report.json",
             llm_result.report.model_dump(mode="json"),
@@ -90,7 +90,7 @@ class EvaluationRunner:
             "duration_seconds": time.monotonic() - started,
             "artifacts": {
                 "prompt": "evaluation/prompt.md",
-                "raw_response": "evaluation/raw_response.json",
+                "llm_response": "evaluation/llm_response.json",
                 "report": "evaluation/report.json",
             },
         }

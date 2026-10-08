@@ -72,7 +72,7 @@ A completed run contains:
 ```text
 run.json
 evaluation/prompt.md
-evaluation/raw_response.json
+evaluation/llm_response.json
 evaluation/report.json
 ```
 

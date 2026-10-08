@@ -15,7 +15,7 @@ from installguideeval.models import EvaluationReport
 @dataclass(frozen=True)
 class LLMResult:
     report: EvaluationReport
-    raw_response: dict[str, Any]
+    llm_response: dict[str, Any]
     response_id: str | None
     input_tokens: int | None
     output_tokens: int | None
@@ -65,7 +65,7 @@ class EvaluationLLM:
         usage = getattr(response, "usage", None)
         return LLMResult(
             report=report,
-            raw_response=response.model_dump(mode="json"),
+            llm_response=response.model_dump(mode="json"),
             response_id=response.id,
             input_tokens=getattr(usage, "prompt_tokens", None),
             output_tokens=getattr(usage, "completion_tokens", None),
