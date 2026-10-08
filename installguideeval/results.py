@@ -1,4 +1,4 @@
-"""Allocate immutable run directories and write JSON/text artifacts."""
+"""Create run folders and save result files."""
 
 import json
 import re
@@ -25,8 +25,7 @@ def create_run_layout(task_id: str) -> RunLayout:
     task_dir = settings.results_dir / settings.experiment_id / task_id
     existing_numbers = []
 
-    # Continue after the highest existing run number. Previous experimental
-    # evidence is never overwritten.
+    # Find the next run number without overwriting earlier results.
     if task_dir.is_dir():
         for path in task_dir.iterdir():
             match = _RUN_DIRECTORY_PATTERN.fullmatch(path.name)
@@ -38,7 +37,7 @@ def create_run_layout(task_id: str) -> RunLayout:
     run_dir = task_dir / run_name
     evaluation_dir = run_dir / "evaluation"
 
-    # exist_ok=False also protects against an accidental numbering collision.
+    # Create the folders for this run.
     evaluation_dir.mkdir(parents=True, exist_ok=False)
     return RunLayout(
         run_id=f"{settings.experiment_id}__{task_id}__{run_name}",
