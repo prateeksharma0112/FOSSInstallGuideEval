@@ -15,27 +15,17 @@ class RatingLevel(StrictModel):
     label: str = Field(min_length=1)
 
 
-class Criterion(StrictModel):
-    criterion_id: str = Field(pattern=r"^[a-z][a-z0-9_]*$")
-    name: str = Field(min_length=1)
-    question: str = Field(min_length=1)
-
-
 class EvaluationCriteria(StrictModel):
     criteria_version: str = Field(min_length=1)
-    title: str = Field(min_length=1)
     rating_scale: list[RatingLevel] = Field(min_length=2)
-    criteria: list[Criterion] = Field(min_length=1)
+    criteria: dict[str, str] = Field(min_length=1)
 
     @model_validator(mode="after")
     def validate_definitions(self) -> "EvaluationCriteria":
-        # Check that scores and criterion IDs are unique.
+        # Check that rating scores are ordered and unique.
         scores = [level.score for level in self.rating_scale]
         if scores != sorted(set(scores)):
             raise ValueError("rating-scale scores must be unique and ordered")
-        criterion_ids = [criterion.criterion_id for criterion in self.criteria]
-        if len(criterion_ids) != len(set(criterion_ids)):
-            raise ValueError("criterion IDs must be unique")
         return self
 
 

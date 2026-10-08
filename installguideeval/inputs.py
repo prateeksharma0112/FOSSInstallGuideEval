@@ -38,8 +38,12 @@ def build_prompt(task: EvaluationTask, criteria: EvaluationCriteria) -> str:
     """Build the prompt sent to the LLM."""
 
     template = settings.evaluation_prompt_path.read_text(encoding="utf-8")
+    prompt_criteria = criteria.model_dump(
+        mode="json",
+        include={"rating_scale", "criteria"},
+    )
 
     return template.format(
-        criteria=json.dumps(criteria.model_dump(mode="json"), indent=2),
+        criteria=json.dumps(prompt_criteria, indent=2),
         installation_guide=task.guide_text.strip(),
     )
