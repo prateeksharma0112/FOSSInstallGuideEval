@@ -1,0 +1,27 @@
+{
+  "dataset_id": "P003",
+  "project": {
+    "opencode_id": "11929",
+    "name": "Green Ecolution",
+    "description": "Platform for smart irrigation and green space management in municipalities based on LoRaWAN sensor data and route optimization.",
+    "catalogue_url": "https://opencode.de/de/software/green-ecolution-11929",
+    "type": "Application",
+    "platforms": [
+      "web"
+    ]
+  },
+  "repository": {
+    "url": "https://gitlab.opencode.de/green-ecolution/green-ecolution",
+    "commit_sha": "94229d0d6c84b3590827ee1c144d8e62c2180101",
+    "license": "AGPL-3.0-only"
+  },
+  "installation": {
+    "complexity": "High"
+  },
+  "installation_guide": {
+    "url": "https://gitlab.opencode.de/green-ecolution/green-ecolution/-/blob/94229d0d6c84b3590827ee1c144d8e62c2180101/README.md",
+    "source": "Repository README",
+    "language": "English",
+    "word_count": 692
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "criteria_version": "1.0",
+  "title": "Installation guide documentation-quality criteria",
+  "rating_scale": [
+    {"score": 1, "label": "Very poor"},
+    {"score": 2, "label": "Poor"},
+    {"score": 3, "label": "Adequate"},
+    {"score": 4, "label": "Good"},
+    {"score": 5, "label": "Excellent"}
+  ],
+  "criteria": [
+    {
+      "criterion_id": "completeness",
+      "name": "Completeness",
+      "question": "How would you rate the guide's coverage of the information needed to install, configure where required, and verify the software?"
+    },
+    {
+      "criterion_id": "structure",
+      "name": "Structure",
+      "question": "Is the installation guide arranged so that the user can find what is needed and follow the installation process in the required order?"
+    },
+    {
+      "criterion_id": "clarity",
+      "name": "Clarity",
+      "question": "Are instructions, commands, prerequisites, configuration values, and expected outcomes stated precisely and without ambiguity?"
+    },
+    {
+      "criterion_id": "understandability",
+      "name": "Understandability",
+      "question": "How easy was it to understand the installation or setup steps? Consider whether the guide explained the technical terms and concepts or required you to know them beforehand."
+    }
+  ]
+}

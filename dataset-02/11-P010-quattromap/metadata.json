@@ -1,0 +1,27 @@
+{
+  "dataset_id": "P010",
+  "project": {
+    "opencode_id": "13015",
+    "name": "QuattroMap",
+    "description": "Browser tool for the synchronous display of up to four different map windows.",
+    "catalogue_url": "https://opencode.de/de/software/quattro-map-13015",
+    "type": "Application",
+    "platforms": [
+      "web"
+    ]
+  },
+  "repository": {
+    "url": "https://gitlab.opencode.de/kreis-viersen/quattromap",
+    "commit_sha": "24041c041e0de1d41cbab9d9fac0c0cb1681b09f",
+    "license": "MIT"
+  },
+  "installation": {
+    "complexity": "Low"
+  },
+  "installation_guide": {
+    "url": "https://gitlab.opencode.de/kreis-viersen/quattromap/-/blob/24041c041e0de1d41cbab9d9fac0c0cb1681b09f/README.md",
+    "source": "Repository README",
+    "language": "German and English",
+    "word_count": 443
+  }
+}

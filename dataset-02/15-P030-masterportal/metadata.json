@@ -1,0 +1,27 @@
+{
+  "dataset_id": "P030",
+  "project": {
+    "opencode_id": "12551",
+    "name": "Masterportal",
+    "description": "The Masterportal is a flexible modular system for geoportals on the web.",
+    "catalogue_url": "https://opencode.de/de/software/masterportal-12551",
+    "type": "Application",
+    "platforms": [
+      "web"
+    ]
+  },
+  "repository": {
+    "url": "https://gitlab.opencode.de/lgvhh/urban-data-solutions/masterportal",
+    "commit_sha": "410dc25f07b22213fa85d37622a76f614e859eb8",
+    "license": "MIT"
+  },
+  "installation": {
+    "complexity": "Low"
+  },
+  "installation_guide": {
+    "url": "https://gitlab.opencode.de/lgvhh/urban-data-solutions/masterportal/-/blob/410dc25f07b22213fa85d37622a76f614e859eb8/docs/Setup/setup.md",
+    "source": "Repository documentation",
+    "language": "English",
+    "word_count": 420
+  }
+}

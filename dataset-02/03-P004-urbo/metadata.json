@@ -1,0 +1,28 @@
+{
+  "dataset_id": "P004",
+  "project": {
+    "opencode_id": "11309",
+    "name": "URBO",
+    "description": "Urbo is an open source city app platform that aggregates services and information from various sources for citizens.",
+    "catalogue_url": "https://opencode.de/de/software/urbo-11309",
+    "type": "Application",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "repository": {
+    "url": "https://gitlab.opencode.de/urbo-community/urbo",
+    "commit_sha": "71cd0baf943270d1e1fad9d8a8b0485a79bbd4a2",
+    "license": "EUPL-1.2"
+  },
+  "installation": {
+    "complexity": "High"
+  },
+  "installation_guide": {
+    "url": "https://gitlab.opencode.de/urbo-community/urbo/-/blob/71cd0baf943270d1e1fad9d8a8b0485a79bbd4a2/README.md",
+    "source": "Repository README",
+    "language": "English",
+    "word_count": 803
+  }
+}

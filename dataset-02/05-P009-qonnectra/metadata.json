@@ -1,0 +1,27 @@
+{
+  "dataset_id": "P009",
+  "project": {
+    "opencode_id": "7791",
+    "name": "Qonnectra",
+    "description": "Qonnectra is an open-source, web-based GIS application for documenting and managing municipal utility networks. It enables the documentation and visualization of fiber optic networks across all network levels – from the main distribution point to the individual home connection.",
+    "catalogue_url": "https://opencode.de/de/software/qonnectra-7791",
+    "type": "Application",
+    "platforms": [
+      "web"
+    ]
+  },
+  "repository": {
+    "url": "https://gitlab.opencode.de/sh/digitalhub-sh/landesprogramm-offene-innovationen/qonnectra",
+    "commit_sha": "c07d840c783b5ea824328622f597e269487f0c0f",
+    "license": "AGPL-3.0-only"
+  },
+  "installation": {
+    "complexity": "High"
+  },
+  "installation_guide": {
+    "url": "https://gitlab.opencode.de/sh/digitalhub-sh/landesprogramm-offene-innovationen/qonnectra/-/blob/c07d840c783b5ea824328622f597e269487f0c0f/README.md",
+    "source": "Repository README",
+    "language": "English",
+    "word_count": 115
+  }
+}

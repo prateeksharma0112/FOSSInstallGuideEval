@@ -1,0 +1,29 @@
+{
+  "dataset_id": "P008",
+  "project": {
+    "opencode_id": "3604",
+    "name": "Erlebnis.Stadt Menden",
+    "description": "Erlebnis.Stadt is a digital platform designed to help residents and visitors discover the diverse experiences, offerings, and hidden gems of Menden. The platform brings together locations and micro-experiences throughout the city, providing a unified and easily accessible gateway to local culture, tourism, and leisure activities.",
+    "catalogue_url": "https://opencode.de/de/software/erlebnis-stadt-menden-3604",
+    "type": "Application",
+    "platforms": [
+      "web",
+      "ios",
+      "android"
+    ]
+  },
+  "repository": {
+    "url": "https://gitlab.opencode.de/stadt-menden/erlebnis.stadt",
+    "commit_sha": "e5a8336a130b9e379db54b4b8d6fa21cfd38dd58",
+    "license": "EUPL-1.2"
+  },
+  "installation": {
+    "complexity": "High"
+  },
+  "installation_guide": {
+    "url": "https://gitlab.opencode.de/stadt-menden/erlebnis.stadt/-/blob/e5a8336a130b9e379db54b4b8d6fa21cfd38dd58/README.md",
+    "source": "Repository README",
+    "language": "English",
+    "word_count": 703
+  }
+}

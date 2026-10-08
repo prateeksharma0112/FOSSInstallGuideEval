@@ -1,0 +1,27 @@
+{
+  "dataset_id": "P028",
+  "project": {
+    "opencode_id": "12597",
+    "name": "UrbanKIT Plattform",
+    "description": "A city's digital citizen participation platform: public portal plus closed project workspace with modular tools.",
+    "catalogue_url": "https://opencode.de/de/software/urban-kit-plattform-12597",
+    "type": "Application",
+    "platforms": [
+      "web"
+    ]
+  },
+  "repository": {
+    "url": "https://gitlab.opencode.de/stadt-detmold/urban-kit-plattform",
+    "commit_sha": "d170d748ae3d7873d83816fe68a36c7989dce0a7",
+    "license": "EUPL-1.2"
+  },
+  "installation": {
+    "complexity": "Medium"
+  },
+  "installation_guide": {
+    "url": "https://gitlab.opencode.de/stadt-detmold/urban-kit-plattform/-/blob/d170d748ae3d7873d83816fe68a36c7989dce0a7/docs/deployment.md",
+    "source": "Repository deployment guide",
+    "language": "English",
+    "word_count": 505
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "dataset_id": "P002",
+  "project": {
+    "opencode_id": "7613",
+    "name": "Liquio",
+    "description": "Liquio is an innovative GovTech platform that leverages artificial intelligence and a low-code approach to drive the digital transformation of public services. It enables rapid creation, configuration, and deployment of a wide range of IT solutions, and web and mobile applications for government agencies and local governments.",
+    "catalogue_url": "https://opencode.de/de/software/liquio-7613",
+    "type": "Application",
+    "platforms": [
+      "web",
+      "windows",
+      "mac",
+      "linux",
+      "ios",
+      "android"
+    ]
+  },
+  "repository": {
+    "url": "https://gitlab.opencode.de/govstack/kitsoft/liquio",
+    "commit_sha": "399b8b10f9776e5253a5daf02019551db4ee5d0e",
+    "license": "AGPL-3.0-only"
+  },
+  "installation": {
+    "complexity": "High"
+  },
+  "installation_guide": {
+    "url": "https://gitlab.opencode.de/govstack/kitsoft/liquio/-/blob/399b8b10f9776e5253a5daf02019551db4ee5d0e/CONTRIBUTING.md",
+    "source": "Repository contributing guide",
+    "language": "English",
+    "word_count": 700
+  }
+}

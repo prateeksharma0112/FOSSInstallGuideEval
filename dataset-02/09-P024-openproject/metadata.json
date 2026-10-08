@@ -1,0 +1,27 @@
+{
+  "dataset_id": "P024",
+  "project": {
+    "opencode_id": "8047",
+    "name": "OpenProject",
+    "description": "OpenProject is a web-based project management solution specifically tailored to the needs of public administration. It supports project planning, task management, agile workflows, time tracking, and project portfolio management.",
+    "catalogue_url": "https://opencode.de/de/software/open-project-8047",
+    "type": "Application",
+    "platforms": [
+      "web"
+    ]
+  },
+  "repository": {
+    "url": "https://gitlab.opencode.de/bmi/opendesk/component-code/project-management/openproject/openproject",
+    "commit_sha": "27a58131fa8dc521cd02c92c0b8e6a4854599d80",
+    "license": "GPL-3.0-only"
+  },
+  "installation": {
+    "complexity": "Medium"
+  },
+  "installation_guide": {
+    "url": "https://gitlab.opencode.de/bmi/opendesk/component-code/project-management/openproject/openproject/-/blob/27a58131fa8dc521cd02c92c0b8e6a4854599d80/docs/installation-and-operations/installation/docker/README.md",
+    "source": "Repository README",
+    "language": "English",
+    "word_count": 4511
+  }
+}

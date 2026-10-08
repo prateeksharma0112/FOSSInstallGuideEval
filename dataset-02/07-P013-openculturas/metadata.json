@@ -1,0 +1,27 @@
+{
+  "dataset_id": "P013",
+  "project": {
+    "opencode_id": "3458",
+    "name": "OpenCulturas",
+    "description": "Web-based content management system for user-generated and/or purely editorial content such as: person/group profiles, event venues, tourist attractions, reusable event descriptions, dates (repeat dates possible), FAQs, magazine articles.",
+    "catalogue_url": "https://opencode.de/de/software/open-culturas-3458",
+    "type": "Application",
+    "platforms": [
+      "web"
+    ]
+  },
+  "repository": {
+    "url": "https://gitlab.opencode.de/openculturas/openculturas-distribution",
+    "commit_sha": "838d5d0f359a0f32a54223fc67f2e1f74f0029dc",
+    "license": "GPL-2.0-or-later"
+  },
+  "installation": {
+    "complexity": "Medium"
+  },
+  "installation_guide": {
+    "url": "https://gitlab.opencode.de/openculturas/openculturas-distribution/-/blob/838d5d0f359a0f32a54223fc67f2e1f74f0029dc/README.md",
+    "source": "Repository README",
+    "language": "English",
+    "word_count": 466
+  }
+}

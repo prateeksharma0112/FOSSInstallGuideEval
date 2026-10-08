@@ -1,0 +1,28 @@
+{
+  "dataset_id": "P011",
+  "project": {
+    "opencode_id": "12891",
+    "name": "Pomodoro",
+    "description": "Local focus timer for greater efficiency in everyday administrative work: fixed work blocks, conscious breaks and honest time tracking that also counts interrupted focus sessions.",
+    "catalogue_url": "https://opencode.de/de/software/pomodoro-12891",
+    "type": "Application",
+    "platforms": [
+      "mac",
+      "linux"
+    ]
+  },
+  "repository": {
+    "url": "https://gitlab.opencode.de/frederic/pomodoro",
+    "commit_sha": "54320075112b92c70ae0dbb00633ab01f8b600ce",
+    "license": "MIT"
+  },
+  "installation": {
+    "complexity": "Low"
+  },
+  "installation_guide": {
+    "url": "https://gitlab.opencode.de/frederic/pomodoro/-/blob/54320075112b92c70ae0dbb00633ab01f8b600ce/README.md",
+    "source": "Repository README",
+    "language": "English",
+    "word_count": 702
+  }
+}

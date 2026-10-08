@@ -1,0 +1,30 @@
+{
+  "dataset_id": "P005",
+  "project": {
+    "opencode_id": "4619",
+    "name": "GeospatialAnalyzer",
+    "description": "Open source software for providing a web service that enables the automated collection and analysis of geodata – e.g., as a basis for integration into digital application and administrative procedures.",
+    "catalogue_url": "https://opencode.de/de/software/geospatial-analyzer-4619",
+    "type": "Application",
+    "platforms": [
+      "web",
+      "linux",
+      "windows",
+      "mac"
+    ]
+  },
+  "repository": {
+    "url": "https://gitlab.opencode.de/OC000024389631/GeospatialAnalyzer",
+    "commit_sha": "1b62187a74718590ee6e7ccda4d881983cc595af",
+    "license": "GPL-3.0-only"
+  },
+  "installation": {
+    "complexity": "Medium"
+  },
+  "installation_guide": {
+    "url": "https://gitlab.opencode.de/OC000024389631/GeospatialAnalyzer/-/blob/1b62187a74718590ee6e7ccda4d881983cc595af/README.development.md",
+    "source": "Repository Development README",
+    "language": "English",
+    "word_count": 986
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "dataset_id": "P026",
+  "project": {
+    "opencode_id": "1875",
+    "name": "Föderales Entwicklungsportal",
+    "description": "Web portal for documentation, standards, APIs and other development resources of German administrative IT.",
+    "catalogue_url": "https://opencode.de/de/software/foderales-entwicklungsportal-1875",
+    "type": "Application",
+    "platforms": [
+      "web"
+    ]
+  },
+  "repository": {
+    "url": "https://gitlab.opencode.de/fitko/docs/portal",
+    "commit_sha": "aada0a846d42d896535b6352d8cddad6c1c56efd",
+    "license": "EUPL-1.2"
+  },
+  "installation": {
+    "complexity": "Low"
+  },
+  "installation_guide": {
+    "url": "https://gitlab.opencode.de/fitko/docs/portal/-/blob/aada0a846d42d896535b6352d8cddad6c1c56efd/README.md",
+    "source": "Repository README",
+    "language": "English",
+    "word_count": 132
+  }
+}
