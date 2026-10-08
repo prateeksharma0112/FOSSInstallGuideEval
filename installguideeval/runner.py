@@ -146,7 +146,10 @@ class EvaluationRunner:
         error: dict[str, str] | None = None,
     ) -> dict[str, Any]:
         # Add details from a successful response.
-        llm_details = {"model": self.llm.model_name}
+        llm_details = {
+            "model": self.llm.model_name,
+            "reasoning_effort": settings.evaluation_llm_reasoning_effort,
+        }
         if llm_result is not None:
             llm_details.update(
                 {
@@ -161,17 +164,18 @@ class EvaluationRunner:
             "run_id": layout.run_id,
             "experiment_id": settings.experiment_id,
             "run_number": layout.run_number,
+            "status": status,
             "started_at": started_at.isoformat(),
             "finished_at": datetime.now().astimezone().isoformat(),
-            "status": status,
+            "duration_seconds": round(time.monotonic() - timer_start, 3),
         }
         if error is not None:
             run["error"] = error
 
         return {
             "run": run,
-            "task": {**task.metadata, "task_id": task.task_id},
+            "task": {"task_id": task.task_id, **task.metadata},
+            "prompt": {"template": settings.evaluation_prompt_path.as_posix()},
             "criteria": {"version": criteria.criteria_version},
             "llm": llm_details,
-            "duration_seconds": time.monotonic() - timer_start,
         }
