@@ -29,9 +29,17 @@ def run_task(
         console.print(f"[bold red]Could not complete evaluation run:[/bold red] {exc}")
         raise typer.Exit(code=1) from exc
 
+    if result["run"]["status"] == "completed":
+        console.print(
+            f"[bold green]Evaluation run {result['run']['run_id']} completed.[/bold green]"
+        )
+        return
+
     console.print(
-        f"[bold green]Evaluation run {result['run']['run_id']} completed.[/bold green]"
+        f"[bold red]Evaluation run {result['run']['run_id']} failed:[/bold red] "
+        f"{result['run']['error']['message']}"
     )
+    raise typer.Exit(code=1)
 
 
 if __name__ == "__main__":

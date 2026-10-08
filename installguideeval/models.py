@@ -40,7 +40,6 @@ class EvaluationCriteria(StrictModel):
 class EvaluationTask(StrictModel):
     task_id: str = Field(pattern=r"^[A-Za-z0-9][A-Za-z0-9._-]*$")
     metadata: dict[str, Any]
-    guide_name: str = Field(min_length=1)
     guide_text: str = Field(min_length=1)
 
 
@@ -57,4 +56,3 @@ class EvaluationReport(StrictModel):
     structure: CriterionRating
     clarity: CriterionRating
     understandability: CriterionRating
-

@@ -24,13 +24,42 @@ class EvaluationRunner:
         task = self._load_task(task_id)
         criteria, criteria_sha256 = self._load_criteria()
         prompt = self._build_prompt(task, criteria)
-        llm_result = self.llm.evaluate(prompt)
         run_dir, run_number, run_id = self._allocate_run(task.task_id)
-        finished_at = datetime.now().astimezone()
-
         evaluation_dir = run_dir / "evaluation"
         evaluation_dir.mkdir()
         self._write_text(evaluation_dir / "prompt.md", prompt)
+
+        try:
+            llm_result = self.llm.evaluate(prompt)
+        except Exception as exc:
+            error = {"type": type(exc).__name__, "message": str(exc)}
+            self._write_json(evaluation_dir / "error.json", error)
+            run_result = {
+                "run": {
+                    "run_id": run_id,
+                    "experiment_id": settings.experiment_id,
+                    "run_number": run_number,
+                    "started_at": started_at.isoformat(),
+                    "finished_at": datetime.now().astimezone().isoformat(),
+                    "status": "failed",
+                    "error": error,
+                },
+                "task": {"task_id": task.task_id, **task.metadata},
+                "criteria": {
+                    "version": criteria.criteria_version,
+                    "sha256": criteria_sha256,
+                },
+                "llm": {"model": self.llm.model_name},
+                "duration_seconds": time.monotonic() - started,
+                "artifacts": {
+                    "prompt": "evaluation/prompt.md",
+                    "error": "evaluation/error.json",
+                },
+            }
+            self._write_json(run_dir / "run.json", run_result)
+            return run_result
+
+        finished_at = datetime.now().astimezone()
         self._write_json(evaluation_dir / "raw_response.json", llm_result.raw_response)
         self._write_json(
             evaluation_dir / "report.json",
@@ -88,7 +117,6 @@ class EvaluationRunner:
         return EvaluationTask(
             task_id=task_id,
             metadata=metadata,
-            guide_name=guide_path.name,
             guide_text=guide_path.read_text(encoding="utf-8"),
         )
 
