@@ -1,4 +1,4 @@
-"""Orchestrate one installation-guide evaluation run."""
+"""Run one evaluation and save its results."""
 
 import time
 from datetime import datetime
@@ -6,23 +6,23 @@ from typing import Any
 
 from installguideeval.config import settings
 from installguideeval.inputs import build_prompt, load_criteria, load_task
-from installguideeval.llm import EvaluationLLM, LLMResponseError, LLMResult
+from installguideeval.llm import LLMClient, LLMEvaluationResult, LLMResponseError
 from installguideeval.models import EvaluationCriteria, EvaluationTask
 from installguideeval.results import RunLayout, create_run_layout, write_json, write_text
 
 
 class EvaluationRunner:
-    """Coordinate input loading, one LLM call, and artifact storage."""
+    """Coordinate the evaluation pipeline."""
 
-    def __init__(self, llm: EvaluationLLM | None = None) -> None:
-        self.llm = llm or EvaluationLLM()
+    def __init__(self, llm: LLMClient | None = None) -> None:
+        self.llm = llm or LLMClient()
 
     def run(self, task_id: str) -> dict[str, Any]:
-        # Start the run timer.
+        # Start the timer.
         started_at = datetime.now().astimezone()
-        started = time.monotonic()
+        timer_start = time.monotonic()
 
-        # Load the guide and evaluation criteria.
+        # Load the guide and criteria.
         task = load_task(task_id)
         criteria = load_criteria()
 
@@ -33,7 +33,7 @@ class EvaluationRunner:
         layout = create_run_layout(task.task_id)
         write_text(layout.evaluation_dir / "prompt.md", prompt)
 
-        # Send the prompt to the LLM.
+        # Evaluate the guide.
         try:
             llm_result = self.llm.evaluate(prompt)
         except Exception as exc:
@@ -43,7 +43,7 @@ class EvaluationRunner:
                 task=task,
                 criteria=criteria,
                 started_at=started_at,
-                started=started,
+                timer_start=timer_start,
                 error=exc,
             )
 
@@ -52,7 +52,7 @@ class EvaluationRunner:
             task=task,
             criteria=criteria,
             started_at=started_at,
-            started=started,
+            timer_start=timer_start,
             llm_result=llm_result,
         )
 
@@ -63,30 +63,30 @@ class EvaluationRunner:
         task: EvaluationTask,
         criteria: EvaluationCriteria,
         started_at: datetime,
-        started: float,
-        llm_result: LLMResult,
+        timer_start: float,
+        llm_result: LLMEvaluationResult,
     ) -> dict[str, Any]:
         # Save the complete response and the validated report.
         write_json(layout.evaluation_dir / "llm_response.json", llm_result.llm_response)
         write_json(layout.evaluation_dir / "report.json", llm_result.report.model_dump(mode="json"))
 
         # Save information about the completed run.
-        result = self._run_record(
+        run_record = self._run_record(
             layout=layout,
             task=task,
             criteria=criteria,
             started_at=started_at,
-            started=started,
+            timer_start=timer_start,
             status="completed",
             llm_result=llm_result,
         )
-        result["artifacts"] = {
+        run_record["artifacts"] = {
             "prompt": "evaluation/prompt.md",
             "llm_response": "evaluation/llm_response.json",
             "report": "evaluation/report.json",
         }
-        write_json(layout.run_dir / "run.json", result)
-        return result
+        write_json(layout.run_dir / "run.json", run_record)
+        return run_record
 
     def _save_failure(
         self,
@@ -95,7 +95,7 @@ class EvaluationRunner:
         task: EvaluationTask,
         criteria: EvaluationCriteria,
         started_at: datetime,
-        started: float,
+        timer_start: float,
         error: Exception,
     ) -> dict[str, Any]:
         # Save the error.
@@ -108,23 +108,23 @@ class EvaluationRunner:
             write_json(layout.evaluation_dir / "llm_response.json", llm_response)
 
         # Save information about the failed run.
-        result = self._run_record(
+        run_record = self._run_record(
             layout=layout,
             task=task,
             criteria=criteria,
             started_at=started_at,
-            started=started,
+            timer_start=timer_start,
             status="failed",
             error=error_data,
         )
-        result["artifacts"] = {
+        run_record["artifacts"] = {
             "prompt": "evaluation/prompt.md",
             "error": "evaluation/error.json",
         }
         if llm_response is not None:
-            result["artifacts"]["llm_response"] = "evaluation/llm_response.json"
-        write_json(layout.run_dir / "run.json", result)
-        return result
+            run_record["artifacts"]["llm_response"] = "evaluation/llm_response.json"
+        write_json(layout.run_dir / "run.json", run_record)
+        return run_record
 
     def _run_record(
         self,
@@ -133,15 +133,15 @@ class EvaluationRunner:
         task: EvaluationTask,
         criteria: EvaluationCriteria,
         started_at: datetime,
-        started: float,
+        timer_start: float,
         status: str,
-        llm_result: LLMResult | None = None,
+        llm_result: LLMEvaluationResult | None = None,
         error: dict[str, str] | None = None,
     ) -> dict[str, Any]:
-        # Add LLM details when a response was successfully validated.
-        llm = {"model": self.llm.model_name}
+        # Add details from a successful response.
+        llm_details = {"model": self.llm.model_name}
         if llm_result is not None:
-            llm.update(
+            llm_details.update(
                 {
                     "response_id": llm_result.response_id,
                     "input_tokens": llm_result.input_tokens,
@@ -163,9 +163,8 @@ class EvaluationRunner:
 
         return {
             "run": run,
-            # Use the task ID from the dataset folder.
             "task": {**task.metadata, "task_id": task.task_id},
             "criteria": {"version": criteria.criteria_version},
-            "llm": llm,
-            "duration_seconds": time.monotonic() - started,
+            "llm": llm_details,
+            "duration_seconds": time.monotonic() - timer_start,
         }

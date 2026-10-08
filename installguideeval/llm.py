@@ -1,4 +1,4 @@
-"""Execute one schema-constrained LLM evaluation request."""
+"""Call the LLM and validate its response."""
 
 import os
 from dataclasses import dataclass
@@ -14,8 +14,8 @@ from installguideeval.models import EvaluationReport
 
 
 @dataclass(frozen=True)
-class LLMResult:
-    """Validated result and response metadata from one LLM call."""
+class LLMEvaluationResult:
+    """Validated report and details from one LLM call."""
 
     report: EvaluationReport
     llm_response: dict[str, Any]
@@ -26,15 +26,15 @@ class LLMResult:
 
 
 class LLMResponseError(RuntimeError):
-    """An unusable LLM response that must still be kept as evidence."""
+    """An error that keeps the unusable LLM response."""
 
     def __init__(self, message: str, llm_response: dict[str, Any]) -> None:
         super().__init__(message)
         self.llm_response = llm_response
 
 
-class EvaluationLLM:
-    """Evaluate a prompt through the configured LiteLLM endpoint."""
+class LLMClient:
+    """Send an evaluation request through LiteLLM."""
 
     def __init__(self) -> None:
         if not settings.evaluation_llm_model:
@@ -43,8 +43,7 @@ class EvaluationLLM:
             raise ValueError("EVALUATION_LLM_API_KEY must be configured.")
         self.model_name = settings.evaluation_llm_model
 
-    def evaluate(self, prompt: str) -> LLMResult:
-        # Send request to the LLM.
+    def evaluate(self, prompt: str) -> LLMEvaluationResult:
         response = litellm.completion(**self._request_parameters(prompt))
         llm_response = response.model_dump(mode="json")
         choice = response.choices[0]
@@ -72,7 +71,7 @@ class EvaluationLLM:
             ) from exc
 
         usage = getattr(response, "usage", None)
-        return LLMResult(
+        return LLMEvaluationResult(
             report=report,
             llm_response=llm_response,
             response_id=response.id,
@@ -82,8 +81,7 @@ class EvaluationLLM:
         )
 
     def _request_parameters(self, prompt: str) -> dict[str, Any]:
-        # Build the LiteLLM request.
-        parameters: dict[str, Any] = {
+        request_params: dict[str, Any] = {
             "model": self.model_name,
             "messages": [{"role": "user", "content": prompt}],
             "api_key": settings.evaluation_llm_api_key,
@@ -102,7 +100,7 @@ class EvaluationLLM:
 
         # Add optional model settings when they are configured.
         if settings.evaluation_llm_base_url:
-            parameters["api_base"] = settings.evaluation_llm_base_url
+            request_params["api_base"] = settings.evaluation_llm_base_url
         if settings.evaluation_llm_reasoning_effort:
-            parameters["reasoning_effort"] = settings.evaluation_llm_reasoning_effort
-        return parameters
+            request_params["reasoning_effort"] = settings.evaluation_llm_reasoning_effort
+        return request_params

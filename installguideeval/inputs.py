@@ -1,4 +1,4 @@
-"""Load evaluation inputs and assemble the prompt."""
+"""Load the guide and criteria, then build the prompt."""
 
 import json
 
@@ -13,11 +13,9 @@ def load_task(task_id: str) -> EvaluationTask:
     if not task_dir.is_dir():
         raise FileNotFoundError(f"Task not found: {task_id}")
 
-    # Load the task metadata.
     metadata_path = task_dir / "metadata.json"
     metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
 
-    # Find the installation guide.
     guide_path = task_dir / "docs" / "Installation.md"
     if not guide_path.is_file():
         raise FileNotFoundError(f"Installation guide not found: {guide_path}")
@@ -32,8 +30,8 @@ def load_task(task_id: str) -> EvaluationTask:
 def load_criteria() -> EvaluationCriteria:
     """Load the criteria used for every evaluation."""
 
-    content = settings.evaluation_criteria_path.read_bytes()
-    return EvaluationCriteria.model_validate_json(content)
+    criteria_json = settings.evaluation_criteria_path.read_bytes()
+    return EvaluationCriteria.model_validate_json(criteria_json)
 
 
 def build_prompt(task: EvaluationTask, criteria: EvaluationCriteria) -> str:
@@ -41,7 +39,6 @@ def build_prompt(task: EvaluationTask, criteria: EvaluationCriteria) -> str:
 
     template = settings.evaluation_prompt_path.read_text(encoding="utf-8")
 
-    # Add criteria and guide to the prompt.
     return template.format(
         criteria=json.dumps(criteria.model_dump(mode="json"), indent=2),
         installation_guide=task.guide_text.strip(),
