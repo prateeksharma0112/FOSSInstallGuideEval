@@ -6,7 +6,7 @@ from typing import Any
 
 from installguideeval.config import settings
 from installguideeval.inputs import build_prompt, load_criteria, load_task
-from installguideeval.llm import EvaluationLLM, LLMResult
+from installguideeval.llm import EvaluationLLM, LLMResponseError, LLMResult
 from installguideeval.models import EvaluationCriteria, EvaluationTask
 from installguideeval.results import RunLayout, create_run_layout, write_json, write_text
 
@@ -18,29 +18,30 @@ class EvaluationRunner:
         self.llm = llm or EvaluationLLM()
 
     def run(self, task_id: str) -> dict[str, Any]:
-        # Start timing before loading inputs so duration covers the complete run.
+        # Start the run timer.
         started_at = datetime.now().astimezone()
         started = time.monotonic()
 
+        # Load the guide and evaluation criteria.
         task = load_task(task_id)
-        criteria, criteria_sha256 = load_criteria()
-        prompt = build_prompt(task, criteria)
-        layout = create_run_layout(task.task_id)
+        criteria = load_criteria()
 
-        # Save the exact prompt before the API call. It remains available even
-        # when the request fails.
+        # Build the prompt.
+        prompt = build_prompt(task, criteria)
+
+        # Create the run folder and save the prompt.
+        layout = create_run_layout(task.task_id)
         write_text(layout.evaluation_dir / "prompt.md", prompt)
 
+        # Send the prompt to the LLM.
         try:
             llm_result = self.llm.evaluate(prompt)
         except Exception as exc:
-            # A failed request is experimental evidence too, so record it instead
-            # of deleting the run or silently trying again.
+            # Save the failed run without retrying.
             return self._save_failure(
                 layout=layout,
                 task=task,
                 criteria=criteria,
-                criteria_sha256=criteria_sha256,
                 started_at=started_at,
                 started=started,
                 error=exc,
@@ -50,7 +51,6 @@ class EvaluationRunner:
             layout=layout,
             task=task,
             criteria=criteria,
-            criteria_sha256=criteria_sha256,
             started_at=started_at,
             started=started,
             llm_result=llm_result,
@@ -62,25 +62,19 @@ class EvaluationRunner:
         layout: RunLayout,
         task: EvaluationTask,
         criteria: EvaluationCriteria,
-        criteria_sha256: str,
         started_at: datetime,
         started: float,
         llm_result: LLMResult,
     ) -> dict[str, Any]:
-        # Store both forms: the complete provider response for traceability and
-        # the small validated report used for analysis.
-        write_json(
-            layout.evaluation_dir / "llm_response.json", llm_result.llm_response
-        )
-        write_json(
-            layout.evaluation_dir / "report.json",
-            llm_result.report.model_dump(mode="json"),
-        )
+        # Save the complete response and the validated report.
+        write_json(layout.evaluation_dir / "llm_response.json", llm_result.llm_response)
+        write_json(layout.evaluation_dir / "report.json", llm_result.report.model_dump(mode="json"))
+
+        # Save information about the completed run.
         result = self._run_record(
             layout=layout,
             task=task,
             criteria=criteria,
-            criteria_sha256=criteria_sha256,
             started_at=started_at,
             started=started,
             status="completed",
@@ -100,20 +94,24 @@ class EvaluationRunner:
         layout: RunLayout,
         task: EvaluationTask,
         criteria: EvaluationCriteria,
-        criteria_sha256: str,
         started_at: datetime,
         started: float,
         error: Exception,
     ) -> dict[str, Any]:
-        # Do not save secrets or a traceback; the exception type and message are
-        # enough to diagnose the failed run without exposing environment values.
+        # Save the error.
         error_data = {"type": type(error).__name__, "message": str(error)}
         write_json(layout.evaluation_dir / "error.json", error_data)
+
+        # Keep the LLM response when validation fails.
+        llm_response = error.llm_response if isinstance(error, LLMResponseError) else None
+        if llm_response is not None:
+            write_json(layout.evaluation_dir / "llm_response.json", llm_response)
+
+        # Save information about the failed run.
         result = self._run_record(
             layout=layout,
             task=task,
             criteria=criteria,
-            criteria_sha256=criteria_sha256,
             started_at=started_at,
             started=started,
             status="failed",
@@ -123,6 +121,8 @@ class EvaluationRunner:
             "prompt": "evaluation/prompt.md",
             "error": "evaluation/error.json",
         }
+        if llm_response is not None:
+            result["artifacts"]["llm_response"] = "evaluation/llm_response.json"
         write_json(layout.run_dir / "run.json", result)
         return result
 
@@ -132,15 +132,13 @@ class EvaluationRunner:
         layout: RunLayout,
         task: EvaluationTask,
         criteria: EvaluationCriteria,
-        criteria_sha256: str,
         started_at: datetime,
         started: float,
         status: str,
         llm_result: LLMResult | None = None,
         error: dict[str, str] | None = None,
     ) -> dict[str, Any]:
-        # Success and failure records share the same core metadata. Keeping its
-        # construction here prevents the two formats from drifting apart.
+        # Add LLM details when a response was successfully validated.
         llm = {"model": self.llm.model_name}
         if llm_result is not None:
             llm.update(
@@ -165,11 +163,9 @@ class EvaluationRunner:
 
         return {
             "run": run,
-            "task": {"task_id": task.task_id, **task.metadata},
-            "criteria": {
-                "version": criteria.criteria_version,
-                "sha256": criteria_sha256,
-            },
+            # Use the task ID from the dataset folder.
+            "task": {**task.metadata, "task_id": task.task_id},
+            "criteria": {"version": criteria.criteria_version},
             "llm": llm,
             "duration_seconds": time.monotonic() - started,
         }
