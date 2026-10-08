@@ -4,7 +4,7 @@ import os
 from dataclasses import dataclass
 from typing import Any
 
-# Avoid LiteLLM downloading model-pricing information during the experiment.
+# Use LiteLLM without downloading pricing data.
 os.environ.setdefault("LITELLM_LOCAL_MODEL_COST_MAP", "True")
 
 import litellm
@@ -25,6 +25,14 @@ class LLMResult:
     total_tokens: int | None
 
 
+class LLMResponseError(RuntimeError):
+    """An unusable LLM response that must still be kept as evidence."""
+
+    def __init__(self, message: str, llm_response: dict[str, Any]) -> None:
+        super().__init__(message)
+        self.llm_response = llm_response
+
+
 class EvaluationLLM:
     """Evaluate a prompt through the configured LiteLLM endpoint."""
 
@@ -36,26 +44,37 @@ class EvaluationLLM:
         self.model_name = settings.evaluation_llm_model
 
     def evaluate(self, prompt: str) -> LLMResult:
-        # This is the pipeline's only LLM call. It is a single request, not a
-        # conversation or an agent loop.
+        # Send request to the LLM.
         response = litellm.completion(**self._request_parameters(prompt))
+        llm_response = response.model_dump(mode="json")
         choice = response.choices[0]
 
-        # Never treat an incomplete, refused, or empty answer as an evaluation.
+        # Reject responses that cannot be evaluated.
         if choice.finish_reason == "length":
-            raise RuntimeError("The LLM response reached the output-token limit.")
+            raise LLMResponseError(
+                "The LLM response reached the output-token limit.", llm_response
+            )
         if getattr(choice.message, "refusal", None):
-            raise RuntimeError(f"The LLM refused the request: {choice.message.refusal}")
+            raise LLMResponseError(
+                f"The LLM refused the request: {choice.message.refusal}",
+                llm_response,
+            )
         if not choice.message.content:
-            raise RuntimeError("The LLM returned no evaluation output.")
+            raise LLMResponseError(
+                "The LLM returned no evaluation output.", llm_response
+            )
+
+        try:
+            report = EvaluationReport.model_validate_json(choice.message.content)
+        except ValueError as exc:
+            raise LLMResponseError(
+                f"The LLM returned an invalid evaluation: {exc}", llm_response
+            ) from exc
 
         usage = getattr(response, "usage", None)
         return LLMResult(
-            # Provider-side structured output is still validated locally. This
-            # protects the saved report if an endpoint returns invalid JSON.
-            report=EvaluationReport.model_validate_json(choice.message.content),
-            # Keep the complete normalized response as evidence for later analysis.
-            llm_response=response.model_dump(mode="json"),
+            report=report,
+            llm_response=llm_response,
             response_id=response.id,
             input_tokens=getattr(usage, "prompt_tokens", None),
             output_tokens=getattr(usage, "completion_tokens", None),
@@ -63,15 +82,14 @@ class EvaluationLLM:
         )
 
     def _request_parameters(self, prompt: str) -> dict[str, Any]:
-        # LiteLLM translates these generic parameters for the configured endpoint.
+        # Build the LiteLLM request.
         parameters: dict[str, Any] = {
             "model": self.model_name,
             "messages": [{"role": "user", "content": prompt}],
             "api_key": settings.evaluation_llm_api_key,
-            "max_tokens": settings.evaluation_max_output_tokens,
             "timeout": settings.api_timeout_seconds,
             "num_retries": 0,
-            # Ask the provider to return exactly the four ratings in our schema.
+            # Request the four ratings in the required JSON structure.
             "response_format": {
                 "type": "json_schema",
                 "json_schema": {
@@ -82,8 +100,7 @@ class EvaluationLLM:
             },
         }
 
-        # These values are optional because different model endpoints support
-        # different capabilities.
+        # Add optional model settings when they are configured.
         if settings.evaluation_llm_base_url:
             parameters["api_base"] = settings.evaluation_llm_base_url
         if settings.evaluation_llm_reasoning_effort:
