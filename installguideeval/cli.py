@@ -20,24 +20,26 @@ def run_task(
     """Run one installation-guide evaluation."""
 
     console.print(
-        f"[bold blue]Starting FOSSInstallGuideEval[/bold blue] for task: "
-        f"[bold green]{task_id}[/bold green]"
+        f"[bold blue]Starting evaluation for task:[/bold blue] "
+        f"[bold green]{task_id}[/bold green]\n"
     )
     try:
-        run_record = EvaluationRunner().run(task_id)
+        run_record = EvaluationRunner(show_progress=console.print).run(task_id)
     except Exception as exc:
         console.print(f"[bold red]Could not complete evaluation run:[/bold red] {exc}")
         raise typer.Exit(code=1) from exc
 
     if run_record["run"]["status"] == "completed":
         console.print(
-            f"[bold green]Evaluation run {run_record['run']['run_id']} completed.[/bold green]"
+            f"\n[bold green]Evaluation completed:[/bold green] "
+            f"{run_record['run']['run_id']}"
         )
         return
 
     # Return a failure code after saving the failed run.
     console.print(
-        f"[bold red]Evaluation run {run_record['run']['run_id']} failed:[/bold red] "
+        f"\n[bold red]Evaluation failed:[/bold red] "
+        f"{run_record['run']['run_id']} - "
         f"{run_record['run']['error']['message']}"
     )
     raise typer.Exit(code=1)

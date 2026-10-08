@@ -1,6 +1,7 @@
 """Run one evaluation and save its results."""
 
 import time
+from collections.abc import Callable
 from datetime import datetime
 from typing import Any
 
@@ -14,30 +15,35 @@ from installguideeval.results import RunLayout, create_run_layout, write_json, w
 class EvaluationRunner:
     """Coordinate the evaluation pipeline."""
 
-    def __init__(self, llm: LLMClient | None = None) -> None:
+    def __init__(
+        self,
+        llm: LLMClient | None = None,
+        show_progress: Callable[[str], None] | None = None,
+    ) -> None:
         self.llm = llm or LLMClient()
+        self.show_progress = show_progress or (lambda message: None)
 
     def run(self, task_id: str) -> dict[str, Any]:
         # Start the timer.
         started_at = datetime.now().astimezone()
         timer_start = time.monotonic()
 
-        # Load the guide and criteria.
+        self.show_progress("[1/5] Loading installation guide and criteria")
         task = load_task(task_id)
         criteria = load_criteria()
 
-        # Build the prompt.
+        self.show_progress("[2/5] Building evaluation prompt")
         prompt = build_prompt(task, criteria)
 
-        # Create the run folder and save the prompt.
+        self.show_progress("[3/5] Preparing result files")
         layout = create_run_layout(task.task_id)
         write_text(layout.evaluation_dir / "prompt.md", prompt)
 
-        # Evaluate the guide.
+        self.show_progress(f"[4/5] Evaluating guide with {self.llm.model_name}")
         try:
             llm_result = self.llm.evaluate(prompt)
         except Exception as exc:
-            # Save the failed run without retrying.
+            self.show_progress("[5/5] Saving failed run")
             return self._save_failure(
                 layout=layout,
                 task=task,
@@ -47,6 +53,7 @@ class EvaluationRunner:
                 error=exc,
             )
 
+        self.show_progress("[5/5] Saving evaluation results")
         return self._save_success(
             layout=layout,
             task=task,
