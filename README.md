@@ -42,6 +42,25 @@ Load guide and criteria -> build prompt -> one LLM call -> validate -> save
 There are no automatic LLM retries. A failed call is saved as a failed run
 instead of being silently repeated.
 
+## Code structure
+
+The implementation is kept flat, with one responsibility per file:
+
+```text
+installguideeval/
+|-- cli.py       # command-line entry point
+|-- config.py    # environment settings
+|-- inputs.py    # load the guide and criteria, then build the prompt
+|-- llm.py       # make one LiteLLM request and validate its response
+|-- models.py    # Pydantic input and output models
+|-- results.py   # create run directories and write artifacts
+`-- runner.py    # coordinate the complete evaluation flow
+```
+
+`runner.py` contains the experiment flow. The other files isolate details that
+are likely to change independently, such as the model endpoint, prompt inputs,
+or result format.
+
 ## Setup
 
 From `C:\Users\PSharma\Desktop\MasterThesis\FOSSInstallGuideEval`:

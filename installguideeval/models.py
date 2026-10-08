@@ -6,6 +6,7 @@ from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 
 class StrictModel(BaseModel):
+    # Reject unexpected fields instead of silently accepting malformed data.
     model_config = ConfigDict(extra="forbid", str_strip_whitespace=True)
 
 
@@ -28,6 +29,8 @@ class EvaluationCriteria(StrictModel):
 
     @model_validator(mode="after")
     def validate_definitions(self) -> "EvaluationCriteria":
+        # Criteria are versioned input data, so validate them before contacting
+        # the model rather than discovering errors after an expensive request.
         scores = [level.score for level in self.rating_scale]
         if scores != sorted(set(scores)):
             raise ValueError("rating-scale scores must be unique and ordered")
@@ -52,6 +55,7 @@ class CriterionRating(StrictModel):
 
 
 class EvaluationReport(StrictModel):
+    # Fixed field names ensure every guide is evaluated on the same four criteria.
     completeness: CriterionRating
     structure: CriterionRating
     clarity: CriterionRating

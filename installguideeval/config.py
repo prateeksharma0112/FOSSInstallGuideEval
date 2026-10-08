@@ -10,8 +10,11 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     """Configuration values with optional overrides from ``.env``."""
 
+    # Pydantic reads matching environment variables and values from .env.
+    # Unknown variables are ignored so unrelated local settings do not break a run.
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
+    # Input and output locations.
     tasks_dir: Path = Path("dataset-02")
     results_dir: Path = Path("results")
     experiment_id: str = Field(
@@ -23,6 +26,7 @@ class Settings(BaseSettings):
     )
     evaluation_criteria_path: Path = Path("criteria/evaluation_criteria.json")
 
+    # Model settings remain provider-neutral because LiteLLM handles the endpoint.
     evaluation_llm_model: str = ""
     evaluation_llm_api_key: str | None = None
     evaluation_llm_base_url: str | None = None
@@ -31,6 +35,7 @@ class Settings(BaseSettings):
     ) = None
     evaluation_max_output_tokens: int = Field(default=12000, gt=0)
 
+    # The timeout applies to the single LLM request made for each guide.
     api_timeout_seconds: float = Field(default=300, gt=0)
 
 

@@ -19,6 +19,7 @@ def run_task(
 ) -> None:
     """Run one schema-constrained installation-guide evaluation."""
 
+    # The CLI stays intentionally small: the runner owns all experiment logic.
     console.print(
         f"[bold blue]Starting FOSSInstallGuideEval[/bold blue] for task: "
         f"[bold green]{task_id}[/bold green]"
@@ -35,6 +36,8 @@ def run_task(
         )
         return
 
+    # A failed API call is still recorded as a run, but the command must return
+    # a non-zero exit code so batch scripts can detect the failure.
     console.print(
         f"[bold red]Evaluation run {result['run']['run_id']} failed:[/bold red] "
         f"{result['run']['error']['message']}"
