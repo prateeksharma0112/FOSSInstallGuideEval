@@ -21,6 +21,7 @@ class Settings(BaseSettings):
     experiment_id: str
 
     # Connection details used by LiteLLM.
+    evaluation_model_name: str
     evaluation_llm_model: str
     evaluation_llm_api_key: str | None = None
     evaluation_llm_base_url: str | None = None

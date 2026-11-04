@@ -147,7 +147,8 @@ class EvaluationRunner:
     ) -> dict[str, Any]:
         # Add details from a successful response.
         llm_details = {
-            "model": self.llm.model_name,
+            "model_name": settings.evaluation_model_name,
+            "model_identifier": self.llm.model_name,
             "reasoning_effort": settings.evaluation_llm_reasoning_effort,
         }
         if llm_result is not None:

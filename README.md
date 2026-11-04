@@ -62,6 +62,7 @@ cp .env.example .env
 The `.env.example` file contains all available settings. The main settings are:
 
 ```dotenv
+EVALUATION_MODEL_NAME=Model Name
 EVALUATION_LLM_MODEL=provider/model-name
 EVALUATION_LLM_API_KEY=
 EXPERIMENT_ID=thesis-main-evaluation-01
@@ -71,10 +72,12 @@ EVALUATION_PROMPT_PATH=installguideeval/prompts/01_minimal.md
 EVALUATION_CRITERIA_PATH=criteria/evaluation_criteria.json
 ```
 
-A custom API base URL and reasoning effort are optional. Enable reasoning
-effort only when the selected model supports it. The API key is optional for
-endpoints that do not require authentication. The `.env` file is ignored by Git
-and must not be committed because it may contain credentials.
+`EVALUATION_MODEL_NAME` is recorded as `model_name` in `run.json`, while
+`EVALUATION_LLM_MODEL` is recorded as `model_identifier` and sent to LiteLLM.
+A custom API base URL and reasoning effort are optional. Enable reasoning effort
+only when the selected model supports it. The API key is optional for endpoints
+that do not require authentication. The `.env` file is ignored by Git and must
+not be committed because it may contain credentials.
 
 ### Evaluation criteria
 
