@@ -9,6 +9,8 @@ This directory contains the human expert assessments.
   statistical agreement analysis.
 - `processed/expert_assessments.csv` contains all scores and written reasons in
   question order (`q1` score, `q2` reason, through `q8`).
+- `processed/human_reference.csv` contains the four original expert scores and
+  their mean and median for each project-criterion item.
 - `scripts/prepare_expert_data.py` reproducibly generates both processed files
   from the raw JSON.
 

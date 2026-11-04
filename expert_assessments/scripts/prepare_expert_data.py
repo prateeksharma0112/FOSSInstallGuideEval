@@ -1,6 +1,7 @@
 import csv
 import json
 import re
+import statistics
 from pathlib import Path
 
 
@@ -9,6 +10,7 @@ SOURCE_PATH = BASE_DIR / "raw" / "result.json"
 PROCESSED_DIR = BASE_DIR / "processed"
 SCORES_PATH = PROCESSED_DIR / "expert_scores.csv"
 ASSESSMENTS_PATH = PROCESSED_DIR / "expert_assessments.csv"
+HUMAN_REFERENCE_PATH = PROCESSED_DIR / "human_reference.csv"
 
 ANNOTATORS = (8, 9, 10, 11)
 EXPERT_COLUMNS = tuple(f"expert_{number}" for number in range(1, 5))
@@ -126,6 +128,15 @@ def main() -> None:
     PROCESSED_DIR.mkdir(exist_ok=True)
 
     score_rows = [["project_id", "criterion", *EXPERT_COLUMNS]]
+    human_reference_rows = [
+        [
+            "project_id",
+            "criterion",
+            *EXPERT_COLUMNS,
+            "human_mean",
+            "human_median",
+        ]
+    ]
     assessment_rows = [
         [
             "project_id",
@@ -139,9 +150,19 @@ def main() -> None:
     for project_id in PROJECTS:
         for question_number, criterion in QUESTION_TO_CRITERION.items():
             item = (project_id, criterion)
+            item_scores = [
+                ratings[item][annotator_id] for annotator_id in ANNOTATORS
+            ]
             score_rows.append(
+                [project_id, criterion] + item_scores
+            )
+            human_reference_rows.append(
                 [project_id, criterion]
-                + [ratings[item][annotator_id] for annotator_id in ANNOTATORS]
+                + item_scores
+                + [
+                    f"{statistics.mean(item_scores):.2f}",
+                    f"{statistics.median(item_scores):.2f}",
+                ]
             )
             assessment_rows.append(
                 [project_id, f"{project_id}q{question_number}", criterion, "score"]
@@ -154,7 +175,11 @@ def main() -> None:
 
     write_csv(SCORES_PATH, score_rows)
     write_csv(ASSESSMENTS_PATH, assessment_rows)
-    print("Created 60 score rows and 120 vertical assessment rows.")
+    write_csv(HUMAN_REFERENCE_PATH, human_reference_rows)
+    print(
+        "Created 60 score rows, 120 vertical assessment rows, "
+        "and 60 human reference rows."
+    )
 
 
 if __name__ == "__main__":
