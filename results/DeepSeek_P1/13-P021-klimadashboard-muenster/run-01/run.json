@@ -1,0 +1,59 @@
+{
+  "run": {
+    "run_id": "DeepSeek_P1__13-P021-klimadashboard-muenster__run-01",
+    "experiment_id": "DeepSeek_P1",
+    "run_number": 1,
+    "status": "completed",
+    "started_at": "2026-11-04T21:40:03.726212+01:00",
+    "finished_at": "2026-11-04T21:40:08.697061+01:00",
+    "duration_seconds": 4.968
+  },
+  "task": {
+    "task_id": "13-P021-klimadashboard-muenster",
+    "dataset_id": "P021",
+    "project": {
+      "opencode_id": "629",
+      "name": "Klimadashboard Münster",
+      "description": "The Münster Climate Dashboard visualizes real-time information about the city of Münster's climate footprint. The dashboard displays data with various graphs in a tile-based layout, with separate pages for each of the four categories. The data comes from many different providers, including the City of Münster's open data portal, the German Meteorological Service (DWD), and BrightSky.",
+      "catalogue_url": "https://opencode.de/de/software/klimadashboard-munster-629",
+      "type": "Application",
+      "platforms": [
+        "web"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/smart-city-muenster/klimadashboard-muenster/klimadashboard-muenster",
+      "commit_sha": "ffb429f03b5b63ee97bca85bb9fce1ec0de91769",
+      "license": "AGPL-3.0-or-later"
+    },
+    "installation": {
+      "complexity": "Low"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/smart-city-muenster/klimadashboard-muenster/klimadashboard-muenster/-/blob/ffb429f03b5b63ee97bca85bb9fce1ec0de91769/README.md",
+      "source": "Repository README",
+      "language": "English",
+      "word_count": 44
+    }
+  },
+  "prompt": {
+    "template": "installguideeval/prompts/01_minimal.md"
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "model_name": "DeepSeek-V4.1-Flash-1017",
+    "model_identifier": "openai/coding",
+    "reasoning_effort": null,
+    "response_id": "chatcmpl-bfc1b732",
+    "input_tokens": 403,
+    "output_tokens": 889,
+    "total_tokens": 1292
+  },
+  "artifacts": {
+    "prompt": "evaluation/prompt.md",
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json"
+  }
+}

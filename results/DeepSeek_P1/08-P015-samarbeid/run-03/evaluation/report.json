@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "Lists prerequisites, one setup command, and a basic verification URL, but omits prerequisite installation steps, configuration details, exact versions, expected setup output, and admin credentials."
+  },
+  "structure": {
+    "score": 3,
+    "reason": "Presents a basic order: requirements, setup command, then verification. However, prerequisite installation and configuration are not broken into actionable steps."
+  },
+  "clarity": {
+    "score": 2,
+    "reason": "Instructions are very terse and rely on references like `.ruby-version` and `.tools-version`; exact commands, configuration values, and expected outcomes are mostly unspecified."
+  },
+  "understandability": {
+    "score": 2,
+    "reason": "Assumes familiarity with Ruby, Node/yarn, asdf, PostgreSQL, Docker Compose, and `bin/setup`; technical terms and concepts are not explained."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Covers prerequisites, install/build commands, run steps, service URLs, and basic configuration/verification. Configuration details are somewhat high-level, and explicit verification/health checks are limited."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "Clear headings and command tables make the guide easy to navigate, and commands are generally in order. Minor weakness: Quick Start appears before Requirements/Setup, and HTTPS steps are duplicated across sections."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands are copy-pasteable and mostly precise, with useful comments. Some placeholders and configuration values are ambiguous, such as `DOMAIN=your-domain.dev`, exact Porkbun key names, and `.env.example` location."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "Explains the purpose of most tools and provides architecture/PWA context, so a developer can follow it. It still assumes some familiarity with Docker, pnpm, Keycloak, Traefik, and project-specific services."
+  }
+}

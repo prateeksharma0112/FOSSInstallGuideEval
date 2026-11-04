@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Covers installation, production persistence, configuration, reverse proxy setup, plugins, self-signed certificates, offline install, and Docker Swarm. Verification is present but basic, and prerequisites/system requirements plus upgrade/backup/health-check steps are not fully detailed."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "Clear headings and a generally logical flow from overview to quick start, production, configuration, and advanced topics. However, optional advanced material such as image verification appears before the basic install, which can distract from the main path."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Most commands and environment variables are explained, but there are notable inconsistencies and errors: offline archive names change, the Swarm output shows conflicting PostgreSQL versions, and the self-signed certificate docker run example uses inline comments after backslashes in a way that may break the command."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "The core quick-start steps and key configuration values are easy to follow. Advanced sections such as Sigstore, SBOM/VEX, NFS, reverse proxies, and Swarm assume Docker/administrator knowledge, though they are mostly optional and linked to further documentation."
+  }
+}

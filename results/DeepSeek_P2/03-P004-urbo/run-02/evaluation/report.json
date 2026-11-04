@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Covers the main install command, required configuration such as the instance identifier and GITHUB_TOKEN, optional URBO_PROXY_PORT, verification commands like `just urls` and `just status`, and troubleshooting via `just doctor`. It does not provide setup instructions for prerequisites such as Docker, Node, pnpm, or `just`, only checks them."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is logically organized: it starts with `just up`, explains first-run behavior and URLs, then covers constraints, troubleshooting, and additional recipes in a table. A prerequisite like GITHUB_TOKEN could be placed before the first command, though the preflight check mitigates this."
+  },
+  "clarity": {
+    "score": 5,
+    "reason": "Commands, configuration values, URLs, expected outcomes, and limitations are stated precisely. Examples include the exact GITHUB_TOKEN scope, how the instance identifier is stored in `.urbo-instance`, what `just urls` prints, and the explicit Android login limitation."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "The guide explains key concepts such as `.localhost`, secure contexts, instance isolation, and `reset-auth` behavior. It still assumes prior familiarity with terms and tools like worktrees, Docker, Node, pnpm, Keycloak, Gradle, Xcode, and Android Studio."
+  }
+}

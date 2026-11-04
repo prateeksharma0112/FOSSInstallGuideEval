@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "The guide provides only a minimal Docker quick-start path: prerequisites, clone, env-file placeholder, Docker Compose command, and access URLs. It omits required environment variables, most configuration details, explicit verification steps, and local frontend/backend setup instructions."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is logically ordered as prerequisites → numbered setup steps → access information → detailed README links. The main Docker path is easy to follow, though verification and local-development steps are not fully integrated."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Core commands are mostly clear, but placeholders such as `<repository-url>` and `<project>.qgs`, missing env values, ambiguous local-dev URLs, and unexplained HTTPS/localhost behavior reduce precision. Expected outcomes after steps are mostly implicit."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The steps are short and understandable for technical users, but concepts such as Docker Compose, env files, QGIS Server, TileServer, and WebDAV are not explained, so prior knowledge is required."
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "run": {
+    "run_id": "DeepSeek_P2__12-P011-pomodoro__run-02",
+    "experiment_id": "DeepSeek_P2",
+    "run_number": 2,
+    "status": "completed",
+    "started_at": "2026-11-04T22:20:50.844416+01:00",
+    "finished_at": "2026-11-04T22:21:02.229544+01:00",
+    "duration_seconds": 11.375
+  },
+  "task": {
+    "task_id": "12-P011-pomodoro",
+    "dataset_id": "P011",
+    "project": {
+      "opencode_id": "12891",
+      "name": "Pomodoro",
+      "description": "Local focus timer for greater efficiency in everyday administrative work: fixed work blocks, conscious breaks and honest time tracking that also counts interrupted focus sessions.",
+      "catalogue_url": "https://opencode.de/de/software/pomodoro-12891",
+      "type": "Application",
+      "platforms": [
+        "mac",
+        "linux"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/frederic/pomodoro",
+      "commit_sha": "54320075112b92c70ae0dbb00633ab01f8b600ce",
+      "license": "MIT"
+    },
+    "installation": {
+      "complexity": "Low"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/frederic/pomodoro/-/blob/54320075112b92c70ae0dbb00633ab01f8b600ce/README.md",
+      "source": "Repository README",
+      "language": "English",
+      "word_count": 702
+    }
+  },
+  "prompt": {
+    "template": "installguideeval/prompts/02_structured.md"
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "model_name": "DeepSeek-V4.1-Flash-1017",
+    "model_identifier": "openai/coding",
+    "reasoning_effort": null,
+    "response_id": "chatcmpl-121d6067",
+    "input_tokens": 1761,
+    "output_tokens": 3171,
+    "total_tokens": 4932
+  },
+  "artifacts": {
+    "prompt": "evaluation/prompt.md",
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json"
+  }
+}

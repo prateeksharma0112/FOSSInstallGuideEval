@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Covers the main installation path (`just up`), required configuration such as instance identifier, `URBO_PROXY_PORT`, `GITHUB_TOKEN`, command flags, verification via `just urls`/`just open cms`, and troubleshooting. Missing a consolidated prerequisites section with required versions/install steps for Docker, Node, pnpm, and `just`."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "Logically starts with the quick-start command, then explains URLs, helper commands, concurrency caveats, troubleshooting, other recipes, flags, and proxy details. Easy to navigate, though prerequisites are scattered rather than presented as an upfront checklist."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands, intended outcomes, configuration values, and known limitations are stated precisely, including the Android login gap and concurrent-start race. Some context is assumed, such as running from the correct worktree root and referring to external docs for token setup."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "Explains some important concepts clearly, such as `.localhost`, secure contexts, and Keycloak redirect issues, but assumes familiarity with worktrees, Docker, Keycloak, Gradle, emulators, proxies, and related tooling. Several technical terms are not defined."
+  }
+}

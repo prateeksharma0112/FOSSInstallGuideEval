@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "The guide covers downloading the example ZIP, placing and unpacking it on a web server, basic folder structure, duplicating `Basic`, editing `config.js`/`config.json`, and opening the portal by URL. However, it omits prerequisites such as supported web-server requirements, permissions, dependencies, exact version details, detailed configuration values, and troubleshooting. Configuration is mostly delegated to linked documentation."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is arranged logically in two main sections: hosting the example application and configuring it into a custom portal. Numbered steps and the file tree help users follow the required order, though prerequisites and verification are not separated into clear standalone sections."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Most instructions are understandable, but there are ambiguities: 'last stable version' is not versioned, 'If need be' is vague, the tree lists `style_v3.json` while the prose refers to `style.json`, and the folder-renaming/URL instructions could confuse. The expected outcome is also stated only as 'should now be available.'"
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "The guide uses simple language and explains the difference between the `Basic` and `mastercode` folders. Links to fuller configuration documentation help, but it assumes prior knowledge of web servers, `htdocs`, URLs, and editing configuration files without explaining those concepts."
+  }
+}

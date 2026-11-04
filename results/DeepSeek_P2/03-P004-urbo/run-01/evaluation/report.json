@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "The guide covers the main installation command, instance configuration, required GITHUB_TOKEN, port override, and verification/troubleshooting commands such as `just urls`, `just status`, and `just doctor`. However, it does not fully specify prerequisite versions or provide setup steps for Docker, Node, pnpm, and `just`, and token setup is delegated to `backend/README.md`."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is generally well arranged with clear sections, commands, and a recipe table. The main flow starts with `just up` and then explains instance URLs, troubleshooting, recipes, and options. A notable weakness is that key prerequisites such as Docker, Node, pnpm, `just`, and `GITHUB_TOKEN` are not placed in an upfront prerequisites section before the first install command."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands, configuration values, URLs, and expected outcomes are mostly stated precisely, e.g. `just up`, `.urbo-instance`, `URBO_PROXY_PORT`, and the `read:packages` token scope. Some setup details are less precise because they are referenced externally or only appear through preflight/troubleshooting checks."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The guide explains some important concepts such as `.localhost`, secure contexts, `reset-auth`, and the Android login limitation. However, it assumes familiarity with many technical terms and tools, including Docker, Node, pnpm, `just`, worktrees, Keycloak, MeiliSearch, LocalStack, imgproxy, Mailpit, Spring Boot, Gradle, Xcode, and Android Studio, without defining them."
+  }
+}

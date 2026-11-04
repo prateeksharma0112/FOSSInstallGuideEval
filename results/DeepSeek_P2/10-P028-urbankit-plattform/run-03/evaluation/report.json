@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Covers installation via Docker Compose, required `.env` setup, a basic health check, production override, domain/Nginx configuration, backup/restore, updates, and demo account seeding. However, it omits explicit prerequisites and defers full environment/configuration details to external references such as `docs/env-reference.md`, and verification is limited mainly to `docker compose ps` and `/api/health`."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is organized into clear sections: deployment table, setup, domains, production override, backup/restore, updates, and demo accounts. The setup commands appear in a workable order. A minor weakness is that the production override is introduced after the base setup, so a production user must read ahead to avoid starting with the wrong compose setup."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Commands are mostly explicit, and the guide clearly notes build-time arguments, mixed-content constraints, and Mongo auth initialization behavior. However, several configuration values are placeholders or external references, `wait for healthy` lacks expected timing/output detail, and the Nginx configuration is explicitly only a sketch."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The guide is understandable for a reader already familiar with Docker Compose, Nginx, MongoDB, volumes, and WebSockets. It explains some important gotchas, such as build-time environment baking and https/WebSocket requirements, but it assumes substantial prior technical knowledge and does not define many terms."
+  }
+}

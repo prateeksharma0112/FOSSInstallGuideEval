@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Covers the main install path (`just up`), first-run instance configuration, generated URLs, `GITHUB_TOKEN`, troubleshooting commands, reset/cleanup commands, and extra recipes. It also documents options like `--fresh`, `--detach`, and `URBO_PROXY_PORT`. However, it does not provide full prerequisite installation/version instructions for Docker, Node, pnpm, or `just`, and delegates `GITHUB_TOKEN` setup to `backend/README.md`."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide generally flows logically from starting the stack, to first-run configuration and URLs, then cautions, troubleshooting, and additional recipes. The command table helps lookup. Minor weakness: a required prerequisite (`GITHUB_TOKEN`) is introduced after the initial `just up` instructions rather than up front, and the guide is more reference-style than strictly step-numbered."
+  },
+  "clarity": {
+    "score": 5,
+    "reason": "Instructions, commands, environment variables, expected URLs, options, and known failure modes are stated precisely. Examples include `just urls`, `just open cms`, `URBO_PROXY_PORT`, the concurrent-start race warning, and the explicit Android login limitation."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "The guide explains some non-obvious concepts well, such as `.localhost`, secure contexts, and why `just reset-auth` is needed after Keycloak realm changes. It still assumes prior familiarity with Docker, Node, pnpm, `just`, worktrees, Spring Boot/Gradle, and Keycloak, so it is clear for developers but not fully self-contained for someone without that background."
+  }
+}

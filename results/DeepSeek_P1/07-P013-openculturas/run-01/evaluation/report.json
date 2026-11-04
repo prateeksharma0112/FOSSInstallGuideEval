@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "Covers basic install/update/dev commands, but prerequisites are vague ('a bunch of Drupal modules'), configuration is not covered, and there are no verification or post-install checks."
+  },
+  "structure": {
+    "score": 3,
+    "reason": "Logical headings and grouped commands make it navigable, but installation, development, and update guidance overlap, and there is no clear verification section or fully ordered install path."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Core commands are explicit, but prerequisites, configuration values, and expected outcomes are often missing; phrases like 'optionally update library versions' are vague."
+  },
+  "understandability": {
+    "score": 2,
+    "reason": "The guide assumes prior knowledge of Drupal, Composer, Drush, DDEV, config_devel, and composer-patches. Terms and concepts are mostly not explained, though external links help."
+  }
+}

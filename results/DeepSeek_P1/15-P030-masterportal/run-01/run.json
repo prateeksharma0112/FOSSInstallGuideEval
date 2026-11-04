@@ -1,0 +1,59 @@
+{
+  "run": {
+    "run_id": "DeepSeek_P1__15-P030-masterportal__run-01",
+    "experiment_id": "DeepSeek_P1",
+    "run_number": 1,
+    "status": "completed",
+    "started_at": "2026-11-04T21:40:38.357445+01:00",
+    "finished_at": "2026-11-04T21:40:49.825409+01:00",
+    "duration_seconds": 11.469
+  },
+  "task": {
+    "task_id": "15-P030-masterportal",
+    "dataset_id": "P030",
+    "project": {
+      "opencode_id": "12551",
+      "name": "Masterportal",
+      "description": "The Masterportal is a flexible modular system for geoportals on the web.",
+      "catalogue_url": "https://opencode.de/de/software/masterportal-12551",
+      "type": "Application",
+      "platforms": [
+        "web"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/lgvhh/urban-data-solutions/masterportal",
+      "commit_sha": "410dc25f07b22213fa85d37622a76f614e859eb8",
+      "license": "MIT"
+    },
+    "installation": {
+      "complexity": "Low"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/lgvhh/urban-data-solutions/masterportal/-/blob/410dc25f07b22213fa85d37622a76f614e859eb8/docs/Setup/setup.md",
+      "source": "Repository documentation",
+      "language": "English",
+      "word_count": 420
+    }
+  },
+  "prompt": {
+    "template": "installguideeval/prompts/01_minimal.md"
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "model_name": "DeepSeek-V4.1-Flash-1017",
+    "model_identifier": "openai/coding",
+    "reasoning_effort": null,
+    "response_id": "chatcmpl-fb969587",
+    "input_tokens": 1079,
+    "output_tokens": 3258,
+    "total_tokens": 4337
+  },
+  "artifacts": {
+    "prompt": "evaluation/prompt.md",
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json"
+  }
+}

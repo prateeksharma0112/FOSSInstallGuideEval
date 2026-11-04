@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "The guide covers the core deployment path: Docker Compose services, required environment variables, startup and health-check commands, DNS/WebSocket/Nginx configuration, production override, backup/restore, updates, and demo seeding. It is not fully complete because it omits prerequisites such as Docker/Compose versions and repo acquisition, and detailed environment configuration is delegated to docs/env-reference.md; verification is limited to one health endpoint."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "Sections are clearly labeled and mostly follow a logical install/configure/operate order: overview, setup, domains, Nginx, production override, backup/restore, updates, and demo accounts. A minor ordering concern is that the production override appears after the base setup, even though its Mongo root-auth initialization matters on first boot of an empty volume."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Commands are generally concrete, but several items are ambiguous or left as placeholders: 'see docs/env-reference.md', 'wait for healthy', no expected health-check response, an Nginx 'sketch', ellipses in the Mongo createUser command, DEMO_* placeholders, and unspecified SMTP_* values."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The guide is concise and explains some important gotchas such as build-time args, mixed content, and empty-volume initialization. However, it assumes prior knowledge of Docker Compose, Nginx, DNS, MongoDB auth, cron, and environment-variable syntax; terms such as hocuspocus/sidecar and the production override are not fully explained for unfamiliar users."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "The guide provides clone/install/start commands, build and deploy commands, and a detailed configuration table. However, it does not state prerequisites such as required Node/npm/git versions, and verification is only implied by opening http://localhost:8080/ rather than described as an explicit check."
+  },
+  "structure": {
+    "score": 3,
+    "reason": "The guide is divided into 'Konfiguration' and 'Develop', and the Develop commands are ordered logically: clone, install dependencies, start dev server, build, deploy. But configuration is presented before the repository is cloned, and no prerequisites section clarifies the required setup order."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Installation commands are precise and configuration examples are included. Some ambiguity remains: the 'map_x' row syntax is confusing, 'layer' appears as both a service-list key and a service layer key, and 'compactAttribution' shows 'false' as a string despite describing a boolean-like option."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The basic commands are short and followable, but the guide assumes prior knowledge of git, npm, webpack-dev-server, and gh-pages. It does not explain these terms or concepts, and it mixes German configuration text with English installation instructions."
+  }
+}

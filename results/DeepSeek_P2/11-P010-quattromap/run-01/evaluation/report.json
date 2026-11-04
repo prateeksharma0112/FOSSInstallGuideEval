@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "The guide covers basic clone/install/start, build/deploy, and configuration options, but it omits prerequisites such as Node/npm/git versions and does not clearly distinguish development setup from installation. Verification is limited to opening http://localhost:8080/ and finding dist/."
+  },
+  "structure": {
+    "score": 3,
+    "reason": "The Develop section presents commands in a usable order (clone, install, start, build, deploy), but the configuration section appears before the repository is cloned and there is no numbered step-by-step flow or clear separation of required versus optional configuration."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Commands and URLs are mostly precise, but prerequisites and expected outcomes are incomplete. The configuration table mixes German and English and has ambiguous entries, such as the complex map_x row and repeated 'layer' parameter."
+  },
+  "understandability": {
+    "score": 2,
+    "reason": "The guide assumes prior knowledge of git, npm, webpack-dev-server, WMS, EPSG 4326, XYZ tiles, and gh-pages without explaining them. Mixed German/English content also makes it harder for a non-expert to follow."
+  }
+}

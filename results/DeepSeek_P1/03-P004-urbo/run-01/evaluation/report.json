@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Covers the main install command, required configuration such as the instance identifier, GITHUB_TOKEN, and URBO_PROXY_PORT, plus verification/troubleshooting via URLs, `just doctor`, `status`, and `logs`. It lacks a consolidated prerequisites section with required tool versions/install steps and assumes the repo and tooling are already present."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is logically organized: start-up flow, URLs, preflight requirements, troubleshooting, recipes, options, and mechanics. However, required setup details like GITHUB_TOKEN and prerequisites appear after the main `just up` instruction, so it is more reference-like than a strictly ordered installation procedure."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands, configuration values, URLs, warnings, and expected outcomes are generally precise. Some terms and assumptions are only briefly explained, and “one command” is slightly misleading since prerequisites and a required GITHUB_TOKEN are still needed."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The guide explains several non-obvious concepts well, such as `.localhost`, secure contexts, Keycloak realm resets, and proxy ports. But it assumes substantial prior knowledge of Docker, Node, pnpm, `just`, worktrees, Keycloak, PATs, and the project’s service names, which would make it harder for a less experienced developer."
+  }
+}

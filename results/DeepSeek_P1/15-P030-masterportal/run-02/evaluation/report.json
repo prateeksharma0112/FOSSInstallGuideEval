@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "The guide covers the basic download, deployment, high-level configuration, and verification URL. However, it omits important installation prerequisites such as web server requirements, permissions, version compatibility, detailed configuration guidance, and troubleshooting."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is logically organized into hosting and configuration sections, with numbered steps and a clear file/folder overview. The sequence is generally easy to follow, though some configuration references depend on external documentation."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "The basic steps are understandable, but several instructions are vague, such as 'if need be' configuration changes, use of placeholders like [web-server-name], and limited explanation of expected server setup or configuration outcomes."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "The steps are short and readable, and the folder structure is explained. It does assume some familiarity with web servers and Masterportal configuration files, but links to further documentation help mitigate this."
+  }
+}

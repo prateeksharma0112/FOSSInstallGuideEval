@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Covers core installation, startup/verification, configuration, optional sound setup, macOS app packaging, Docker usage, and data storage. Minor gaps: no explicit installation steps for prerequisites like Git/Docker, no troubleshooting section, and verification is mostly implicit through launching the app."
+  },
+  "structure": {
+    "score": 5,
+    "reason": "Arranged logically from prerequisites and install, to running/configured use, then optional packaging, sounds, container usage, and data storage reference. Users can follow the basic path first and skip advanced sections easily."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands and paths are presented precisely in code blocks, and behavior of scripts and data locations is explained. Minor ambiguity remains in the placeholder `<this repo>` and a few technical details such as ad-hoc signing and `XDG_DATA_HOME`."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "Mostly easy to follow and explains some technical concepts such as PyInstaller bundling, sound fallback behavior, and VNC/noVNC streaming. Still assumes some familiarity with `venv`/`pip`, Docker, and environment variables, and does not translate the German UI labels."
+  }
+}

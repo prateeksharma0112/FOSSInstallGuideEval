@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "The guide covers prerequisites, configuration, database options, installation, running, browser verification, tests, Docker, and troubleshooting. However, it omits exact steps for using `env.dev.sample` (e.g., copying/renaming), does not list required environment variables, and gives no concrete command for importing the SQL dump."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is organized under clear headings and generally follows a usable order from prerequisites through installation, running, and verification. The main weakness is that the Docker alternative is placed after manual setup and testing, so Docker users may need to jump between sections."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Commands and some expected outcomes, such as Swagger URLs and pgAdmin connection details, are precise. But several instructions are vague or inconsistent: “older version might work,” no exact database import command, typo `swagger-descprition.md`, and overlapping `docker compose up` versus dev/prod commands."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The guide is understandable for developers and links to external Node.js/pnpm resources and explains some concepts. It still assumes prior knowledge of `.env` files, PostgreSQL/PostGIS, Docker, TypeORM, and shell usage without fully defining those terms or concepts."
+  }
+}

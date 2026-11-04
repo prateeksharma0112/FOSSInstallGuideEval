@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Covers prerequisites, quick start, persistent production setup, reverse proxy/TLS, configuration, plugins, custom certificates, offline installation, and Docker Swarm. Verification is present but somewhat limited to reaching the site/seeing startup success rather than a dedicated post-install health-check procedure."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is logically organized with clear headings and a quick-start section near the beginning, followed by production and advanced topics. However, it mixes all-in-one container guidance with Compose/Swarm material, making it longer and somewhat less focused."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Most commands and configuration values are explained precisely, but there are notable issues: the self-signed certificate `docker run` example includes comments after backslashes, the offline section saves `openproject-stable.tar.gz`/`:17` but loads `openproject-12.tar.gz`, and Swarm examples show inconsistent PostgreSQL versions."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "Core installation steps are easy to follow, and key concepts such as image flavors, tags, environment variables, HTTPS mode, and persistent volumes are explained. Advanced security verification and reverse-proxy/Swarm content assumes some prior technical knowledge."
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "run": {
+    "run_id": "DeepSeek_P1__11-P010-quattromap__run-01",
+    "experiment_id": "DeepSeek_P1",
+    "run_number": 1,
+    "status": "completed",
+    "started_at": "2026-11-04T21:39:22.093279+01:00",
+    "finished_at": "2026-11-04T21:39:29.366111+01:00",
+    "duration_seconds": 7.265
+  },
+  "task": {
+    "task_id": "11-P010-quattromap",
+    "dataset_id": "P010",
+    "project": {
+      "opencode_id": "13015",
+      "name": "QuattroMap",
+      "description": "Browser tool for the synchronous display of up to four different map windows.",
+      "catalogue_url": "https://opencode.de/de/software/quattro-map-13015",
+      "type": "Application",
+      "platforms": [
+        "web"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/kreis-viersen/quattromap",
+      "commit_sha": "24041c041e0de1d41cbab9d9fac0c0cb1681b09f",
+      "license": "MIT"
+    },
+    "installation": {
+      "complexity": "Low"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/kreis-viersen/quattromap/-/blob/24041c041e0de1d41cbab9d9fac0c0cb1681b09f/README.md",
+      "source": "Repository README",
+      "language": "German and English",
+      "word_count": 443
+    }
+  },
+  "prompt": {
+    "template": "installguideeval/prompts/01_minimal.md"
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "model_name": "DeepSeek-V4.1-Flash-1017",
+    "model_identifier": "openai/coding",
+    "reasoning_effort": null,
+    "response_id": "chatcmpl-905a0a18",
+    "input_tokens": 1539,
+    "output_tokens": 1428,
+    "total_tokens": 2967
+  },
+  "artifacts": {
+    "prompt": "evaluation/prompt.md",
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json"
+  }
+}

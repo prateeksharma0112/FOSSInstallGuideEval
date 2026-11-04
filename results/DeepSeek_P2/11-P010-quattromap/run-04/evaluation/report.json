@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "The guide covers the main install/build/deploy commands and includes a detailed configuration table, but it omits explicit prerequisites such as Node.js/npm/git versions and only gives minimal verification: opening `http://localhost:8080/` and checking the `dist/` output."
+  },
+  "structure": {
+    "score": 3,
+    "reason": "The `Develop` section follows a mostly logical order: clone, `cd`, `npm install`, `npm start`, build, deploy. However, the configuration section appears before the repository is cloned even though it references `./src/config.json`, so the required top-to-bottom order is not fully clear."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Commands and many configuration examples are precise, but prerequisites are missing, “Install the deps” is informal/undefined, and expected outcomes are only partially stated for each step."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The basic setup commands are simple, but the guide mixes German and English and assumes familiarity with npm, webpack, EPSG 4326, WMS/XYZ tiles, gh-pages, and related technical terms without explaining them."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "The guide covers deployment, required environment setup, health verification, domain/WebSocket proxying, production hardening, backup/restore, and updates. It is not fully complete because it does not state prerequisites or how to obtain the source code, and full environment variable details are deferred to docs/env-reference.md."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The section headings and command blocks are clear and mostly follow the deployment workflow: setup, domains, production override, backup, updates, and demo accounts. However, the production override appears after the base setup, which could lead users to start the base stack before realizing the production compose files should be used from the beginning."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Most commands are direct, and the build-time argument warning is explicit. But several details are ambiguous or incomplete: the manual Mongo user creation command uses '…' placeholders, the health-check command does not state the expected response, and some configuration values are only referenced through external documentation."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "The guide explains several important gotchas, such as build-time public URLs, mixed-content WebSocket requirements, Mongo auth initialization on empty volumes, and read-only demo behavior. It still assumes familiarity with Docker Compose, Nginx, MongoDB, and WebSockets, so it is easier for a technical operator than a beginner."
+  }
+}

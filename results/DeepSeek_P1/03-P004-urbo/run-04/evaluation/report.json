@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Covers the main setup flow, instance configuration, required GITHUB_TOKEN, proxy port override, URLs, and troubleshooting/status commands. However, it lacks a consolidated prerequisites section and defers GITHUB_TOKEN setup to backend/README.md; verification is mostly implied through URLs and doctor/status commands rather than an explicit success checklist."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide flows logically from the main `just up` command to URLs, constraints, troubleshooting, recipes, and options. It is easy to navigate for a single-page dev guide, though a short prerequisites/verification section or table of contents would improve ordering."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands, options, URLs, caveats, and known gaps are stated clearly. The explanation of `.localhost` and Keycloak reset behavior is especially useful. Some configuration details and expected outcomes are implied or delegated to linked files."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "Explains non-obvious concepts such as `.localhost` secure contexts and Keycloak realm re-imports well. It still assumes developer familiarity with tools like Docker, pnpm, worktrees, Keycloak, Gradle, and emulators, which is reasonable for this audience but not beginner-friendly."
+  }
+}

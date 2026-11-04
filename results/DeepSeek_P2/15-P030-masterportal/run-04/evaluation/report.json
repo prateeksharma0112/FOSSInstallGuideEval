@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "The guide covers downloading the example ZIP, hosting it on a web server, unpacking it, basic configuration, and verifying via URL. However, it omits prerequisites such as web server setup/version, permissions, exact commands, and detailed configuration values, relying on external documentation for full options."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide has a logical two-part flow: host the example application first, then configure it into a custom portal. Numbered steps and the folder structure help users follow the process. A separate prerequisites or verification section is missing, but overall ordering is clear."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Many steps are direct and the expected URL outcome is shown. However, phrases like 'if need be', 'and so on', and 'refer to the full documentation' are vague, and there are no exact commands for moving or unpacking files. Renaming the 'examples' folder can also make later URL examples slightly ambiguous."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The steps are simple and the folder structure is briefly explained, making the basic setup understandable. Still, the guide assumes prior knowledge of web hosting, Apache htdocs, and JSON/JavaScript configuration files, and it does not define these technical concepts."
+  }
+}

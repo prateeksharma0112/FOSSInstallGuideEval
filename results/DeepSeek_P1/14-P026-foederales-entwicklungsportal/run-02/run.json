@@ -1,0 +1,59 @@
+{
+  "run": {
+    "run_id": "DeepSeek_P1__14-P026-foederales-entwicklungsportal__run-02",
+    "experiment_id": "DeepSeek_P1",
+    "run_number": 2,
+    "status": "completed",
+    "started_at": "2026-11-04T21:45:45.794964+01:00",
+    "finished_at": "2026-11-04T21:45:56.210068+01:00",
+    "duration_seconds": 10.406
+  },
+  "task": {
+    "task_id": "14-P026-foederales-entwicklungsportal",
+    "dataset_id": "P026",
+    "project": {
+      "opencode_id": "1875",
+      "name": "Föderales Entwicklungsportal",
+      "description": "Web portal for documentation, standards, APIs and other development resources of German administrative IT.",
+      "catalogue_url": "https://opencode.de/de/software/foderales-entwicklungsportal-1875",
+      "type": "Application",
+      "platforms": [
+        "web"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/fitko/docs/portal",
+      "commit_sha": "aada0a846d42d896535b6352d8cddad6c1c56efd",
+      "license": "EUPL-1.2"
+    },
+    "installation": {
+      "complexity": "Low"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/fitko/docs/portal/-/blob/aada0a846d42d896535b6352d8cddad6c1c56efd/README.md",
+      "source": "Repository README",
+      "language": "English",
+      "word_count": 132
+    }
+  },
+  "prompt": {
+    "template": "installguideeval/prompts/01_minimal.md"
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "model_name": "DeepSeek-V4.1-Flash-1017",
+    "model_identifier": "openai/coding",
+    "reasoning_effort": null,
+    "response_id": "chatcmpl-5356c9b5",
+    "input_tokens": 634,
+    "output_tokens": 2003,
+    "total_tokens": 2637
+  },
+  "artifacts": {
+    "prompt": "evaluation/prompt.md",
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json"
+  }
+}

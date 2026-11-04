@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Covers the main local setup path (`just up`), configuration (`GITHUB_TOKEN`, instance ID, `URBO_PROXY_PORT`), URLs, troubleshooting, and status/log checks. Minor gaps: prerequisite installation/versions are mostly assumed or delegated to `just doctor`, and there is no explicit success-verification checklist."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "Logic is generally good: quick start, first-run behavior, caveats, troubleshooting, extra recipes, options, and advanced notes. Minor ordering issue: required `GITHUB_TOKEN` setup and doctor/preflight details appear after the initial command, though the guide notes `just up` fails early with guidance."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands, URL patterns, configuration values, caveats, and expected behavior are stated precisely. Some setup details are delegated to another README, and expected `just up` output is implied rather than shown."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "Easy to follow for the intended developer audience, with helpful explanations of tricky concepts like `.localhost` secure contexts and reset-auth behavior. It does assume familiarity with worktrees, Docker, `just`, Keycloak, and several internal service names."
+  }
+}

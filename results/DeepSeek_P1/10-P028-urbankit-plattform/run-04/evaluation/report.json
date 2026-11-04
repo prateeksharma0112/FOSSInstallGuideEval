@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Covers the core Docker Compose install, required env vars, build/start commands, health check, production override, Nginx/WebSocket setup, backup/restore, updates, and demo seeding. Gaps: no Docker/Compose prerequisites, exact env reference values are external, expected health response and WebSocket verification are missing, media restore is unclear, and `uploads_data` appears without being defined in the service table."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "Sections and tables are logical and scannable, and the main deployment flow is easy to locate. Minor ordering risk: the production override appears after the base setup, so a production user could start the Mongo volume before setting production auth vars and then need the manual user-creation workaround."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Most commands are precise, but some instructions are ambiguous or incomplete: placeholders like `…`, `docker compose ps` described as “wait for healthy,” no expected `/api/health` output, Nginx sketch omits certificate paths/HTTP redirect details, and backup/restore wording has a `media_data`/`uploads_data` inconsistency."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "Readable for an experienced operator, and key caveats such as build-time args, Mongo init behavior, and mixed-content WebSocket blocking are explained. However, it assumes prior knowledge of Docker Compose, Nginx, DNS/TLS, Mongo auth, WebSockets, Payload/Hocuspocus, Mailpit, and cron, with little definition of those concepts."
+  }
+}

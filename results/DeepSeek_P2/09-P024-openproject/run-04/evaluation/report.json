@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "The guide covers quick start, persistent production setup, configuration values, reverse proxy, plugins, custom CA certificates, offline installation, and Docker Swarm. It also gives some verification via success message/browser access and `docker service ls`. It is not fully complete because it lacks explicit hardware/system requirements and a dedicated health-check or verification procedure for the basic container."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide uses clear headings and an installation overview, placing quick start before production and advanced topics. Some content mixes the all-in-one container with Compose/Swarm and image-provenance checks before installation, but the main installation path is still findable and followable."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Most commands and environment variables are explained precisely. However, there are confusing inconsistencies: the offline save step creates `openproject-stable.tar.gz` with tag `:17` while the load step references `openproject-12.tar.gz`; Swarm examples show `postgres:13` then `postgres:10`; and the self-signed certificate command includes inline comments after backslashes, making the shell example unreliable."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "Core installation steps and important configuration values are explained, with warnings about secrets and HTTPS. Advanced sections assume prior knowledge of Docker, reverse proxies, Swarm, and terms like cosign, SBOM, VEX, HSTS, NFS, and S3, but these are optional or linked."
+  }
+}

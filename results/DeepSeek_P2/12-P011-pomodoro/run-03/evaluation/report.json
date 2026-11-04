@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Covers native installation, starting the app, optional macOS app packaging, sounds, container use, and configuration/data storage. Verification is mostly limited to launching the app and seeing the window, and prerequisite setup for Git/Python/Docker is not fully explained."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The required path is easy to follow: Installation, then Starting it. Optional packaging, sounds, container, and configuration sections are separated by headings, though later sections interrupt the flow slightly and one cross-reference says 'two sections below' when more content appears between them."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands and expected outcomes are generally precise, including venv, install, launch, build, and Docker commands. However, `git clone <this repo>` uses a placeholder, configuration values lack defaults/ranges, and environment-variable usage is described without concrete examples."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "The steps are understandable for a technical macOS user, and some concepts are explained, such as PyInstaller bundling, ad-hoc signing, Gatekeeper workaround, and noVNC streaming. It still assumes familiarity with venv, editable installs, Docker volumes, and variables like `XDG_DATA_HOME`."
+  }
+}

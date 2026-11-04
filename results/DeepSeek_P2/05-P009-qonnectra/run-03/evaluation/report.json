@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "The guide gives a basic Docker-based install path and prerequisites, but required environment variables are only delegated to the Deployment README, and there is no explicit verification step. Local frontend/backend setup is not covered beyond prerequisites."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is arranged logically: prerequisites, clone, environment setup, Docker Compose startup, access URLs, then detailed setup references. It is easy to follow, though configuration requires jumping to another README."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Commands and version requirements are mostly precise, but the repository URL is a placeholder, required environment variables are unspecified, and access via HTTPS/*.localhost is not explained."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The basic steps are simple, but the guide assumes familiarity with Docker Compose, uv, WebDAV, QGIS Server, TileServer, environment variables, and local development concepts without explaining them."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 5,
+    "reason": "The guide covers the essentials and more: Docker prerequisite link, supported architectures, limitations, container image/tag choices, quick-start command, environment variable explanations, production persistence, configuration/HTTPS/HSTS notes, reverse proxy examples, plugins, self-signed certificates, offline installation, and Swarm. It also includes verification through the startup success message, admin login, browser access, and optional image/SBOM/VEX verification."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The document generally follows a logical progression: overview → architectures/limitations → containers → verification → installation overview → quick start → production → configuration → reverse proxy and optional advanced topics. However, it mixes basic all-in-one installation with many advanced/optional sections and lacks an explicit table of contents or summary path, so users must skip around depending on their goal."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Core commands, placeholders, and key environment variables are precise and explained, and expected outcomes are stated, such as the success message and default admin credentials. Minor inconsistencies reduce clarity: the offline section saves `openproject-stable.tar.gz` but later loads `openproject-12.tar.gz`; cosign examples use `:16` while the guide otherwise uses `:17`; and the Apache certificate key path contains a double slash."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "The basic quick-start path is easy to follow, and key configuration values such as `SECRET_KEY_BASE`, `OPENPROJECT_HOST__NAME`, HTTPS mode, and language are explained. Advanced sections assume prior knowledge of Docker, reverse proxies, Swarm, cosign, SBOMs, VEX, and HSTS, and often link elsewhere rather than explaining those concepts in depth."
+  }
+}

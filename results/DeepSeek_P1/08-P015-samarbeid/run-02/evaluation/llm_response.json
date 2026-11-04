@@ -1,0 +1,46 @@
+{
+  "id": "chatcmpl-a03a2eb6",
+  "created": 1793825007,
+  "model": "coding",
+  "object": "chat.completion",
+  "system_fingerprint": null,
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "{\n  \"completeness\": {\n    \"score\": 2,\n    \"reason\": \"The guide lists major prerequisites and a setup command, but it does not provide installation/configuration details for those prerequisites, required versions, environment variables, database setup, troubleshooting, or a clear verification procedure beyond opening localhost.\"\n  },\n  \"structure\": {\n    \"score\": 3,\n    \"reason\": \"The guide broadly follows a useful order: requirements, setup command, then verification. However, important configuration and verification steps are missing or underspecified, so the sequence is only adequate.\"\n  },\n  \"clarity\": {\n    \"score\": 2,\n    \"reason\": \"Commands and expected outcomes are too sparse. It refers users to `.ruby-version`, `.tools-version`, and `bin/setup` without stating exact versions, required commands, configuration values, or what successful setup should look like.\"\n  },\n  \"understandability\": {\n    \"score\": 2,\n    \"reason\": \"The guide assumes familiarity with tools such as asdf, Docker Compose, PostgreSQL, Yarn, and a Rails-style `bin/setup` script. Technical terms and concepts are not explained, making it difficult for less experienced users.\"\n  }\n}",
+        "role": "assistant",
+        "tool_calls": null,
+        "function_call": null,
+        "reasoning_content": "We need answer evaluate guide using criteria scores 1-5 and brief reason each. Need inspect guide. Need score completeness, structure, clarity, understandability. Need be fair. Installation guide is very terse. Need provide scores and reasons. Need maybe mention missing info: exact Ruby version in .ruby-version but guide doesn't state; Node/yarn versions in .tools-version; PostgreSQL version/config; Docker prerequisites; what bin/setup does; platform; env vars; database setup; how to verify beyond open URL; admin output. Structure order: requirements then setup then verify, but missing steps/config, unclear sequence. Clarity: commands precise? bin/setup only, references files. No exact commands for dependencies, expected outcomes except server. Understandability: assumes knowledge of asdf, bin/setup, Docker, Rails-like setup, no explanations. Scores likely completeness 2, structure 3, clarity 2, understandability 2. Need maybe 2/3/2/2. Let's craft final with JSON or table. Need assign one score each and brief reason. Need no extra. Ensure criterion labels. Could use table.\n\nNeed maybe include rating scale labels. Let's compose concise. \nNeed maybe mention \"Adequate\" structure because ordered but missing prerequisites. Completeness poor because doesn't cover configuration and verification sufficiently. Clarity poor because refs external files, no commands/versions/outcomes. Understandability poor because jargon. Could give structure 3 adequate. Final.",
+        "provider_specific_fields": {
+          "reasoning": "We need answer evaluate guide using criteria scores 1-5 and brief reason each. Need inspect guide. Need score completeness, structure, clarity, understandability. Need be fair. Installation guide is very terse. Need provide scores and reasons. Need maybe mention missing info: exact Ruby version in .ruby-version but guide doesn't state; Node/yarn versions in .tools-version; PostgreSQL version/config; Docker prerequisites; what bin/setup does; platform; env vars; database setup; how to verify beyond open URL; admin output. Structure order: requirements then setup then verify, but missing steps/config, unclear sequence. Clarity: commands precise? bin/setup only, references files. No exact commands for dependencies, expected outcomes except server. Understandability: assumes knowledge of asdf, bin/setup, Docker, Rails-like setup, no explanations. Scores likely completeness 2, structure 3, clarity 2, understandability 2. Need maybe 2/3/2/2. Let's craft final with JSON or table. Need assign one score each and brief reason. Need no extra. Ensure criterion labels. Could use table.\n\nNeed maybe include rating scale labels. Let's compose concise. \nNeed maybe mention \"Adequate\" structure because ordered but missing prerequisites. Completeness poor because doesn't cover configuration and verification sufficiently. Clarity poor because refs external files, no commands/versions/outcomes. Understandability poor because jargon. Could give structure 3 adequate. Final.",
+          "refusal": null
+        }
+      },
+      "provider_specific_fields": {
+        "stop_reason": null,
+        "token_ids": null
+      }
+    }
+  ],
+  "usage": {
+    "completion_tokens": 571,
+    "prompt_tokens": 425,
+    "total_tokens": 996,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": null,
+      "audio_tokens": null,
+      "reasoning_tokens": 310,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": null
+  },
+  "moderation": null,
+  "service_tier": null,
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "kv_transfer_params": null,
+  "ec_transfer_params": null
+}

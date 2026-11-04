@@ -1,0 +1,59 @@
+{
+  "run": {
+    "run_id": "DeepSeek_P2__08-P015-samarbeid__run-02",
+    "experiment_id": "DeepSeek_P2",
+    "run_number": 2,
+    "status": "completed",
+    "started_at": "2026-11-04T22:19:27.439283+01:00",
+    "finished_at": "2026-11-04T22:19:34.291474+01:00",
+    "duration_seconds": 6.828
+  },
+  "task": {
+    "task_id": "08-P015-samarbeid",
+    "dataset_id": "P015",
+    "project": {
+      "opencode_id": "7647",
+      "name": "Samarbeid",
+      "description": "Samarbeid is a web-based collaboration solution specifically designed for teams and small organizations that work on a case-by-case basis. With Samarbeid, a wide variety of workflows can be digitized without the need for IT specialists. This includes task management, flexible workflows, and the capture and utilization of all data and documents generated during these processes.",
+      "catalogue_url": "https://opencode.de/de/software/samarbeid-7647",
+      "type": "Application",
+      "platforms": [
+        "web"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/samarbeid/samarbeid",
+      "commit_sha": "25cce0af912bb5b99552fa4414764e14f53305ae",
+      "license": "MIT"
+    },
+    "installation": {
+      "complexity": "Medium"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/samarbeid/samarbeid/-/blob/25cce0af912bb5b99552fa4414764e14f53305ae/README.md",
+      "source": "Repository README",
+      "language": "English",
+      "word_count": 47
+    }
+  },
+  "prompt": {
+    "template": "installguideeval/prompts/02_structured.md"
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "model_name": "DeepSeek-V4.1-Flash-1017",
+    "model_identifier": "openai/coding",
+    "reasoning_effort": null,
+    "response_id": "chatcmpl-9b454499",
+    "input_tokens": 536,
+    "output_tokens": 1926,
+    "total_tokens": 2462
+  },
+  "artifacts": {
+    "prompt": "evaluation/prompt.md",
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json"
+  }
+}

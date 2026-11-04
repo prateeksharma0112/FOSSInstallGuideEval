@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "The guide covers quick-start installation, production persistence, reverse proxy setup, plugins, self-signed certificates, offline installation, and Swarm. Verification is present but limited mainly to seeing a success message/admin login and accessing the browser URL; prerequisites beyond Docker Engine and system requirements are not fully detailed."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide uses clear headings, code blocks, and numbered steps, generally moving from quick start to production configuration and advanced topics. The ordering is usable, though the inclusion of many advanced sections makes it longer and occasionally mixes all-in-one guidance with slim, Compose, and Swarm references."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Core commands and environment variables are explained, and expected outcomes are given. However, there are ambiguities: the offline section saves `openproject-stable.tar.gz` but later loads `openproject-12.tar.gz`/`openproject-12.tar`, Swarm examples show inconsistent PostgreSQL versions, and the self-signed certificate shell example includes comments after line-continuation backslashes."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "The main quick-start and production steps are understandable for a technical audience, with explanations of values such as `SECRET_KEY_BASE`, `OPENPROJECT_HOST__NAME`, and HTTPS mode. Advanced sections assume prior knowledge of Docker, reverse proxies, Swarm, NFS/S3, and security terms such as Sigstore, SBOM, and VEX."
+  }
+}

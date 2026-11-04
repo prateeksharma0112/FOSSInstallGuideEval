@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "The guide covers the main local startup path (`just up`), instance configuration, the `GITHUB_TOKEN` requirement, URLs, and verification/troubleshooting commands such as `just doctor`, `just urls`, and `just status`. However, it does not explain how to install required tools like Docker, Node, pnpm, or `just`, and it relies on `backend/README.md` for full token setup. It assumes a prepared repository/worktree."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The content is generally well organized: startup command, URLs, warnings, troubleshooting, recipes, and flags are separated clearly. A minor weakness is that the `GITHUB_TOKEN` prerequisite and proxy-port configuration appear after the initial `just up` instruction instead of in an upfront prerequisites section."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands, flags, URLs, configuration values, and expected behaviors are stated precisely. Minor ambiguity remains about the exact working directory for commands, acceptable instance-identifier format, and expected output after startup."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The guide explains some non-obvious concepts such as `.localhost`, secure contexts, and `reset-auth`, but it still assumes prior knowledge of worktrees, Docker, Node/pnpm, `just`, Keycloak, and several repo-specific services. This makes it adequate but not fully self-contained for a less experienced developer."
+  }
+}

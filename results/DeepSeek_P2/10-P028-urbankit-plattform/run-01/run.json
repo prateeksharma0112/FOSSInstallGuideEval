@@ -1,0 +1,59 @@
+{
+  "run": {
+    "run_id": "DeepSeek_P2__10-P028-urbankit-plattform__run-01",
+    "experiment_id": "DeepSeek_P2",
+    "run_number": 1,
+    "status": "completed",
+    "started_at": "2026-11-04T22:15:26.906907+01:00",
+    "finished_at": "2026-11-04T22:15:42.180483+01:00",
+    "duration_seconds": 15.282
+  },
+  "task": {
+    "task_id": "10-P028-urbankit-plattform",
+    "dataset_id": "P028",
+    "project": {
+      "opencode_id": "12597",
+      "name": "UrbanKIT Plattform",
+      "description": "A city's digital citizen participation platform: public portal plus closed project workspace with modular tools.",
+      "catalogue_url": "https://opencode.de/de/software/urban-kit-plattform-12597",
+      "type": "Application",
+      "platforms": [
+        "web"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/stadt-detmold/urban-kit-plattform",
+      "commit_sha": "d170d748ae3d7873d83816fe68a36c7989dce0a7",
+      "license": "EUPL-1.2"
+    },
+    "installation": {
+      "complexity": "Medium"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/stadt-detmold/urban-kit-plattform/-/blob/d170d748ae3d7873d83816fe68a36c7989dce0a7/docs/deployment.md",
+      "source": "Repository deployment guide",
+      "language": "English",
+      "word_count": 505
+    }
+  },
+  "prompt": {
+    "template": "installguideeval/prompts/02_structured.md"
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "model_name": "DeepSeek-V4.1-Flash-1017",
+    "model_identifier": "openai/coding",
+    "reasoning_effort": null,
+    "response_id": "chatcmpl-31da4469",
+    "input_tokens": 1763,
+    "output_tokens": 3958,
+    "total_tokens": 5721
+  },
+  "artifacts": {
+    "prompt": "evaluation/prompt.md",
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json"
+  }
+}
