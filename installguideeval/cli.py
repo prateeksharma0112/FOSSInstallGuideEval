@@ -11,6 +11,11 @@ app = typer.Typer(
 console = Console()
 
 
+@app.callback()
+def main() -> None:
+    """Run and manage installation-guide evaluations."""
+
+
 @app.command(name="run")
 def run_task(
     task_id: str = typer.Option(

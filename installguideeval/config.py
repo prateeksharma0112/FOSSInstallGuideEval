@@ -22,7 +22,7 @@ class Settings(BaseSettings):
 
     # Connection details used by LiteLLM.
     evaluation_llm_model: str
-    evaluation_llm_api_key: str
+    evaluation_llm_api_key: str | None = None
     evaluation_llm_base_url: str | None = None
 
     # Optional because not every model supports reasoning effort.

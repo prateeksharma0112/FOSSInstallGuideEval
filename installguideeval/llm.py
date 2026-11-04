@@ -39,8 +39,6 @@ class LLMClient:
     def __init__(self) -> None:
         if not settings.evaluation_llm_model:
             raise ValueError("EVALUATION_LLM_MODEL must be configured.")
-        if not settings.evaluation_llm_api_key:
-            raise ValueError("EVALUATION_LLM_API_KEY must be configured.")
         self.model_name = settings.evaluation_llm_model
 
     def evaluate(self, prompt: str) -> LLMEvaluationResult:
@@ -84,7 +82,6 @@ class LLMClient:
         request_params: dict[str, Any] = {
             "model": self.model_name,
             "messages": [{"role": "user", "content": prompt}],
-            "api_key": settings.evaluation_llm_api_key,
             "timeout": settings.api_timeout_seconds,
             "num_retries": 0,
             # Request the four ratings in the required JSON structure.
@@ -99,6 +96,8 @@ class LLMClient:
         }
 
         # Add optional model settings when they are configured.
+        if settings.evaluation_llm_api_key:
+            request_params["api_key"] = settings.evaluation_llm_api_key
         if settings.evaluation_llm_base_url:
             request_params["api_base"] = settings.evaluation_llm_base_url
         if settings.evaluation_llm_reasoning_effort:

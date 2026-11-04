@@ -63,7 +63,7 @@ The `.env.example` file contains all available settings. The main settings are:
 
 ```dotenv
 EVALUATION_LLM_MODEL=provider/model-name
-EVALUATION_LLM_API_KEY=replace-with-api-key
+EVALUATION_LLM_API_KEY=
 EXPERIMENT_ID=thesis-main-evaluation-01
 TASKS_DIR=dataset-02
 RESULTS_DIR=results
@@ -72,8 +72,9 @@ EVALUATION_CRITERIA_PATH=criteria/evaluation_criteria.json
 ```
 
 A custom API base URL and reasoning effort are optional. Enable reasoning
-effort only when the selected model supports it. The `.env` file is ignored by
-Git and must not be committed because it contains credentials.
+effort only when the selected model supports it. The API key is optional for
+endpoints that do not require authentication. The `.env` file is ignored by Git
+and must not be committed because it may contain credentials.
 
 ### Evaluation criteria
 
