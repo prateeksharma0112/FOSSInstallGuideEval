@@ -1,0 +1,6 @@
+analysis,projects,items,experts,ordinal_alpha,ci_95_low,ci_95_high,bootstrap_samples
+Completeness,15,15,4,0.2814,0.0041,0.4799,10000
+Structure,15,15,4,-0.0331,-0.1790,0.0956,10000
+Clarity,15,15,4,0.2177,-0.0616,0.4639,10000
+Understandability,15,15,4,-0.0015,-0.1980,0.1983,10000
+Overall,15,60,4,0.1355,-0.0535,0.3150,10000
