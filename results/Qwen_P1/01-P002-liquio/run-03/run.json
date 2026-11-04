@@ -1,0 +1,64 @@
+{
+  "run": {
+    "run_id": "Qwen_P1__01-P002-liquio__run-03",
+    "experiment_id": "Qwen_P1",
+    "run_number": 3,
+    "status": "completed",
+    "started_at": "2026-11-04T23:10:43.636012+01:00",
+    "finished_at": "2026-11-04T23:10:53.178373+01:00",
+    "duration_seconds": 9.547
+  },
+  "task": {
+    "task_id": "01-P002-liquio",
+    "dataset_id": "P002",
+    "project": {
+      "opencode_id": "7613",
+      "name": "Liquio",
+      "description": "Liquio is an innovative GovTech platform that leverages artificial intelligence and a low-code approach to drive the digital transformation of public services. It enables rapid creation, configuration, and deployment of a wide range of IT solutions, and web and mobile applications for government agencies and local governments.",
+      "catalogue_url": "https://opencode.de/de/software/liquio-7613",
+      "type": "Application",
+      "platforms": [
+        "web",
+        "windows",
+        "mac",
+        "linux",
+        "ios",
+        "android"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/govstack/kitsoft/liquio",
+      "commit_sha": "399b8b10f9776e5253a5daf02019551db4ee5d0e",
+      "license": "AGPL-3.0-only"
+    },
+    "installation": {
+      "complexity": "High"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/govstack/kitsoft/liquio/-/blob/399b8b10f9776e5253a5daf02019551db4ee5d0e/CONTRIBUTING.md",
+      "source": "Repository contributing guide",
+      "language": "English",
+      "word_count": 700
+    }
+  },
+  "prompt": {
+    "template": "installguideeval/prompts/01_minimal.md"
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "model_name": "Qwen3.8-27B-FP8",
+    "model_identifier": "hosted_vllm/Qwen/Qwen3.8-27B-FP8",
+    "reasoning_effort": null,
+    "response_id": "chatcmpl-89a407a6839bd7a4",
+    "input_tokens": 1951,
+    "output_tokens": 1764,
+    "total_tokens": 3715
+  },
+  "artifacts": {
+    "prompt": "evaluation/prompt.md",
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json"
+  }
+}

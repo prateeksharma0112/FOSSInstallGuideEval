@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "The guide covers configuration options and basic development commands, but it is not a complete installation guide. It omits prerequisites (Git, Node.js/npm versions), full installation/setup instructions for non-development use, verification steps, troubleshooting, and expected outcomes."
+  },
+  "structure": {
+    "score": 3,
+    "reason": "The guide has clear sections for configuration and development, but the order is slightly awkward because configuration is presented before the project is cloned. It also lacks a numbered workflow, prerequisites section, and verification section, making it less straightforward to follow as an installation process."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Many configuration parameters and shell commands are stated explicitly, but some parts are ambiguous or informal, such as “Install the deps,” the awkward “map_x” table row, and the mixed use of German and English. Expected results are also not clearly described beyond opening the dev server URL."
+  },
+  "understandability": {
+    "score": 2,
+    "reason": "A developer familiar with npm, Git, webpack, and web mapping services could probably follow the basic steps, but the guide assumes a lot of prior knowledge. Terms such as npm, WMS, EPSG 4326, gh-pages, and overlay layers are not explained, and prerequisites are not introduced."
+  }
+}

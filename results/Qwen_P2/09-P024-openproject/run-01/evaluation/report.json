@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "The guide covers prerequisites, image selection, a quick-start install, production persistence, reverse proxy setup, and optional advanced scenarios such as plugins, offline installation, and Docker Swarm. It also provides basic verification by telling the user to look for a success message and access `http://localhost:8080` with `admin`/`admin`. I did not give it 5 because it omits some useful installation information such as system requirements, explicit health-check verification, backup/restore details, and concrete upgrade or seeder/migration steps."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is organized into clear sections, moving from prerequisites and limitations to containers, quick start, production use, configuration, reverse proxy, and optional advanced topics. Headings and numbered steps make it relatively easy to locate specific tasks. I did not give it 5 because some important details are delegated to external links, such as the recommended Docker Compose method and advanced configuration, which can interrupt the flow for a single-container installation."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Many commands and environment variables are stated precisely and explained, especially `SECRET_KEY_BASE`, `OPENPROJECT_HOST__NAME`, and `OPENPROJECT_HTTPS`. However, there are several ambiguities and inconsistencies, such as the offline section using `openproject-stable.tar.gz` first and then `openproject-12.tar.gz`, shell examples mixing line continuations with inline comments, and a production example that omits `OPENPROJECT_HTTPS=false` while still using HTTP-only access. These issues prevent the guide from being fully unambiguous."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The basic quick start is easy to follow for someone already familiar with Docker: run the command, open the browser, and log in. However, the guide assumes prior knowledge of Docker, Linux, ports, reverse proxies, TLS, and container orchestration. Advanced terms such as SBOM, VEX, Sigstore, cosign, and Docker Swarm are introduced without sufficient explanation, so a less experienced reader would need outside knowledge to use those parts successfully."
+  }
+}

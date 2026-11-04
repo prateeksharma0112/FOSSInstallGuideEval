@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "The guide covers the main development installation steps—cloning, installing dependencies, starting the dev server, building, and deploying—and includes detailed configuration parameters. However, it does not state prerequisites such as required Node.js/npm versions, and verification is limited to opening `http://localhost:8080/` and checking `dist/` after build."
+  },
+  "structure": {
+    "score": 3,
+    "reason": "The guide uses headings and code blocks, and the `Develop` section follows a broadly logical order: clone, install, start, build, deploy. However, the configuration section appears before installation, prerequisites are missing, and the process is not laid out as explicit numbered steps, making it adequate but not optimally organized."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "The commands are generally precise and easy to execute, and the configuration table provides parameter descriptions, ranges, defaults, and examples. Clarity is weakened by mixed German/English wording, informal instructions such as “Install the deps,” some ambiguous or malformed table entries (e.g., the `map_x` row and `compactAttribution` example), and limited description of expected outcomes."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "For an experienced JavaScript/Webpack developer, the basic steps are straightforward. However, the guide assumes prior familiarity with technical concepts such as `git`, `npm`, WMS, EPSG 4326, XYZ tiles, overlay layers, and map configuration, without explaining these terms or the broader setup context."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "The guide covers the main development workflow: cloning the repository, running npm install, starting the dev server, building the app, and deploying it. It also provides detailed configuration options. However, it does not state required prerequisites such as Node.js, npm, or Git versions, and it lacks explicit verification steps beyond opening http://localhost:8080/."
+  },
+  "structure": {
+    "score": 3,
+    "reason": "The guide is organized into a configuration section and a development section with clear code blocks, so users can find relevant commands. However, it begins with configuration before installation steps, which is not the natural required order for setup. It also lacks a numbered or ordered sequence and a prerequisites section."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "The commands are generally precise, such as git clone, npm install, npm start, npm run build, and npm run deploy. The configuration table explains most parameters with examples. However, the map_x configuration row is poorly formatted and complex, some configuration values are ambiguous, such as compactAttribution being shown as a string while described with true/false behavior, and the guide mixes German and English."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The development steps are easy to follow for users already familiar with Git, npm, and web development. The guide explains many QuattroMap-specific configuration concepts, such as zoom, overlays, map windows, and layers. However, it does not explain assumed technical terms like Node.js, npm, Git, WMS, XYZ tiles, EPSG, or webpack, so it requires prior developer knowledge."
+  }
+}

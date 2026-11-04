@@ -1,0 +1,59 @@
+{
+  "run": {
+    "run_id": "Qwen_P2__09-P024-openproject__run-02",
+    "experiment_id": "Qwen_P2",
+    "run_number": 2,
+    "status": "completed",
+    "started_at": "2026-11-04T23:41:45.385225+01:00",
+    "finished_at": "2026-11-04T23:42:07.971823+01:00",
+    "duration_seconds": 22.593
+  },
+  "task": {
+    "task_id": "09-P024-openproject",
+    "dataset_id": "P024",
+    "project": {
+      "opencode_id": "8047",
+      "name": "OpenProject",
+      "description": "OpenProject is a web-based project management solution specifically tailored to the needs of public administration. It supports project planning, task management, agile workflows, time tracking, and project portfolio management.",
+      "catalogue_url": "https://opencode.de/de/software/open-project-8047",
+      "type": "Application",
+      "platforms": [
+        "web"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/bmi/opendesk/component-code/project-management/openproject/openproject",
+      "commit_sha": "27a58131fa8dc521cd02c92c0b8e6a4854599d80",
+      "license": "GPL-3.0-only"
+    },
+    "installation": {
+      "complexity": "Medium"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/bmi/opendesk/component-code/project-management/openproject/openproject/-/blob/27a58131fa8dc521cd02c92c0b8e6a4854599d80/docs/installation-and-operations/installation/docker/README.md",
+      "source": "Repository README",
+      "language": "English",
+      "word_count": 4511
+    }
+  },
+  "prompt": {
+    "template": "installguideeval/prompts/02_structured.md"
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "model_name": "Qwen3.8-27B-FP8",
+    "model_identifier": "hosted_vllm/Qwen/Qwen3.8-27B-FP8",
+    "reasoning_effort": null,
+    "response_id": "chatcmpl-af5da4e49060b05d",
+    "input_tokens": 9537,
+    "output_tokens": 4082,
+    "total_tokens": 13619
+  },
+  "artifacts": {
+    "prompt": "evaluation/prompt.md",
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json"
+  }
+}

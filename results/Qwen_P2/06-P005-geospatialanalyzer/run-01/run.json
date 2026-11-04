@@ -1,0 +1,62 @@
+{
+  "run": {
+    "run_id": "Qwen_P2__06-P005-geospatialanalyzer__run-01",
+    "experiment_id": "Qwen_P2",
+    "run_number": 1,
+    "status": "completed",
+    "started_at": "2026-11-04T23:31:36.149189+01:00",
+    "finished_at": "2026-11-04T23:31:50.655853+01:00",
+    "duration_seconds": 14.515
+  },
+  "task": {
+    "task_id": "06-P005-geospatialanalyzer",
+    "dataset_id": "P005",
+    "project": {
+      "opencode_id": "4619",
+      "name": "GeospatialAnalyzer",
+      "description": "Open source software for providing a web service that enables the automated collection and analysis of geodata – e.g., as a basis for integration into digital application and administrative procedures.",
+      "catalogue_url": "https://opencode.de/de/software/geospatial-analyzer-4619",
+      "type": "Application",
+      "platforms": [
+        "web",
+        "linux",
+        "windows",
+        "mac"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/OC000024389631/GeospatialAnalyzer",
+      "commit_sha": "1b62187a74718590ee6e7ccda4d881983cc595af",
+      "license": "GPL-3.0-only"
+    },
+    "installation": {
+      "complexity": "Medium"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/OC000024389631/GeospatialAnalyzer/-/blob/1b62187a74718590ee6e7ccda4d881983cc595af/README.development.md",
+      "source": "Repository Development README",
+      "language": "English",
+      "word_count": 986
+    }
+  },
+  "prompt": {
+    "template": "installguideeval/prompts/02_structured.md"
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "model_name": "Qwen3.8-27B-FP8",
+    "model_identifier": "hosted_vllm/Qwen/Qwen3.8-27B-FP8",
+    "reasoning_effort": null,
+    "response_id": "chatcmpl-8498b8950fe53f2c",
+    "input_tokens": 2297,
+    "output_tokens": 2571,
+    "total_tokens": 4868
+  },
+  "artifacts": {
+    "prompt": "evaluation/prompt.md",
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json"
+  }
+}

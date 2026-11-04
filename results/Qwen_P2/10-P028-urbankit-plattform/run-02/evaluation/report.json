@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "The guide covers the main deployment flow: Docker Compose services, required minimum environment variables, build/start commands, a health check, domain routing, a production override, backup/restore, updates, and demo accounts. However, it is not fully self-contained: it does not state prerequisites, does not provide complete configuration values for SMTP or TLS certificates, and relies on external files such as `docs/env-reference.md`, `Dockerfile`, and `docker-compose.yml`."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is organized into clear sections in a generally logical order: service overview, setup, domains/nginx, production override, backup/restore, updates, and demo accounts. Headings, a service table, and code blocks make it easy to locate steps. A minor weakness is that production hardening appears after domain setup, and prerequisites are not presented upfront."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Most instructions are precise: it gives exact commands, ports, environment variable names, build-time argument warnings, a health check, and a useful note that MongoDB root initialization only applies to an empty volume. Some parts are less complete or potentially ambiguous, such as the Nginx sketch omitting TLS certificate configuration and the vague instruction to `point SMTP_* at a real provider`."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The steps are understandable for a technically experienced user, especially the Docker Compose and backup commands. However, the guide assumes prior familiarity with concepts such as Docker Compose, reverse proxying, WebSockets, DNS, TLS, MongoDB root authentication, and cron, and it does not explain these terms or concepts."
+  }
+}

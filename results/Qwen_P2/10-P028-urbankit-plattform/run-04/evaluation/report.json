@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "The guide covers the main deployment steps: service overview, env setup, build/run, health check, domain routing, production override, backup/restore, and updates. It falls short of 5 mainly because it does not specify host prerequisites (e.g., Docker, Docker Compose, Git), TLS certificate configuration, or explicit verification for the `hocuspocus` and `mongo` services."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The document is well organized into clear sections (Setup, Domains, Production override, Backup & restore, Updates, Demo accounts), and the order is generally logical for a deployment. A small weakness is that production-specific configuration is separated from the base setup, which may require the reader to move between sections to assemble the final production flow."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Instructions and commands are mostly precise, including env var names, build-time caveats, domain routing, and concrete scripts. Some ambiguity remains because the guide refers to external files such as `docs/env-reference.md` and `docker-compose.yml`, and the Nginx sketch omits SSL certificate directives despite showing `listen 443 ssl`."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The steps are straightforward for a technical reader familiar with Docker, Compose, Nginx, DNS, TLS, and cron, but the guide assumes substantial prior knowledge. It does not explain key technical terms or concepts such as Compose profiles, WebSocket upgrade, or mixed content, so a less experienced administrator may need outside knowledge to fully understand the setup."
+  }
+}

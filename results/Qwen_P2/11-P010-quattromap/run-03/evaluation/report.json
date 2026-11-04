@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "The guide covers editing `config.json` and gives development install, build, and deploy commands, but it omits prerequisites such as required Node.js/npm versions, production serving/deployment steps, troubleshooting, and clear verification steps beyond opening `http://localhost:8080/` or locating `dist/`."
+  },
+  "structure": {
+    "score": 3,
+    "reason": "The guide is divided into `Konfiguration` and `Develop` sections, and the development commands appear in a usable order: clone, `npm install`, `npm start`, build, and deploy. However, it starts with configuration before explaining how to obtain the repository, lacks an overview or numbered steps, and the configuration table is difficult to navigate."
+  },
+  "clarity": {
+    "score": 2,
+    "reason": "The shell commands and several parameter examples are clear, but the configuration table contains ambiguous or malformed JSON-like syntax, a duplicate use of the `layer` parameter, mixed backticks, and an inconsistent boolean example such as `compactAttribution: false` quoted as a string."
+  },
+  "understandability": {
+    "score": 2,
+    "reason": "The install commands may be understandable for users familiar with Git, npm, and web build tools, but the guide does not explain technical concepts such as EPSG 4326, WMS 1.3.0, XYZ tiles, overlays, attributions, webpack development servers, or `gh-pages` deployment, so prior knowledge is required."
+  }
+}

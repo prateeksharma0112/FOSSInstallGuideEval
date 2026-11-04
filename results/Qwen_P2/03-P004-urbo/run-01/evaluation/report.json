@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "The guide covers the main installation path, required configuration, and verification/troubleshooting commands. It explains how to start the stack with just up, how instance identifiers and URLs work, the required GITHUB_TOKEN, port configuration, and how to check or repair the environment using just doctor, just status, just logs, and service management commands. It is not a 5 because it does not explicitly state how to install the host prerequisites such as Docker, Node, pnpm, and just, and it does not provide a final explicit success check beyond URLs and status/logs."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is arranged logically: it begins with the primary install command, then explains instance isolation, prerequisites, troubleshooting, and additional recipes. A user can quickly find the main flow and recovery commands. It is not a 5 because some prerequisite details are introduced after the main command and key setup details are deferred to linked files rather than fully presented in the main guide."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "The instructions, commands, and configuration values are precise and easy to follow. The guide clearly states commands such as just up, just doctor, just status, just reset-auth, just prune, the meaning of the instance identifier, and the port-related configuration with URBO_PROXY_PORT. It also clearly explains common failure modes, such as the Keycloak realm not being overwritten and the Android login limitation. It is not a 5 because some required setup, especially the GITHUB_TOKEN setup, is only referenced rather than fully explained, and expected outcomes are mostly implied rather than demonstrated with concrete examples."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The core installation steps are easy to understand, and the guide explains several non-obvious concepts, such as why .localhost is used, how instances are isolated, and why Android login does not work. However, it still assumes prior familiarity with terms and concepts such as worktree, Docker, containers, pnpm, Node, Keycloak, proxy configuration, and local development infrastructure. Because these are not defined for a less experienced reader, the guide is understandable but not fully self-contained."
+  }
+}

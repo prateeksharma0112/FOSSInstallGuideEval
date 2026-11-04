@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "The guide provides basic commands for cloning, installing dependencies, starting a dev server, building, and deploying, and it describes configuration parameters. However, it omits prerequisites such as Node.js/npm versions, does not show a complete or required starting configuration for `config.json`, and offers only minimal verification by telling the user to open `http://localhost:8080/` without confirming that the application works."
+  },
+  "structure": {
+    "score": 3,
+    "reason": "The guide uses headings, tables, and code blocks, which make it possible to find configuration and development information. However, the overall order is not ideal for installation: the `Konfiguration` section appears before the `Develop` section, and there are no numbered steps or a clear required sequence for installing, configuring, and verifying the software."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "The shell commands are generally precise, such as `git clone`, `npm install`, `npm start`, `npm run build`, and `npm run deploy`. The configuration table is useful, but some entries are ambiguous or inconsistent, for example the `map_x` placeholder, the empty example for `layer`: `[ .. ]`, and `compactAttribution`, where the description uses boolean values but the example shows the string `false`."
+  },
+  "understandability": {
+    "score": 2,
+    "reason": "The guide assumes prior familiarity with several technical concepts and tools, including git, npm, webpack, WMS 1.3.0 services, OpenStreetMap XYZ tiles, overlays, attribution, and EPSG 4326. It does not explain these terms or define the environment needed to perform the steps, making the guide harder to understand for a user without background knowledge."
+  }
+}

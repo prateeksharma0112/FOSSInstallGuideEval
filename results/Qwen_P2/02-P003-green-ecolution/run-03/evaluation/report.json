@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "The guide covers prerequisites, installation, quick start, optional HTTPS setup, common commands, service URLs, high-level configuration, and PWA verification. However, verification is limited to opening a local URL or building the frontend, with no health-check command, expected successful output, detailed configuration values, or troubleshooting."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is organized into logical sections: Quick Start, Setup, Common Commands, Services, Architecture, PWA, and Configuration. The main installation flow is easy to follow, though the detailed Requirements section appears after the Quick Start, which may cause a user to miss prerequisites."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Commands such as `just infra-up`, `just migrate-up`, and `just run-dev` are clearly stated. However, some details are imprecise: the exact Porkbun environment variable names are not specified, “your local IP is auto-detected” does not explain how to determine it, and successful outcomes are mostly reduced to opening a URL without describing what should be visible."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The steps are simple because most tasks are single `just` commands, but the guide assumes prior familiarity with Rust, WASM, Docker, Keycloak, Traefik, PWA, service workers, and Let's Encrypt. These technical terms are not explained, so a less specialized reader would need outside knowledge."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "The guide covers the basic setup steps: downloading the example, placing it on a web server, and opening the example portal. However, it lacks prerequisites, detailed configuration instructions, concrete configuration examples, and meaningful verification or troubleshooting steps."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is organized into clear sections and uses numbered steps, making the overall flow easy to follow. It moves logically from hosting the example to configuring it, though it lacks separate sections for prerequisites and verification."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "The instructions are generally readable, but some actions are imprecise, such as 'move the ZIP file to your web server' and 'unpack the archive.' The guide also relies on placeholders and links to external documentation instead of specifying exact commands, configuration values, or expected outcomes."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The guide is understandable for users already familiar with web hosting, file transfer, JSON/JavaScript configuration, and basic portal concepts. It does not explain key technical terms or concepts, so beginners may need additional background knowledge."
+  }
+}

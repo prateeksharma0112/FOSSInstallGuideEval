@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "The guide provides prerequisites, authentication setup, Docker startup, and run commands for the backend and Angular app. However, it omits important steps such as how to obtain/clone the repository, how to verify that the backend is running, how to configure or confirm the frontend connects to the backend, and prerequisites/verification for the Cms section. It also gives only a limited verification step (`pnpm install`) for one component."
+  },
+  "structure": {
+    "score": 3,
+    "reason": "The guide is organized into readable sections and uses headings, numbered steps, and code blocks. However, it reads like several separate READMEs concatenated together. There is no clear end-to-end sequence for the whole installation, and the relationship or order between Menden CMS Backend, AngularMonorepo, and Cms is not explicitly defined."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Most commands and version requirements are stated directly, such as `docker-compose up`, `./gradlew :menden-app:bootRun`, `pnpm nx serve erlebnis.stadt`, and token setup examples. Some areas are less precise, such as running from an IDE, the exact expected result after starting the application, and whether environment-variable syntax in `.npmrc` will actually expand or must be replaced with the literal token."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The guide explains the purpose of the GitHub token and the private package authentication reasonably well. However, it assumes familiarity with Docker, JDK, Maven, Gradle, pnpm, Nx, IDEs, and shell environment variables without defining or explaining those terms. For example, the Cms section only says to run `pnpm start` with no context or prerequisites."
+  }
+}

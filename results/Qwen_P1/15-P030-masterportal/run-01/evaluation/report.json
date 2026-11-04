@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "It covers the basic download, deployment, and copying of the example application, but lacks prerequisites, concrete configuration examples, clear verification steps, and troubleshooting guidance."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is logically organized with clear headings and numbered steps that allow the user to follow the installation process in the required order."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "The instructions are generally readable, but placeholders such as [web-server-name] and vague phrases like “if need be” reduce precision, and expected outcomes are not stated explicitly."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "Technically experienced users can follow the steps, but the guide assumes prior knowledge of web servers, deployment folders, and portal configuration concepts without explaining them."
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "run": {
+    "run_id": "Qwen_P1__03-P004-urbo__run-01",
+    "experiment_id": "Qwen_P1",
+    "run_number": 1,
+    "status": "completed",
+    "started_at": "2026-11-04T22:58:51.159702+01:00",
+    "finished_at": "2026-11-04T22:59:02.601039+01:00",
+    "duration_seconds": 11.438
+  },
+  "task": {
+    "task_id": "03-P004-urbo",
+    "dataset_id": "P004",
+    "project": {
+      "opencode_id": "11309",
+      "name": "URBO",
+      "description": "Urbo is an open source city app platform that aggregates services and information from various sources for citizens.",
+      "catalogue_url": "https://opencode.de/de/software/urbo-11309",
+      "type": "Application",
+      "platforms": [
+        "ios",
+        "android"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/urbo-community/urbo",
+      "commit_sha": "71cd0baf943270d1e1fad9d8a8b0485a79bbd4a2",
+      "license": "EUPL-1.2"
+    },
+    "installation": {
+      "complexity": "High"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/urbo-community/urbo/-/blob/71cd0baf943270d1e1fad9d8a8b0485a79bbd4a2/README.md",
+      "source": "Repository README",
+      "language": "English",
+      "word_count": 803
+    }
+  },
+  "prompt": {
+    "template": "installguideeval/prompts/01_minimal.md"
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "model_name": "Qwen3.8-27B-FP8",
+    "model_identifier": "hosted_vllm/Qwen/Qwen3.8-27B-FP8",
+    "reasoning_effort": null,
+    "response_id": "chatcmpl-abd13a2c22be3a38",
+    "input_tokens": 1705,
+    "output_tokens": 2012,
+    "total_tokens": 3717
+  },
+  "artifacts": {
+    "prompt": "evaluation/prompt.md",
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json"
+  }
+}

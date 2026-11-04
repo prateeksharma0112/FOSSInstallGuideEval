@@ -1,0 +1,60 @@
+{
+  "run": {
+    "run_id": "Qwen_P2__12-P011-pomodoro__run-01",
+    "experiment_id": "Qwen_P2",
+    "run_number": 1,
+    "status": "completed",
+    "started_at": "2026-11-04T23:34:51.262329+01:00",
+    "finished_at": "2026-11-04T23:35:04.879002+01:00",
+    "duration_seconds": 13.609
+  },
+  "task": {
+    "task_id": "12-P011-pomodoro",
+    "dataset_id": "P011",
+    "project": {
+      "opencode_id": "12891",
+      "name": "Pomodoro",
+      "description": "Local focus timer for greater efficiency in everyday administrative work: fixed work blocks, conscious breaks and honest time tracking that also counts interrupted focus sessions.",
+      "catalogue_url": "https://opencode.de/de/software/pomodoro-12891",
+      "type": "Application",
+      "platforms": [
+        "mac",
+        "linux"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/frederic/pomodoro",
+      "commit_sha": "54320075112b92c70ae0dbb00633ab01f8b600ce",
+      "license": "MIT"
+    },
+    "installation": {
+      "complexity": "Low"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/frederic/pomodoro/-/blob/54320075112b92c70ae0dbb00633ab01f8b600ce/README.md",
+      "source": "Repository README",
+      "language": "English",
+      "word_count": 702
+    }
+  },
+  "prompt": {
+    "template": "installguideeval/prompts/02_structured.md"
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "model_name": "Qwen3.8-27B-FP8",
+    "model_identifier": "hosted_vllm/Qwen/Qwen3.8-27B-FP8",
+    "reasoning_effort": null,
+    "response_id": "chatcmpl-8a2b926a40b0e83c",
+    "input_tokens": 1820,
+    "output_tokens": 2522,
+    "total_tokens": 4342
+  },
+  "artifacts": {
+    "prompt": "evaluation/prompt.md",
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json"
+  }
+}

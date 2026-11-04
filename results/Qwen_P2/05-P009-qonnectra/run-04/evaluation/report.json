@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "The guide gives the main Docker Compose install steps and access URLs, but it omits critical configuration details such as the required .env variables, HTTPS/certificate setup, and any verification method beyond accessing URLs. It also lists local Node.js and Python prerequisites but provides no corresponding local development steps."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is organized in a logical order: prerequisites, clone, environment setup, service startup, and application access. Links to more detailed READMEs are clearly listed at the end, making it easy for a user to follow the required sequence."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "The commands are generally clear and directly executable where given, but the guide is ambiguous in important places: the repository URL is a placeholder, required environment variables are not specified, the QGIS URL contains an unresolved project placeholder, and the HTTPS localhost endpoints are not explained."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The high-level process is easy to follow: clone the repository, create a .env file, start Docker Compose, and access the listed URLs. However, it assumes prior familiarity with Docker Compose, environment variables, HTTPS on localhost, and the referenced services such as QGIS Server and WebDAV."
+  }
+}

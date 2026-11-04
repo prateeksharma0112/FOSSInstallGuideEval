@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "The guide covers prerequisites, install commands, common commands, service URLs, and basic PWA/configuration details, but verification is mainly “open the URL” and it defers configuration details to `compose.yaml` without showing required examples or explicit checks for migrations/auth success."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "It follows a logical order—Quick Start, Setup, Requirements, Installation, Common Commands, Services, PWA, Configuration—and uses tables to help users find commands and URLs. The main weakness is minor repetition, especially between the Quick Start HTTPS section and the PWA section."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands, ports, environment variables, and service URLs are stated precisely. However, the custom-domain option is not fully integrated into the example URLs, and expected successful outcomes are not consistently described, so some steps remain slightly ambiguous."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The steps are straightforward if the reader already knows Rust, Docker, Node.js/pnpm, and local development infrastructure. Several technical terms and services—such as Keycloak, Valhalla, Streamlet, MQTT, and WASM—are used without enough explanation for a less specialized reader."
+  }
+}

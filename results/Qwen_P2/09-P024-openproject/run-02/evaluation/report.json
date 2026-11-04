@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "The guide covers prerequisites, quick-start installation, production persistence, reverse-proxy configuration, offline installation, plugins, and Swarm scaling. However, post-install verification is limited to a success message and browser access, and it does not provide explicit upgrade, backup/restore, or health-check procedures."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is organized into clear headings and progresses logically from prerequisites and container options to quick start, production use, configuration, reverse proxy, and advanced topics. It does separate the recommended Compose method from this all-in-one guide, but the later advanced sections make the document less focused on the core installation path."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Most commands and environment variables are explicitly explained, but there are several inconsistencies that reduce precision. For example, the offline section creates openproject-stable.tar.gz but later loads openproject-12.tar.gz, the cosign/scout examples use openproject/openproject:16 while the installation examples use :17, and one Apache example contains a likely typo path: /etc/ssl/crt//server.key."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The basic setup is easy to follow because the quick-start command is explained, including SECRET_KEY_BASE, hostname, HTTPS, and language settings. However, the guide assumes prior familiarity with Docker, Linux, reverse proxies, and security concepts, and advanced topics such as cosign attestations, VEX, S3/MinIO, NFS, and Swarm are introduced without deeper explanation."
+  }
+}

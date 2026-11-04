@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "The guide covers prerequisites, image choices, quick start, production persistence, configuration, reverse proxy, plugins, certificate import, offline installation, and Docker Swarm, and it gives an expected outcome after startup (success message with default admin credentials and access URL). It is not a 5 because it lacks explicit all-in-one upgrade steps, detailed health/verification checks, and basic resource/OS requirements, while deferring advanced configuration to external documentation."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is organized with clear headings and a logical main path: Quick Start, Using this container in production, Configuration, and Reverse Proxy Setup. Optional topics are separated into their own sections. It is not a 5 because it includes many advanced or alternate topics before or after the core install path, and some cross-references can make the primary installation sequence less direct."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "The core commands and environment variable explanations are generally precise, but the guide contains several inconsistencies and typos that create ambiguity. For example, image-integrity examples use tag 16 while installation examples use tag 17; the offline section saves openproject-stable.tar.gz but loads openproject-12.tar.gz; the slim certificate Dockerfile references smtp.local_rootCA.crt instead of my_root.crt; and the Apache example has a double slash in the server.key path."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "The guide explains important setup values such as SECRET_KEY_BASE, OPENPROJECT_HOST__NAME, OPENPROJECT_HTTPS, and OPENPROJECT_DEFAULT__LANGUAGE, and it walks the reader through startup, production persistence, and proxy configuration. However, it still assumes familiarity with Docker, Linux, reverse proxies, and advanced concepts such as cosign, SBOM, VEX, NFS, S3, and Docker Swarm, so it is not fully self-contained for beginners."
+  }
+}

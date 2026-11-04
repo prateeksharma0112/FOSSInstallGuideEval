@@ -1,0 +1,59 @@
+{
+  "run": {
+    "run_id": "Qwen_P2__10-P028-urbankit-plattform__run-03",
+    "experiment_id": "Qwen_P2",
+    "run_number": 3,
+    "status": "completed",
+    "started_at": "2026-11-04T23:49:23.056173+01:00",
+    "finished_at": "2026-11-04T23:49:37.914931+01:00",
+    "duration_seconds": 14.86
+  },
+  "task": {
+    "task_id": "10-P028-urbankit-plattform",
+    "dataset_id": "P028",
+    "project": {
+      "opencode_id": "12597",
+      "name": "UrbanKIT Plattform",
+      "description": "A city's digital citizen participation platform: public portal plus closed project workspace with modular tools.",
+      "catalogue_url": "https://opencode.de/de/software/urban-kit-plattform-12597",
+      "type": "Application",
+      "platforms": [
+        "web"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/stadt-detmold/urban-kit-plattform",
+      "commit_sha": "d170d748ae3d7873d83816fe68a36c7989dce0a7",
+      "license": "EUPL-1.2"
+    },
+    "installation": {
+      "complexity": "Medium"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/stadt-detmold/urban-kit-plattform/-/blob/d170d748ae3d7873d83816fe68a36c7989dce0a7/docs/deployment.md",
+      "source": "Repository deployment guide",
+      "language": "English",
+      "word_count": 505
+    }
+  },
+  "prompt": {
+    "template": "installguideeval/prompts/02_structured.md"
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "model_name": "Qwen3.8-27B-FP8",
+    "model_identifier": "hosted_vllm/Qwen/Qwen3.8-27B-FP8",
+    "reasoning_effort": null,
+    "response_id": "chatcmpl-a330a68e527a16ef",
+    "input_tokens": 1828,
+    "output_tokens": 2829,
+    "total_tokens": 4657
+  },
+  "artifacts": {
+    "prompt": "evaluation/prompt.md",
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json"
+  }
+}

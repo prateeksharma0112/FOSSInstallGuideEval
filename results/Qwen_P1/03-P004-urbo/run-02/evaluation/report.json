@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "It covers starting, configuring, verifying, and troubleshooting well, but it relies heavily on prerequisites and external docs (e.g., GITHUB_TOKEN setup, backend/README.md) and does not fully explain how to install the required tooling from a clean machine."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is logically organized: primary setup command first, then troubleshooting, common recipes, and options. A reader can quickly find the main path and supporting commands, though prerequisites could have been listed earlier."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands, expected URLs, configuration variables, and failure behaviors are stated clearly. Some advanced terms and mechanisms are referenced externally rather than fully spelled out, which slightly reduces precision for a standalone reader."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The guide is readable for experienced developers, but it assumes familiarity with worktrees, Docker, just, Keycloak, pnpm, and local proxy concepts. Some ideas are explained, but many are not defined for a less experienced user."
+  }
+}

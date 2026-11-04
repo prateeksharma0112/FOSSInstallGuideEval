@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "The guide covers the main install and setup flow: download, place on a web server, duplicate the example, modify configuration, and open the resulting URL. However, it omits prerequisites, web-server setup details, permissions, version requirements, and deeper configuration guidance, leaving the reader to rely on external links and prior knowledge."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is organized in a logical sequence: host the example application first, then configure it. It uses numbered steps, a clear folder structure, and links to related configuration documentation. The main weakness is the somewhat awkward instruction about renaming the examples folder and updating URLs, but overall the layout is easy to follow."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "The instructions are generally understandable and use specific file names, folders, and example URLs. However, several steps are vague, such as 'if need be,' 'move the ZIP file to your web server,' and 'unpack the archive,' without precise commands, server paths, or expected verification results. The guide also assumes HTTPS and uses placeholders without explaining them."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The overall process is simple enough for someone with basic web-hosting experience, but the guide assumes familiarity with web servers, file placement, URL construction, and portal configuration concepts. Technical terms such as htdocs, baselayers, layer tree, and configuration-file roles are not explained, so the guide is not fully self-contained for a less experienced user."
+  }
+}

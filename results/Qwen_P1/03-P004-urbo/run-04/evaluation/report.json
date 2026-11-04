@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "It covers the main startup command, instance identification, required token, key options, verification/diagnostic commands, and troubleshooting, but assumes the repository/worktree and core toolchain are already available and defers some setup details to linked files."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is easy to scan and follows a sensible order: primary command, expected URLs, caveats, diagnostics, and extra recipes. It could be improved by grouping prerequisites or a numbered first-time sequence before the main command."
+  },
+  "clarity": {
+    "score": 5,
+    "reason": "Instructions, commands, flags, environment variables, and expected outcomes are stated precisely, with useful caveats about concurrent starts, Keycloak reimport behavior, Android login limitations, and proxy port configuration."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "The guide explains several technical concepts, such as .localhost, secure context, and Keycloak realm import behavior, but it still assumes prior familiarity with Docker, just, git worktrees, and local development stacks."
+  }
+}

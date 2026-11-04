@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "The guide covers the core installation/run process (`just up`), required configuration (`GITHUB_TOKEN`, `URBO_PROXY_PORT`), expected URLs, verification/troubleshooting (`just doctor`, `just status`, `just logs`), and maintenance commands. It is less complete for a standalone installation because it assumes an existing worktree and toolchain, defers token setup to an external README, and does not provide an explicit end-to-end verification checklist."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is logically organized into main command, URL behavior, troubleshooting, additional recipes, options, and deeper mechanics. A user can find the information needed and follow the process in a sensible order. A minor weakness is that prerequisites such as `GITHUB_TOKEN` are introduced after the primary command rather than before it."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands, configuration values, expected outcomes, and failure modes are stated precisely, including the first-run identifier behavior, URL pattern, port conflict handling, and specific troubleshooting commands. There is some minor ambiguity, such as referring to “the three dev servers” after listing backend, CMS, citizen app, and urboards, and assuming the reader is already in the correct worktree."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "The guide explains useful technical concepts, such as why `.localhost` provides a secure context, why concurrent starts can race, and why Keycloak realm re-imports may be needed. However, it still assumes familiarity with worktrees, Docker, Node, pnpm, `just`, and the project’s service architecture, so it is not fully self-contained for a novice."
+  }
+}

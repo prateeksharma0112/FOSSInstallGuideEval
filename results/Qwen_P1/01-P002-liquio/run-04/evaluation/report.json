@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "The guide covers the main local and Kubernetes installation paths: prerequisites, cloning, Docker Compose startup, admin/cabinet access, user generation, example process import, tests, and K8s setup. It is missing some useful details, such as explicit health checks/expected success states, troubleshooting, and an obvious `npm install` step before running tests."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is organized logically with clear headings and a sensible order: prerequisites, setup, startup, example usage, tests, then Kubernetes. Minor issues include placing “Running Tests” under “Getting Started” and inconsistent substep numbering in the Kubernetes section."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Commands, URLs, passwords, and Kubernetes values are generally precise, but expected outcomes are often not stated. Some instructions are slightly informal or ambiguous, such as “continue without skipping the validation” and “use the generated key file,” and the test section assumes dependencies are already installed."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The steps are understandable for users already familiar with Docker, Node.js, Git, Kubernetes, and certificate-based authentication. However, the guide assumes prior knowledge of several technical concepts, such as PKCS#12, X.509 certificates, PKI, register schemas, and Kubernetes ingress configuration, without explaining them in depth."
+  }
+}

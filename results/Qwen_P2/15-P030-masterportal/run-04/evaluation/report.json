@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "The guide covers only a basic deployment flow: download the zip, upload/unpack it to a web server, duplicate the Basic folder, edit config files, and open a URL. It does not provide prerequisites, server requirements, commands, configuration details, troubleshooting, or meaningful verification beyond stating that the portal should be available at a URL."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is organized into two clear sections, “Host an example application on your server” and “Configure example application,” with numbered steps that follow a logical installation order. The folder structure is also listed, making it easy to find the relevant files and proceed step by step."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "The instructions are generally easy to follow, but several parts are vague. For example, it says to “move the ZIP file to your web server” without specifying how, what permissions are needed, or how to unpack it. The URL contains a placeholder, and the expected successful outcome is only implied rather than precisely verified."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The steps are simple enough for someone already familiar with web hosting, but the guide assumes prior knowledge of web servers, Apache/htdocs, URL construction, and portal configuration files. It does not explain key terms or concepts, so a less technical user would need outside knowledge."
+  }
+}

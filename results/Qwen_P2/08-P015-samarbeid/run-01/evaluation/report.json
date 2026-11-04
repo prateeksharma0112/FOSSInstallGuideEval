@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "The guide lists requirements, a single setup command, and a verification URL, but it does not explain how to install the required tools, configure the database or environment, or handle failures. It also only says to check the command output for the admin user without describing what to expect."
+  },
+  "structure": {
+    "score": 3,
+    "reason": "The guide is arranged in a usable order: requirements, then `bin/setup`, then opening the local URL. However, it is a single short section without distinct headings for prerequisites, installation, configuration, and verification."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "The main command and expected outcome are clear: run `bin/setup`, then open `http://localhost:3000`. However, some requirements are vague, such as “see `.ruby-version`” and “see `.tools-version`,” and the guide does not precisely define what `bin/setup` does or what successful output should include."
+  },
+  "understandability": {
+    "score": 2,
+    "reason": "The steps are simple for someone who already knows Ruby, Node.js, yarn, asdf, PostgreSQL, Docker, and the project’s `bin/setup` script, but the guide does not explain these terms or concepts and therefore assumes prior technical knowledge."
+  }
+}

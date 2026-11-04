@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "The guide covers prerequisites, installation commands, starting the app, basic UI configuration, optional macOS app bundling, container deployment, sound overrides, and data storage. Verification is present but mostly implicit, such as the app window opening, seeing history in the Statistik tab, and opening the VNC URL, with no explicit success checks or troubleshooting steps."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is organized into clear headings and follows a logical order: basic installation, starting the app, optional packaging, additional features, container use, and data storage. However, configuration and data storage are placed toward the end, which may delay useful information for users who need to understand it before configuring the app."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands, file names, environment variables, expected outcomes, and data locations are stated precisely, with helpful examples such as the sound file table and exact copy/open commands. There is minor ambiguity in `git clone <this repo>` and the use of untranslated German UI labels like Einstellungen and Statistik, though their purpose is explained."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The steps are generally followable, but they assume familiarity with git, Python virtual environments, pip, PyInstaller, Docker, and VNC/noVNC. Some concepts are explained, such as Gatekeeper behavior and container data persistence, but many technical terms are not defined, so users would need prior experience to fully understand the setup."
+  }
+}

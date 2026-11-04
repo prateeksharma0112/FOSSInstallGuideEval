@@ -1,0 +1,59 @@
+{
+  "run": {
+    "run_id": "Qwen_P2__02-P003-green-ecolution__run-04",
+    "experiment_id": "Qwen_P2",
+    "run_number": 4,
+    "status": "completed",
+    "started_at": "2026-11-04T23:52:37.986299+01:00",
+    "finished_at": "2026-11-04T23:52:51.922212+01:00",
+    "duration_seconds": 13.937
+  },
+  "task": {
+    "task_id": "02-P003-green-ecolution",
+    "dataset_id": "P003",
+    "project": {
+      "opencode_id": "11929",
+      "name": "Green Ecolution",
+      "description": "Platform for smart irrigation and green space management in municipalities based on LoRaWAN sensor data and route optimization.",
+      "catalogue_url": "https://opencode.de/de/software/green-ecolution-11929",
+      "type": "Application",
+      "platforms": [
+        "web"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/green-ecolution/green-ecolution",
+      "commit_sha": "94229d0d6c84b3590827ee1c144d8e62c2180101",
+      "license": "AGPL-3.0-only"
+    },
+    "installation": {
+      "complexity": "High"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/green-ecolution/green-ecolution/-/blob/94229d0d6c84b3590827ee1c144d8e62c2180101/README.md",
+      "source": "Repository README",
+      "language": "English",
+      "word_count": 692
+    }
+  },
+  "prompt": {
+    "template": "installguideeval/prompts/02_structured.md"
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "model_name": "Qwen3.8-27B-FP8",
+    "model_identifier": "hosted_vllm/Qwen/Qwen3.8-27B-FP8",
+    "reasoning_effort": null,
+    "response_id": "chatcmpl-8a2702c955964752",
+    "input_tokens": 2186,
+    "output_tokens": 2550,
+    "total_tokens": 4736
+  },
+  "artifacts": {
+    "prompt": "evaluation/prompt.md",
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json"
+  }
+}

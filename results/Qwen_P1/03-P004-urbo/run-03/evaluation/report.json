@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "The guide covers the main startup command, instance identification, required token, port configuration, troubleshooting/reset commands, and ways to inspect services. It is slightly less than excellent because it does not provide a full prerequisite installation guide or an explicit success-checklist beyond `just doctor`, `just status`, and logs."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is well organized: it begins with the primary command, then explains URLs and behavior, followed by troubleshooting, additional recipes, and options. It is easy to scan, though it is more explanatory than a strictly numbered step-by-step installation flow."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands, environment variables, configuration caveats, and expected URLs are stated clearly and specifically. The main ambiguity is that some details are delegated to external files or the `just` recipe list rather than being fully spelled out in the guide itself."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "The guide explains useful concepts such as `.localhost`, secure context, concurrent-start caveats, and Keycloak reset behavior. However, it assumes the reader is already familiar with developer tooling such as Docker, Node, pnpm, git worktrees, and Keycloak."
+  }
+}

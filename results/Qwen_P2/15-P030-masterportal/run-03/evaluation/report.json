@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "The guide covers the basic steps to download, host, and open the example portal, and gives high-level configuration steps. However, it does not cover prerequisites such as installing or configuring a web server, detailed configuration values, or meaningful verification beyond visiting a URL."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is organized into a logical order: host the example, verify it, then configure a custom portal. Numbered steps and a folder structure list make the process easy to follow, although it is very brief and lacks more detailed sections for prerequisites or configuration reference."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "The main steps are understandable, but some language is vague, such as “if need be” and “and so on.” The guide uses placeholders like [web-server-name] and does not fully specify expected outcomes or success criteria. It also mentions both style_v3.json and style.json, which could create ambiguity."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The steps are easy to follow at a high level and the folder structure is explained. However, the guide assumes prior familiarity with web server hosting, URLs, and portal configuration concepts such as baselayers, tools, and layer trees, without defining them."
+  }
+}

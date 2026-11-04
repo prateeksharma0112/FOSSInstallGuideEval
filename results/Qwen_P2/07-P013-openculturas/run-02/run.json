@@ -1,0 +1,59 @@
+{
+  "run": {
+    "run_id": "Qwen_P2__07-P013-openculturas__run-02",
+    "experiment_id": "Qwen_P2",
+    "run_number": 2,
+    "status": "completed",
+    "started_at": "2026-11-04T23:40:42.987999+01:00",
+    "finished_at": "2026-11-04T23:40:54.862907+01:00",
+    "duration_seconds": 11.875
+  },
+  "task": {
+    "task_id": "07-P013-openculturas",
+    "dataset_id": "P013",
+    "project": {
+      "opencode_id": "3458",
+      "name": "OpenCulturas",
+      "description": "Web-based content management system for user-generated and/or purely editorial content such as: person/group profiles, event venues, tourist attractions, reusable event descriptions, dates (repeat dates possible), FAQs, magazine articles.",
+      "catalogue_url": "https://opencode.de/de/software/open-culturas-3458",
+      "type": "Application",
+      "platforms": [
+        "web"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/openculturas/openculturas-distribution",
+      "commit_sha": "838d5d0f359a0f32a54223fc67f2e1f74f0029dc",
+      "license": "GPL-2.0-or-later"
+    },
+    "installation": {
+      "complexity": "Medium"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/openculturas/openculturas-distribution/-/blob/838d5d0f359a0f32a54223fc67f2e1f74f0029dc/README.md",
+      "source": "Repository README",
+      "language": "English",
+      "word_count": 466
+    }
+  },
+  "prompt": {
+    "template": "installguideeval/prompts/02_structured.md"
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "model_name": "Qwen3.8-27B-FP8",
+    "model_identifier": "hosted_vllm/Qwen/Qwen3.8-27B-FP8",
+    "reasoning_effort": null,
+    "response_id": "chatcmpl-a01b543efbec29ae",
+    "input_tokens": 1489,
+    "output_tokens": 2052,
+    "total_tokens": 3541
+  },
+  "artifacts": {
+    "prompt": "evaluation/prompt.md",
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json"
+  }
+}

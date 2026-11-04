@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "The guide covers basic installation steps—clone repository, create `.env`, run `docker-compose up -d --build`, and access endpoints—but it does not list the required environment variables, configuration details, or meaningful verification steps. It relies on external READMEs for required setup details, so by itself it is insufficient to complete a full installation."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is logically organized into prerequisites, numbered getting-started steps, access information, and links to more detailed documentation. A user can easily follow the intended order, although the structure is limited to a high-level quick start rather than a complete installation guide."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "The main commands and endpoints are stated clearly, but important details are ambiguous or missing. For example, the repository URL is a placeholder, the required `.env` values are not specified, and the expected result of running Docker Compose is not described. The distinction between Docker access URLs and local development URLs is also not fully explained."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The high-level steps are easy to follow, but the guide assumes familiarity with several technical concepts without explanation, such as Docker Compose, `.env` configuration, QGIS Server, TileServer, WebDAV, and HTTPS for `localhost`. A reader without prior knowledge would likely need additional context to fully understand the setup."
+  }
+}
