@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Covers the full install path end-to-end: prerequisites with links and version pins, clone/fork, config generation via init.sh, container startup, login with generated certificates including file paths and default passwords, example data import, Playwright test commands, and a complete Kubernetes path (ingress, Helm, DNS, key generation). Verification is present but informal (logging into the admin panel/cabinet is the implicit success check). Gaps: no npm install step before running the Playwright tests, no readiness/health-check guidance after docker compose up -d, and no troubleshooting guidance."
+  },
+  "structure": {
+    "score": 5,
+    "reason": "Clear hierarchical arrangement: Prerequisites → Fork and Clone → Initial Setup (Docker Compose Setup with Local startup, Example process) → Running Tests → Kubernetes Setup. Every section has numbered, sequential steps that build on prior steps (e.g., key files generated in Local startup are reused in the Example process; Kubernetes prerequisites listed before its numbered 1–10 procedure). Users can locate and follow each path in order."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands are precise and copy-pasteable (exact Helm flags, kubectl jsonpath, sed-free hosts-file append, exact example filenames like examples/workflow-1000.bpmn), with explicit URLs, ports, and passwords. Ambiguities hold it back from 5: the phrase 'continue without skipping the validation' (workflow import) is unclear; no indication of when services are ready to browse after docker compose up; the contradictory phrasing 'LoadBalancer ClusterIP'; and minor untidiness ('to setup')."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "The guide explains the non-obvious security concepts well (auto-generated Central Authority certificate, X.509/PKCS#12, replacing them with an org PKI for production) and states what init.sh and Docker Compose actually do. However, it requires some background knowledge elsewhere: K8s concepts (ingress, LoadBalancer, Helm) are given as commands with external links only, and platform-specific terms like 'cabinet' and 'register schema/registry' are used without definition, so users must infer them from context or the UI."
+  }
+}

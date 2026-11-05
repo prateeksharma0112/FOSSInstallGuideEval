@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "Basic install path is covered (prerequisites with versions, cloning, .env setup, docker-compose up, access URLs), but key information is missing from the guide itself: required .env variables are deferred to an external README (deployment/README.md), and verification is limited to listing URLs—no expected outcomes are described (what a successful login, API response, or running service looks like). Local development prerequisites (Node.js, Python, uv) are listed, but no steps explain how to actually run the frontend/backend locally. No troubleshooting or post-install configuration (e.g., QGIS project files referenced by `<project>.qgs`) is provided."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "Steps are numbered and sequential in a logical order (clone → environment variables → start services → access), with prerequisites listed up-front and links to detailed per-directory setup at the end, making it easy to follow and navigate. Minor weakness: step 2 directs the reader to an external README mid-flow rather than inlining essentials, and the mixed presentation of production (https://app.localhost) and local dev (http://localhost:5173) URLs without a branching step slightly muddies the intended path."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Commands and prerequisites are mostly precise (version numbers given, exact .env location stated, concrete shell commands). However, several items are ambiguous or imprecise: no configuration values are stated inline (only a pointer to required variables), there is a placeholder `<project>.qgs` with no explanation of what should replace it, the note '(or http://localhost:5173 for local dev)' does not clarify when each URL applies or how local dev services are started, and no expected command output or success indicators are given. Also, `docker-compose` (v1 syntax) may confuse users expecting `docker compose`."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The overall flow is easy to follow for a reader already familiar with Docker, environment variables, and the command line, and the four steps are short and skimmable. But the guide explains none of the technical concepts it relies on: WebDAV, uv, QGIS Server, the `/ows/?MAP=` URL pattern, and multi-subdomain localhost URLs (app/api/qgis/tiles/files.localhost) are used without any explanation or pointer for readers unfamiliar with them, and nothing explains how the `.localhost` domains resolve or whether hosts-file/DNS/TLS setup is needed."
+  }
+}

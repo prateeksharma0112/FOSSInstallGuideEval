@@ -1,0 +1,62 @@
+{
+  "run": {
+    "run_id": "GLM_P2__06-P005-geospatialanalyzer__run-03",
+    "experiment_id": "GLM_P2",
+    "run_number": 3,
+    "status": "completed",
+    "started_at": "2026-11-05T12:24:39.502914+01:00",
+    "finished_at": "2026-11-05T12:25:25.228616+01:00",
+    "duration_seconds": 45.734
+  },
+  "task": {
+    "task_id": "06-P005-geospatialanalyzer",
+    "dataset_id": "P005",
+    "project": {
+      "opencode_id": "4619",
+      "name": "GeospatialAnalyzer",
+      "description": "Open source software for providing a web service that enables the automated collection and analysis of geodata – e.g., as a basis for integration into digital application and administrative procedures.",
+      "catalogue_url": "https://opencode.de/de/software/geospatial-analyzer-4619",
+      "type": "Application",
+      "platforms": [
+        "web",
+        "linux",
+        "windows",
+        "mac"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/OC000024389631/GeospatialAnalyzer",
+      "commit_sha": "1b62187a74718590ee6e7ccda4d881983cc595af",
+      "license": "GPL-3.0-only"
+    },
+    "installation": {
+      "complexity": "Medium"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/OC000024389631/GeospatialAnalyzer/-/blob/1b62187a74718590ee6e7ccda4d881983cc595af/README.development.md",
+      "source": "Repository Development README",
+      "language": "English",
+      "word_count": 986
+    }
+  },
+  "prompt": {
+    "template": "installguideeval/prompts/02_structured.md"
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "model_name": "GLM-5.3-Flash-NVFP4",
+    "model_identifier": "hosted_vllm/RedHatAI/GLM-5.3-Flash-NVFP4",
+    "reasoning_effort": null,
+    "response_id": "chatcmpl-b7b1ab3fbdba6131",
+    "input_tokens": 2119,
+    "output_tokens": 9662,
+    "total_tokens": 11781
+  },
+  "artifacts": {
+    "prompt": "evaluation/prompt.md",
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json"
+  }
+}

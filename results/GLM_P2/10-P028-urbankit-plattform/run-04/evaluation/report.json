@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Covers the core deployment arc well: service topology with ports, images and volumes; env setup with minimum required variables; production hardening (root Mongo auth, removed host port, restart policy); domain/DNS/nginx routing; backup and restore with cron scheduling; an update procedure; and demo-account seeding. Verification steps are present (docker compose ps # wait for healthy, curl .../api/health). It falls short of 5 because prerequisites (Docker/Compose versions, how the code reaches the server, server sizing) and TLS certificate provisioning are absent even though the guide requires https (listen 443 ssl; ws:// blocked as mixed content); only minimum env vars are given with the rest deferred to docs/env-reference.md; and verification is a single health call with no expected result described."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "Sections follow the natural deployment lifecycle — overview table → base setup → domains/nginx → production override → backup/restore → updates → demo accounts — and headings, a summary table, and fenced command blocks make items easy to find. The build-time-args caveat is placed immediately after setup, where it is actionable. Minor structural lapses: the uploads_data volume appears unannounced in the backup section (only media_data was introduced), the mailpit service surfaces only in the production-override section though it is part of the compose stack, and there is no prerequisites section up front."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands are concrete and copy-pasteable with exact values (127.0.0.1:3020, mongo:7, wss://ws.urbankit.de), and caveats are unusually precise — the empty-volume init restriction includes the exact mongosh createUser command, restore 'drops and replaces the current database', backup rotation is 'after 14 days', and the Host-header requirement explains what depends on it. Residual ambiguities: 'wait for healthy' is undefined (no expected ps output or healthcheck), no expected response for the health endpoint is given, secret generation/ownership is unstated, the base (non-credentialed) DATABASE_URI value never shown, and the nginx block is labeled a 'sketch' with no ssl_certificate directives."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "Several concepts are helpfully explained in place (mixed-content rationale for wss://, NEXT_PUBLIC_* values 'baked into the client bundle at build time', 'no migrations — Mongo is schemaless', failed-fast .env intent). However, understanding still requires significant prior knowledge: Compose variable interpolation (':?' syntax) and profiles, nginx and WebSocket upgrade headers, mongosh/authSource=admin, cron, and TLS conventions are used without explanation, and there is no glossary. Unexplained internal references ('Same pattern as the urban-kit-methodensammlung stack', 'the prototype notice is on', 'see script header') cannot be resolved from the guide itself."
+  }
+}

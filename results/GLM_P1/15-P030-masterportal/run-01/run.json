@@ -1,0 +1,59 @@
+{
+  "run": {
+    "run_id": "GLM_P1__15-P030-masterportal__run-01",
+    "experiment_id": "GLM_P1",
+    "run_number": 1,
+    "status": "completed",
+    "started_at": "2026-11-05T11:07:07.546447+01:00",
+    "finished_at": "2026-11-05T11:07:22.917827+01:00",
+    "duration_seconds": 15.375
+  },
+  "task": {
+    "task_id": "15-P030-masterportal",
+    "dataset_id": "P030",
+    "project": {
+      "opencode_id": "12551",
+      "name": "Masterportal",
+      "description": "The Masterportal is a flexible modular system for geoportals on the web.",
+      "catalogue_url": "https://opencode.de/de/software/masterportal-12551",
+      "type": "Application",
+      "platforms": [
+        "web"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/lgvhh/urban-data-solutions/masterportal",
+      "commit_sha": "410dc25f07b22213fa85d37622a76f614e859eb8",
+      "license": "MIT"
+    },
+    "installation": {
+      "complexity": "Low"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/lgvhh/urban-data-solutions/masterportal/-/blob/410dc25f07b22213fa85d37622a76f614e859eb8/docs/Setup/setup.md",
+      "source": "Repository documentation",
+      "language": "English",
+      "word_count": 420
+    }
+  },
+  "prompt": {
+    "template": "installguideeval/prompts/01_minimal.md"
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "model_name": "GLM-5.3-Flash-NVFP4",
+    "model_identifier": "hosted_vllm/RedHatAI/GLM-5.3-Flash-NVFP4",
+    "reasoning_effort": null,
+    "response_id": "chatcmpl-98f2763e74bfc7b1",
+    "input_tokens": 1065,
+    "output_tokens": 3814,
+    "total_tokens": 4879
+  },
+  "artifacts": {
+    "prompt": "evaluation/prompt.md",
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "Installation is well covered: all dependencies are listed with exact install commands (rustup, wasm32 target, pnpm, just, wasm-pack, bacon, sqlx-cli), and both HTTP and HTTPS setups are described with concrete commands and resulting service URLs. However, key configuration and verification details are missing: no instructions for setting up or logging into Keycloak or pgAdmin (no credentials), no description of what values `.env.example` contains beyond Porkbun keys, no explanation of how service URLs change when a custom `DOMAIN` is used, and no troubleshooting or explicit verification steps beyond opening URLs. The Configuration section itself is only a pointer to `backend/config/` and `compose.yaml` rather than documented values."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide has a logical flow: Quick Start → HTTPS variant → Requirements → Installation → Common Commands → Services → Architecture → PWA → Configuration. Section headings are descriptive, and the commands/services tables make steps and URLs easy to locate. Drawbacks: prerequisites appear *after* the Quick Start commands with no forward reference, so a new user could run `just infra-up` before installing `just`; and the Porkbun/HTTPS setup is described twice (in Quick Start and again in the PWA section) with slightly different step sequences, which could confuse ordering."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands are precise and annotated (e.g., `just infra-up # Start infra (Postgres, Keycloak, ...)`), dependency install commands include exact flags (e.g., `sqlx-cli --no-default-features --features rustls,postgres`), and expected outcomes are concrete (ports 3000/3443, full service URL tables for both modes). Remaining ambiguities: the Porkbun environment variable names are never stated (only 'add your Porkbun API keys' / 'see .env.example'), the `<ip>`/`<your-ip>` placeholder is used inconsistently and its URL construction is not fully explained, and behavior with a custom domain is clarified only for the app URL ('or your custom domain'), not for Keycloak/pgAdmin/Valhalla URLs."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The step sequences themselves are simple and followable, and some tooling is briefly glossed (e.g., wasm-pack 'builds the domain WASM bindings', bacon 'live reload', sqlx-cli 'for migrations'). But the guide assumes substantial prior knowledge: Traefik, Valhalla, Streamlet, Porkbun DNS-01 challenge, Workbox, Nix (`nix develop`), sqlx offline-cache regeneration, and the APP_ env/YAML profile system are used without explanation. What 'Streamlet' is, and the purpose of each service, must be inferred; new users unfamiliar with this stack would struggle to understand what each step actually does."
+  }
+}

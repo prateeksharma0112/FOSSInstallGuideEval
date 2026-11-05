@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 1,
+    "reason": "Critical steps are missing; the guide alone is not sufficient to install and run the software. It never explains how to obtain the code (yet points to files like `.ruby-version` and `.tools-version` that only exist inside the repository), never states versions for PostgreSQL/Docker, provides no configuration information (environment variables, database credentials, ports), and — most importantly — has no step for actually starting the application. It jumps directly from `bin/setup` to 'Open http://localhost:3000', leaving the user to guess how the server is launched. Admin-account details are also unresolved: 'A initial admin user account is automatically generated (see output of above command for details)' does not say what the details are, where in the output they appear, or how to sign in."
+  },
+  "structure": {
+    "score": 2,
+    "reason": "The meager content that exists is in a sensible order (prerequisites → `bin/setup` → open http://localhost:3000), but it is presented as unnumbered bullets of equal weight under a single 'Getting started' heading rather than as ordered steps. The sequence is also broken as written: no step starts the server, so the final 'Open http://localhost:3000 and you should see your local samarbeid running' does not follow from the preceding `bin/setup` step, and the reader cannot actually follow the process in the required order. In a document this short, navigation itself is not a problem, which is why this is not scored lower."
+  },
+  "clarity": {
+    "score": 2,
+    "reason": "Several statements are imprecise. Prerequisite versions are not stated for Ruby ('see `.ruby-version` for exact version') or Node.js/yarn ('see `.tools-version` (asdf)'), leaving the reader to interpret an unexplained parenthetical and to infer whether asdf is required or merely suggested; PostgreSQL and Docker/Docker Compose are named without any version, install, or setup guidance. `bin/setup` is given with no explanation of what it does or what a successful outcome looks like. 'You should see your local samarbeid running' does not define what 'samarbeid' is or what the user should actually see on screen, and no troubleshooting or failure states are described."
+  },
+  "understandability": {
+    "score": 2,
+    "reason": "The guide assumes considerable prior knowledge that it never explains: the reader must know how to obtain and enter a repository, recognize that `bin/setup` is a conventional project bootstrap script, understand what asdf and its `.tools-version` file are for, know how Docker Compose services are started, and know what 'samarbeid' (the application itself) is — the name is used as if already introduced. No technical terms are defined and no troubleshooting help is offered, so a newcomer cannot realistically follow it; an experienced developer can proceed only by filling in the (substantial) implicit gaps themselves."
+  }
+}

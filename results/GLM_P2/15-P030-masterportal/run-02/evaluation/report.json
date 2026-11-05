@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "Basic end-to-end path is covered: download examples.zip, move to web server and unpack, folder layout described, portal opened via URL, then configuration steps (edit resources files, duplicate Basic into my_portal, edit config.js/config.json) with a final access URL. However, prerequisites are barely specified (only 'it's required to host the portal with a web server'; no details on transferring files to the server, TLS/HTTPS setup despite https URLs, or browser/system requirements). Verification is limited to 'The portal should now be available by following this link' — no description of what a successfully loaded portal should look like, and no troubleshooting. No software version is identified ('last stable version'). Deeper configuration is deferred entirely to linked docs, which is acceptable for a quick start but limits standalone coverage."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide follows a logical two-phase flow — 'Host an example application' then 'Configure example application' — with numbered steps in dependency order (download → unpack → open URL → configure → open new URL). The folder tree in step 3 orients the reader, and cross-links to detailed config docs are consistently placed. Minor structural friction: the long file-tree listing interrupts the hosting steps; step 4 mixes an optional rename decision, its consequences, and the access URL, so conditional advice sits confusingly before the link it affects; and the configuration file documentation is only reachable via external links rather than summarized in place."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Strengths: concrete file/folder names, example URLs (https://[web-server-name]/examples/Basic/index.html), and a worked example name (my_portal) with consistent path updates. Weaknesses: the placeholder [web-server-name] is never explained; there is a filename inconsistency — the tree lists style_v3.json while the text and a link refer to style.json; vague conditionals ('If need be...', 'You may decide...') give no decision criteria; the sentence 'The portal should now be available by following this link' is ambiguous, especially if the reader applied the optional rename since the printed URL still says 'examples'; and expected outcomes are described only as a reachable URL, with no indication of what a correct result looks like."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "Steps are short, concrete actions (copy folder, rename, edit two files), and the guide explains the purpose of the key folders/files: Basic is 'the example application providing the portal-specific configuration files', resources holds the 'global configuration files', and mastercode contains 'the compressed JavaScript and CSS files'. Unexplained concepts (layer tree, baselayers, details of config.js editing, web-server hosting mechanics like htdocs/FTP) are either given only as an example or handed off to linked full documentation, so the guide is easy to follow for readers with basic web-hosting and JSON/JS familiarity but not fully self-contained for complete novices."
+  }
+}

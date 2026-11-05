@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "The guide covers prerequisites, cloning, launching via Docker Compose, and access URLs, but it is not self-sufficient: the required .env variables — the one hard blocker — are entirely deferred to deployment/README.md, so the flow breaks at step 2. It also omits any verification (no health check, expected startup output, or what you should see at each URL), guidance on TLS certificates for the https://*.localhost endpoints, admin user creation despite listing an Admin URL, troubleshooting, where QGIS projects (.qgs) come from, and how Node/Python prerequisites relate to any step."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The arrangement is conventional and logical: prerequisites first, then numbered steps in dependency order (clone → configure → build/run → access), followed by links to detailed per-component guides. Items are easy to locate. It falls short of excellent because prerequisites mix Docker-based and local-dev tooling without saying which steps need which, and critical configuration is pushed one link away without being flagged as mandatory before step 3."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Commands are concrete and copy-pasteable with standard placeholders (<repository-url>, <project>), and endpoints are listed precisely with port alternatives. However, expected outcomes are never stated (what a successful docker-compose up looks like), the dual URLs (https://app.localhost vs http://localhost:5173"
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The three core actions are simple to follow, but the guide assumes prior familiarity with Docker Compose, .env files, uv, and the *.localhost domain mechanism, none of which are explained. The access list presents six services (QGIS Server OWS, TileServer, WebDAV, Admin) as bare jargon with no indication of their role or whether any are optional, so readers must already understand the stack to feel confident in what each step accomplishes."
+  }
+}

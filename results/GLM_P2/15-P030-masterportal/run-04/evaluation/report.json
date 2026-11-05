@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "The core install path is present (download examples.zip from Bitbucket, host via a web server, unpack, open the URL), configuration is covered, and verification URLs are given. However, coverage is thin in places: the configuration steps largely defer to other documentation ('for all options, please refer to the full documentation'), there is no description of what a successful result should look like, and there is no troubleshooting, browser/version requirements, or mention of what to do if no web server exists."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is logically ordered in two sequential sections — 'Host an example application on your server' then 'Configure example application' — each with numbered steps following the correct order (download → place/unpack → inspect structure → open URL → copy folder → edit configs → open new URL). Links to deeper documentation are embedded at the point of need. Minor deductions: prerequisites and verification are folded into steps rather than separated out, and the long folder tree is embedded inside step 3, making that step heavy."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Instructions are mostly precise: concrete file names (config.js, config.json, services.json), URL patterns using a clear placeholder convention ([web-server-name]), and a worked example folder name (my_portal). Deductions: a naming inconsistency — the folder tree lists style_v3.json while the prose links 'style.json', which could send users looking for a file they won't find; the first configuration step is vague ('If need be, change the global configuration files... to add aerial view images..., and so on') with no specifics or direct doc links; the unpacking location is given only by example ('e.g. htdocs'), and expected outcomes are never described."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The guide provides helpful plain-language context for the file layout (Basic = 'example application providing the portal-specific configuration files', resources = 'global configuration files', mastercode = 'compressed JavaScript and CSS files'), and concrete examples aid comprehension. But it assumes prior knowledge it does not supply: what a web server is and how to use htdocs, and portal-domain terms such as 'layer tree', 'baselayers', and 'rest-services' are used without explanation — understanding what the config files actually control requires following the external documentation links."
+  }
+}

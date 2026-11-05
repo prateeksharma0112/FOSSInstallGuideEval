@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Guide covers prerequisites, install, alternative packaging, Docker, configuration options, and data storage for the two supported paths (macOS + container). Verification is implicit rather than explicit: launch commands with expected outcomes ('This opens the app window') but no dedicated verification or troubleshooting section. Windows is mentioned only as a data path, leaving its install story unclear. No troubleshooting for common failure scenarios."
+  },
+  "structure": {
+    "score": 5,
+    "reason": "Logical progression: install → launch → optional operations → storage. Headings are descriptive; cross-references between sections aid navigation; requirements precede installation commands; each subsection is self-contained for the error zones the user might hit."
+  },
+  "clarity": {
+    "score": 5,
+    "reason": "Commands are copy-pasteable, file paths are exact, and German UI labels are given precisely so they can be located in the actual interface. môi trường variables, config file names, and default behaviors are stated precisely. Minor ambiguity: 'the pomodoro source directory' requires the user to infer vs. locate; 'requires root or sudo' could clarify which specific operations need elevation."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "Good explanations of what steps accomplish and what happens if preconditions are unmet; additional-optional operations are clearly labeled as such and justified. However, no explanation of what a Git tag is or why one might need checkout for release candidates, and unexplained prerequisites assumption that the user knows what Homebrew and root access mean."
+  }
+}

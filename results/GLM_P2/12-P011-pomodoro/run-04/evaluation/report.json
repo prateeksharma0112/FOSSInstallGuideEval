@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "The guide covers installation (venv + pip install -e .), initial configuration (Focus/Break minutes, round count, long break in the 'Einstellungen' panel), functional verification ('pomodoro' opens the app window), plus optional paths (PyInstaller .app bundle, custom sounds, Docker container) and data storage locations. Verification is implicit rather than explicit — there is no version check or post-install confirmation step. Some prerequisites are unstated (git for cloning, where Python comes from on macOS), there is no troubleshooting for install failures, and platform support is inconsistent: the opening line says 'Python 3.10+ on macOS', yet the storage section documents Windows paths elsewhere, leaving native Windows/Linux support ambiguous."
+  },
+  "structure": {
+    "score": 5,
+    "reason": "Sections follow the natural order of use: Installation, Starting it, optional .app packaging, sounds, container deployment, then a reference section on configuration/data storage. Each optional path is separately headed, cross-referenced ('see the two sections below'), and linked to concrete files (packaging/Pomodoro.spec, Dockerfile, docker/entrypoint.sh), so the reader can follow the main path without detours and locate optional material easily."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands are given in exact copy-pasteable blocks with stated outcomes (e.g., 'This installs the pomodoro console command', the noVNC URL http://localhost:6080/vnc.html, exact sound filenames in a table, precise env variables POMODORO_SOUNDS_DIR/POMODORO_DATA_DIR). Deductions: the UI labels are in German ('Einstellungen', 'Statistik', 'Historie zurücksetzen') with no English glosses, the top requirement 'Python 3.10+ on macOS' is ambiguously scoped, and success of the venv/pip steps is only verified implicitly."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The core install path is easy to follow, and several concepts are usefully explained in context (the bundle 'ships its own Python and Qt'; ad-hoc signing is 'required to run on Apple Silicon'; behavior without MP3s; why sound is silent in the container; what Gatekeeper means on first launch). However, the guide assumes substantial prior knowledge elsewhere: venv activation and the meaning of the editable install flag are not explained, PyInstaller/spec files, VNC/noVNC, PulseAudio/D-Bus, SQLite, and XDG_DATA_HOME appear without more than a name or link, and German UI labels are unexplained for non-German readers. A less experienced user would need outside knowledge for the packaging and container sections."
+  }
+}

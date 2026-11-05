@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "The core install path is well covered (`just up` handles dependency install, seeding, URL discovery) and configuration is addressed (instance identifier, `GITHUB_TOKEN` with exact PAT scope, `URBO_PROXY_PORT`, `--with-limesurvey`). However, the toolchain itself (Docker, Node, pnpm, `just`) is only detected by `just doctor`, never actually installed or version-pinned; host JDK requirements for `just backend-local` and Xcode/SDK needs for `just native` are unstated; token setup is deferred entirely to `backend/README.md`; and there is no verification guidance — no description of what each URL should show on success or what the seeded Keycloak login credentials are."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The primary action (`just up`) leads immediately, and the progression is logical: start-up → URLs → troubleshooting (`just doctor` first, then a diagnostic command list) → advanced recipes table → flags → internals pointer. Meaningful headings, a recipe table, and `just urls`/`just --list` as navigation aids make items findable. Deductions: the `GITHUB_TOKEN` prerequisite appears only after the main command (mitigated by the documented preflight check), the `.localhost` rationale paragraph interrupts the action sequence, and a large multi-sentence caveat is buried in a single table cell in the Android row."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands and behavioral contracts are stated very precisely: distinctions between `down`/`reset`/`fresh` are spelled out, exact error strings are quoted (`Invalid parameter: redirect_uri`), flag semantics are exact (`--detach` skips what `just serve` starts), and placeholder patterns like `http://app.<instance>.localhost` are unambiguous. Occasional ambiguity remains: how to set `URBO_PROXY_PORT` (export vs. env file) is not shown, where `GITHUB_TOKEN` must be placed is left to another file, and the actual names accepted by `--apps=<names>` must be inferred from the URL list."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "The guide explains the genuinely non-obvious concepts rather than assuming them: the `.localhost` TLD, why browsers grant it secure-context behavior (`crypto.subtle`, Keycloak login), Keycloak's `--import-realm` no-op behavior, and why Android login breaks with `KC_HOSTNAME`. It does, however, assume prior familiarity with git worktrees, Docker, pnpm, and OAuth issuer/redirect mechanics without introduction, and some paragraphs (the `.localhost` and realm-import ones) are dense, requiring careful reading."
+  }
+}

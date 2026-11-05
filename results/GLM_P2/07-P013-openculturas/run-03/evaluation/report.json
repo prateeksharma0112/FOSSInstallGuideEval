@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "The guide gives one command for a new production install (`composer create-project --remove-vcs drupal/openculturas_project example.org`) but immediately delegates further information to an external link. It never explains how to actually install the site afterwards (no `site:install` step, no database/web-server setup, no admin login), and there are no verification steps anywhere to confirm the installation worked. The Requirements section is also uninformative beyond a link and 'PHP 8.4', stating only 'a bunch of drupal modules and external libraries' without naming them. The development flow is the more complete path (`ddev composer install`, then `ddev drush site:install --yes --existing-config`), but even it omits project startup, database configuration, and how to sign in (login is only hinted at indirectly via `drush uli` in the DDEV cheatsheet)."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide follows a logical progression — Requirements, then Installation (New installation, then Updating split into patch/minor releases), then Development topics (install with ddev, DDEV cheatsheet, patching, code checks, configuration) — with clear hierarchical headings that let a reader navigate to what they need. One weakness is the duplicated 'Installation' concept (a top-level production install and a separate developer 'Installation (with ddev)') with no cross-reference telling readers which to choose; the dev installation steps also omit the `ddev start` prerequisite that the cheatsheet itself lists first."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Commands are concrete and mostly well commented (e.g., the composer update sequence for patch releases, and the patching commands with inline explanations of when to run `patches-relock` vs `patches-repatch`). However, several statements are imprecise: requirements are described only as 'a bunch of drupal modules and external libraries'; the target directory `example.org` in the create-project command is never explained; 'optionally update library versions in the inline package repositories in `composer.json`' is vague; and no instruction states an expected outcome or success indicator (what the user should see after running the install commands)."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The basic setup steps (`composer create-project`, `ddev composer install`, `ddev drush site:install`) are short and followable, and the guide does explain some non-obvious points, such as why `uuid` is removed from config except for views, and what each patching command does. However, it assumes substantial prior knowledge without explanation: Composer workflows, Drush, DDEV, flags like `--existing-config` and `--minimal-changes`, 'inline package repositories', PHPCS/PHPStan/Rector, and the config_devel workflow are used without introduction, and the instruction to read a separate DEVELOPMENT.md leaves a gap for readers who jump straight into the Development section."
+  }
+}

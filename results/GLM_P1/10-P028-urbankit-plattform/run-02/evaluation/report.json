@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Good coverage of the deploy lifecycle: service topology, env setup, health-check verification, production hardening, backup/restore, updates, and even volume-migration gotchas are all addressed. However, several pieces are missing or deferred: no prerequisites (Docker/Compose versions), no step to obtain the code, no TLS certificate provisioning despite `listen 443 ssl`, env var details are outsourced to `docs/env-reference.md`, media-volume restore is undocumented (only DB restore is shown), and no initial admin/user setup beyond demo seeding. These gaps would stall a user deploying from scratch."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "Clearly sectioned in a mostly logical order: overview → base setup → domains/proxy → production override → ops (backup, restore, updates) → optional demo accounts. Scannable headings and a service table make things findable. Deductions: required env vars are scattered across three separate sections (Setup, Domains, Production override), and a production user following the document top-to-bottom would rebuild twice (base `up` first, prod override later) without being told upfront, despite the guide itself warning that NEXT_PUBLIC_* changes require a rebuild."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands are concrete and copy-pasteable with real ports, paths, and var names; risky behavior is flagged (restore drops the database, init only applies to an empty volume, mixed-content blocks plain ws://). Minor precision gaps: the `uploads_data` volume appears in the backup section but was never introduced in the service table; the credentialed `DATABASE_URI` format is implied rather than specified; no expected output for the health-check curl is given; and the nginx 'sketch' omits ssl_certificate lines and upload size limits."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The guide explains *why* for several non-obvious requirements (`:?` fail-fast is intentional, Host header must be preserved, build args require a rebuild, readOnly needs an image rebuild), which helps. But it assumes substantial prior knowledge: compose profiles, build args, `authSource=admin`, mongodump archives, middleware-based host routing, and reverse-proxy WebSockets are used without definition. A user unfamiliar with Docker/nginx/MongoDB would need significant outside research; an experienced operator will find it dense but followable."
+  }
+}

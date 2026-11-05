@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "Plausible analytics..."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "Order is log..."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands and ..."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "Terms are uncon ..."
+  }
+}

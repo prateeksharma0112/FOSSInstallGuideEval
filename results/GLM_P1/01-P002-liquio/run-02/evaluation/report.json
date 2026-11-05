@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "The guide covers the full local path (prerequisites, clone, init script, Docker Compose startup, certificate login, example data import, tests) and also includes an unusually thorough Kubernetes path (image builds, DNS, key generation). However, the test section omits prerequisite steps like `npm install` / Playwright browser setup, the Node.js requirement is never tied to its purpose, there are no verification/troubleshooting aids (checking pod or container health, failure recovery), and no teardown/uninstall instructions."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "Steps follow the correct dependency order: prerequisites → clone → generate config → start → verify login → example usage → tests → optional Kubernetes track, with numbered sub-steps (8.1–8.3, 9.1–9.2) that sequence dependent operations correctly. Minor flaws: the 'Running Tests' heading has an inconsistent level and floats ambiguously under the Compose section, 'Initial Setup' wraps only a single subsection, and the Docker prerequisites are repeated inside 'Basic requirements'."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands are precise and copy-pasteable, with concrete paths (`config/admin.p12`, `examples/workflow-1000.bpmn`), URLs, ports, quoted default passwords, well-defined placeholders (`YOUR_USERNAME`), and fully spelled-out flags in the Kubernetes commands. Ambiguities remain: the guide never explains how to actually 'use' a .p12 key file in the browser (import vs. certificate-picker), the phrase 'continue without skipping the validation' is unclear, no expected wait time or readiness signal is given after `docker compose up -d`, and it isn't stated what environment the Playwright tests target."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The Docker portion is reasonably self-explanatory thanks to background paragraphs on `init.sh`, certificates, and PKI. But the Kubernetes section is almost entirely bare commands with no conceptual support (why the LoadBalancer patch, what `minikube tunnel` is for, what a ClusterIP is), the client-certificate login flow is assumed to be familiar, and domain terms like 'cabinet' and 'Central Authority' plus the relevance of the Node.js prerequisite go unexplained — so readers need more prior knowledge than the stated prerequisites imply."
+  }
+}

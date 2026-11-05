@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Covers the full install→configure→verify path well: Docker prerequisite, quick start, persistent-storage production setup, configuration (HTTPS/HSTS, env variables, link to advanced config), and clear expected outcomes (success message, admin/admin login, URL). It also goes beyond the minimum with reverse-proxy, plugins, CA certificates, air-gapped install, and Swarm scaling. It falls short of 5 because it never explains how to upgrade the all-in-one container or run the seeder/migrations job it references (it only says 'refer to the installation method of your choice'), and it omits backup guidance and system requirements."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The flow is logical and followable in the required order: prerequisites → container/tag overview → quick start → production persistence → configuration → reverse proxy → advanced scenarios. Sub-sections use clear numbered steps (plugins 1–5, offline install 1–4, Swarm stages). Deductions: the heading hierarchy is odd ('Using this container in production' sits at the same level as 'All-in-one container'), the long image-attestation section delays the actual quick start, and content belonging to other installation methods bleeds in (e.g., references to 'docker-compose pull' and packaged-install examples inside the all-in-one guide)."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Mostly precise — each environment variable is explained, assumptions for the proxy examples are stated explicitly, and expected outputs are given. However, several provided commands fail if followed verbatim: in the self-signed-certificate bind-mount example, inline comments appear after line-continuation backslashes ('target=/tmp/my_root.crt → backslash #mount...'), which breaks the shell command; and the air-gapped section creates 'openproject-stable.tar.gz' but then runs 'gunzip openproject-12.tar.gz', a filename mismatch. There are also contradictory versions/tags (architectures noted 'since 12.5.6' but examples use :16 vs :17; Swarm output lists postgres:13 once and postgres:10 later), plus typos (double slash in '/etc/ssl/crt//server.key', malformed sentence 'in a separate of the following sections'). These errors create real ambiguity about which values to trust."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "The guide explains its own technical vocabulary rather than assuming it: what Docker is, slim vs. all-in-one flavors, the tag/floating-version scheme, the purpose of each run flag (SECRET_KEY_BASE, HOST__NAME, HTTPS, DEFAULT__LANGUAGE), HSTS/X-Forwarded-Proto behavior, and a table defining the attestation/SBOM/VEX artifacts. Pitfalls are explained with fixes (pseudo-TTY issue, macOS mount error, seeder showing 0/1 replicas). It doesn't reach 5 because some concepts (reverse proxying, NFS, Rails basics) are assumed, and rough grammar ('archive this', 'focused on') occasionally adds friction."
+  }
+}

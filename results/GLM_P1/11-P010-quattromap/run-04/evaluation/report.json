@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "Der Kern Ablauf wird abgedeckt (Repository klonen, Abhängigkeiten installieren, Dev-Server ausführen, Build nach `dist/`, Bereitstellung auf gh-pages), und die `config.json`-Referenz ist für ein so kurzes Dokument überraschend gründlich. Allerdings werden die Voraussetzungen nie erwähnt (Node.js-/npm-Versionen, Git), die Überprüfung ist minimal (nur der Browser unter `http://localhost:8080/` öffnen; es gibt nichts zum Überprüfen des Builds oder der Bereitstellung), es gibt keine Fehlerbehebung außer einem beiläufigen NFS/Vagrant-Hinweis, und es gibt keinen Bereitstellungspfad für nichts-Entwickler (z.B. das Hosten von `dist/` auf einem normalen Webserver)."
+  },
+  "structure": {
+    "score": 2,
+    "reason": "Die Reihenfolge für eine Installationsanleitung ist vertauscht: Die Anweisungen zur Bearbeitung von `src/config.json` erscheinen, bevor das Repository überhaupt geklont wurde, sodass der Leser der Anleitung nicht von oben nach unten folgen kann. Nur der Abschnitt 'Develop' folgt einer korrekten Sequenz (Klonen → installieren → starten → builden → deployen). Die Konfigurationstabelle flacht auch verschachtelte Parameter ab – die Schlüssel der obersten Ebene und die Schlüssel innerhalb von Service-Definitionen erscheinen als Zeilen der gleichen Ebene, sodass zwei verschiedene Zeilen mit dem Namen 'layer' versehen sind – und das Dokument wechselt auf halbem Weg von Deutsch zu Englisch, was die Navigation erschwert."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Die Befehle sind exakt (`git clone <url>` , `npm install`, `npm start`, `npm run build`, `npm run deploy`) und die erwarteten Ergebnisse werden angegeben (URL des Dev-Servers, Ausgabeort, Zielzweig), und die meisten Konfigurationszeilen liefern Standardwerte, Wertebereiche und Beispiele. Einige Einträge sind jedoch mehrdeutig oder fehlerhaft: Die Zeile 'map_x' hat nicht übereinstimmende Klammern und ein unübersichtliches Layout; das doppelte 'layer' zeigt die Verschachtelung nicht an; das Zuordnungsbeispiel enthält scheinbar beschädigte Zeichen ('Deutschland ? Zero ? Version 2.0') und ein URL-Beispiel mit Backticks innerhalb von Anführungszeichen. Ein Leser könnte diese falsch reproduzieren."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "Die Entwicklungs-Schritte sind einfach und standardmäßig leicht zu befolgen, und die Spalte 'Erklärung' der Konfigurationstabelle beschreibt Parameter in einfachem, verständlichem Text. Die Anleitung setzt jedoch Vorkenntnisse voraus und erklärt sie nicht: git, npm, webpack, WMS 1.3.0 und XYZ-Tiles werden ohne Erklärung verwendet; EPSG 4326 wird nur beiläufig erklärt; und der Mischmasch aus Sprachen bedeutet, dass ein einsprachiger Leser mit der Hälfte des Dokuments zu kämpfen hätte."
+  }
+}

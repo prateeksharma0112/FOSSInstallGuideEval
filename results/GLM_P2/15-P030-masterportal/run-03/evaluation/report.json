@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "The guide covers the essential flow: downloading the example (step 1), hosting it (step 2), explaining the unpacked structure (step 3), and accessing the portal via a URL (steps 4 in both sections), plus a basic configuration phase. However, verification is minimal — it only says 'The portal should now be available' without describing what the user should see or how to confirm success. Prerequisites are treated informally ('it's required to host the portal with a web server', with Apache/htdocs only as an example), and there is no troubleshooting guidance or statement of system requirements. Configuration ('become your custom portal') is only sketched, relying on links to full config.js/config.json documentation."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is well organized into two sequential phases matching its stated purpose: 'Host an example application on your server' followed by 'Configure example application'. Numbered steps within each section follow a logical order (download → place on server → understand structure → access URL; then modify configs → duplicate folder → access new URL). Cross-links to detailed documentation (config.js, config.json, services.json) appear at the relevant steps. A minor weakness is that step 4 of the first section combines the optional folder-rename instruction with the verification URL, slightly muddling the flow."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Most instructions are actionable: the URL patterns (https://[web-server-name]/examples/Basic/index.html) are precise, the folder-rename consideration is handled explicitly, and the duplicate-and-rename step includes a concrete example (my_portal). However, there are vague spots: 'download the last stable version from Bitbucket by clicking the link provided' is ambiguous since the link points to a fixed examples.zip; 'If need be, change the global configuration files...' gives no concrete values or commands; repeated 'and so on' and 'e.g.' qualifiers leave expected changes unspecified; and expected outcomes are limited to URLs, with no description of what a successful result (e.g., a displayed map) looks like."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The guide helps comprehension in places: it annotates the full file tree, distinguishes 'portal-specific configuration files' from 'global configuration files', and explains that mastercode 'contains the compressed JavaScript and CSS files of the Masterportal'. But several terms are used without explanation and presuppose prior knowledge: htdocs and Apache hosting, the purpose of rest-services.json vs. services.json, 'layer tree', 'baselayers', and even how the ZIP file physically gets to the web server (no transfer method is described). A reader without web-hosting or GIS familiarity would need outside knowledge at several points."
+  }
+}

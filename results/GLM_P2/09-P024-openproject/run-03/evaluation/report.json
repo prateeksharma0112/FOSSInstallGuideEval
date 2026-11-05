@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "The guide covers prerequisites (links to Docker Engine installation), installation (quick start and hardened production run with persistent volumes), extensive configuration (environment variables, HTTPS/HSTS, Apache/nginx reverse proxies, subdirectory setup, S3/NFS storage, plugins, self-signed CA import, offline deployment, Swarm scaling), and verification (expected success message with default admin login, accessing http://localhost:8080, swarm `docker service ls` output). It stops short of 5 because it omits hardware/system requirements, has no explicit post-install verification beyond accessing the browser, and lacks concrete upgrade steps for the all-in-one container (tag strategy is described, but not the actions to take)."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide follows a logical progression: prerequisites → supported architectures/limitations → container flavors and tags → image verification → installation overview → quick start → production → configuration → reverse proxy → advanced topics (plugins, certificates, air-gapped, Swarm). Numbered sub-steps within each task (e.g., plugin creation steps 1–5, offline steps 1–4, Swarm steps 1–3) support sequential execution. It is not a perfect 5 because a large amount of context material (tagging schemes, sigstore attestations) precedes the actual installation, and the forward reference 'The lower part of this documentation focused on this installation method' is awkwardly placed."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Core commands and values are precisely stated and explained (e.g., each quick-start flag is described, `<your-secret-key-base>` includes a generation command `openssl rand -hex 64`, expected outcome 'success message... login: admin, password: admin'). However, several defects undermine precision for users following verbatim: the offline section saves `openproject-stable.tar.gz` but loads `openproject-12.tar.gz` (a mismatch that breaks copy-paste); the self-signed certificate `docker run` example places `#` comments after line-continuation backslashes, which breaks the multi-line command; the Apache example contains a typo path `/etc/ssl/crt//server.key`; the image-verification examples use tag `:16` while the rest of the guide uses `:17`; and the two `docker service ls` outputs inconsistently show `postgres:13` then `postgres:10`. There are also grammar slips ('in a separate of the following sections') and a garbled Dockerfile comment ('npm add npm <package-name>*')."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "The guide is easy to follow and explains most of its own terminology: slim vs. all-in-one images, floating vs. non-floating tags, the meaning of each environment variable, HSTS behavior, `X-Forwarded-Proto`, SBOM/VEX attestations, and the reason the seeder service shows 0/1 replicas. Tasks are chunked into short illustrated steps with expected outcomes. It falls short of 5 because it assumes prior familiarity with some concepts without explanation — e.g., Rails (only 'sets the secret key base for Rails'), inverse/nested environment-variable naming (`OPENPROJECT_HOST__NAME` double-underscore convention is never explained), 'seeder/migrations job', and Docker fundamentals (run flags, volume mounts) are assumed from the start."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "Covers clone → env file → start → access URLs, but essential information is missing from the document itself: the required `.env` variables are deferred to `deployment/README.md` with none named, there is no verification step after `docker-compose up -d --build` (no expected outcome, health check, admin credentials, or migration/initial-data step), no troubleshooting, and the `<repository-url>` and `<project>.qgs` placeholders are unexplained. Verification and configuration are effectively not covered by the supplied text."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "Steps are presented in a logical order (prerequisites → clone → env → start → access), with numbered steps and a clear pointer to detailed per-component READMEs at the end. Minor deductions: the env-variable step is a dead end mid-flow (must leave the guide to proceed), and the main dev URLs and 'local dev' alternative URLs are mixed without indicating which apply when."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Commands and endpoints are stated precisely in code blocks with versions for Node/Python and 'optional' flagged for uv. However, concrete configuration values are absent, no expected result is stated for any step, the two URL sets (`https://app.localhost` vs `http://localhost:5173/8000`) are not disambiguated, and nothing explains the implied local TLS setup (browsers will distrust `app.localhost` certificates)."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The four steps are short and mechanically simple, so they are easy to follow for someone with prior experience. But no technical terms are explained: Docker Compose, `.env`, uv, QGIS Server, TileServer, and WebDAV are all required knowledge in advance, and the guide gives no context for what these extra services are for, which makes it hard for newcomers to understand what they are starting."
+  }
+}

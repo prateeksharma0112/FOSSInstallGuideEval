@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "Installation steps are covered at a basic level, but critical information is missing. Neither section explains how to actually create the GitHub Personal Access Token (only the frontend mentions required scopes like read:packages). There are no verification steps for the backend (no expected startup output, health check, ports, or URLs to confirm services are running), no description of configuration beyond the token (e.g., environment variables, database settings), and no indication of whether the frontends require the backend to be running. The CMS section is minimal, repeating none of the prerequisites or token setup it presumably depends on."
+  },
+  "structure": {
+    "score": 3,
+    "reason": "Each section is internally well-ordered: prerequisites → token setup → Docker startup → running the application, with clear headings and numbered/grouped steps. However, the guide is an aggregation of three standalone READMEs with no overall roadmap — there is no recommended sequence across the backend, app, and CMS, no explanation of how the components relate, and no overview of what the system is. Users must infer the order and the relationships themselves."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Most commands are precise and well-formatted (e.g., `cd docker`, `docker-compose up`, `./gradlew :menden-app:bootRun`, `pnpm nx serve erlebnis.stadt`), and expected outcomes are occasionally stated ('dependencies should install without errors'). However, several ambiguities exist: the Gradle example shows an empty username with the confusing comment 'can remain empty', the token fallback `?:"
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "The guide makes a good effort to explain concepts rather than assume them: both sections include a dedicated 'Why a GitHub Token is Required' explanation, the frontend lists concrete error symptoms (403/404) and required token scopes, and links are provided to Docker, JDK 21, and Nx documentation. The steps themselves are easy to follow. Some prior developer knowledge is still assumed (Gradle/Kotlin build files, Nx monorepos, .npmrc), and the guide never explains what the software does overall, which slightly lowers the score from excellent."
+  }
+}

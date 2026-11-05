@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "Configuration coverage is good (env vars, defaults, .env.local override example), but core installation information is missing: Node.js/npm is never mentioned even though `npm install --global yarn` requires it, and no version requirements are given for Node or yarn. There is also no step for obtaining/entering the source code, and verification is essentially absent — no expected outputs for `yarn install`/`yarn dev`/`yarn export`, no way to test the production build, and no troubleshooting."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "Well-organized with clear hierarchical headings in a logical order (preconditions → configuration → dev run → production build), and short enough to follow top-to-bottom without a TOC. Minor issues: the title 'How to build' doesn't reflect the dev-environment content, and the environment variable section doesn't indicate it is optional."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands are precise and shown in code blocks, yarn installation includes a verification command (`yarn --version`), and config values state explicit defaults with a commented example file. Gaps: no expected outputs for the main commands, commands don't state they must be run from the project root, and 'fully deployable export' is vague about what the `build` directory contains or how to use it."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The sequence of steps is simple to follow, but the guide assumes prior familiarity with the npm/Node and Next.js ecosystems: it never explains Node.js (the implicit dependency), what a `.env.local` file is versus `.env`, what the `NEXT_PUBLIC_` prefix means, or what a static export is. Only yarn is introduced with a link."
+  }
+}

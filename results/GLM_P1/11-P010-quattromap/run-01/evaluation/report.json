@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "The core installation commands (clone, npm install, start, build) are present, and the config.json parameters are documented in useful detail. However, prerequisites are never stated (Node.js/npm/Git versions or even the need to have them), there are no verification steps beyond 'open localhost:8080', and the guide does not say whether config.json edits require a rebuild or when they take effect. Adequate for experienced developers, but incomplete as a self-contained installation guide."
+  },
+  "structure": {
+    "score": 2,
+    "reason": "The document is ordered backwards for a new user: configuration instructions come first, before the reader has been told how to obtain or install the software. The two sections are also inconsistent — 'Konfiguration' is written in German while 'Develop' is in English — and there are no prerequisites section, numbered steps, or links connecting the sections. The nested 'layer' parameters (name, url, format, etc.) are presented as flat top-level rows, making it hard to see which values belong inside the layer array."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "The bash commands are precise and well commented, and most configuration parameters are clearly specified with value ranges, defaults, and examples. Clarity suffers in places: the map_x row is visually mangled and hard to parse, 'layer' is used with two different meanings (array of services vs. layer names in a service), the compactAttribution example shows a quoted string 'false' while the description implies boolean true/false, and the language switch introduces ambiguity about which audience/instructions apply."
+  },
+  "understandability": {
+    "score": 2,
+    "reason": "The guide assumes significant prior knowledge without explaining key terms: WMS 1.3.0, XYZ tiles, EPSG 4326, overlays, gh-pages, webpack-dev-server, and the NFS/Vagrant polling note are all unexplained. The unexpected mix of German and English additionally raises the comprehension burden. A developer familiar with npm/GIS concepts will manage, but the guide does nothing to onboard anyone else."
+  }
+}

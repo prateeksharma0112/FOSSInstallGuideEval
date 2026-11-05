@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "The core deployment loop is covered end-to-end: env setup, image build, container startup, and health-check verification (curl /api/health). Production concerns (reverse proxy, prod compose override, backups, restore, updates) are also addressed. However, several gaps would block a cold deployment: no prerequisites section (Docker/Compose versions, server sizing), no TLS certificate provisioning (the Nginx sketch has `listen 443 ssl` but no certificates/ACME steps), no example of the credentialed `DATABASE_URI` the web service needs after Mongo auth is enabled, no procedure for creating the first real (non-read-only) admin user, and restore is shown only for the DB — not for the media volumes that backup.sh also captures. There is also no troubleshooting guidance and no verification step after applying the prod override or updates."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "Sections follow a sensible deployment lifecycle: service overview → setup/build/verify → domains/reverse proxy → production hardening → backup/restore → updates → demo data. Clear headings, a service table, and cross-references to `docs/env-reference.md` and `architecture.md` make it easy to navigate and locate values. Minor deductions: the cron entry assumes scripts are already on the server without a placement/permission step, and the demo-account section is more of a feature note than an install step, which slightly blurs the boundary of the deployment procedure."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands are concrete and copy-pasteable, and the guide proactively flags failure modes: the fail-fast `:?` env syntax, the rebuild-vs-restart caveat for build args, and the empty-volume caveat for Mongo root-user init (with a manual fallback command). Weaker points: 'wait for healthy' does not describe what a healthy `docker compose ps` output looks like; 'Same pattern as the urban-kit-methodensammlung stack' references context the reader may not have; the Nginx block is self-described as a sketch and omits how SSL certificates are actually provided; and 'set at minimum' for env vars defers the full list to another document rather than stating it."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "A number of technical concepts are explained inline rather than assumed ('no migrations — Mongo is schemaless', 'realtime sidecar', why `ws://` is blocked as mixed content, why build args require a rebuild, why Mongo init only applies to an empty volume), which makes the steps followable even without deep background. The guide still assumes solid working knowledge of Docker Compose, Nginx, MongoDB, and DNS, with no glossary; the reference to the sibling 'methodensammlung' stack and the slightly confusing mailpit 'parked behind a compose profile and never starts' wording are the main comprehension stumbling points for someone outside the project."
+  }
+}

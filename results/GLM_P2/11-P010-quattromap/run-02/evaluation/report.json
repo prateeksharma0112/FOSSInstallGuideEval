@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "Covers the developer workflow (clone, npm install, npm start with URL, npm run build with output location dist/, deploy to gh-pages) and a fairly detailed config.json reference, but omits prerequisites (Node/npm versions), production deployment instructions (only gh-pages publishing is mentioned for what is a self-hosted map application), and any verification steps — the guide never states how to confirm the installation or configuration worked. The config section also only promises 'einige Standbareiwert-Einstellungen' (einige = some), so it is explicitly partial."
+  },
+  "structure": {
+    "score": 2,
+    "reason": "The two sections are in the wrong order for an installation guide: 'Konfiguration' comes first and instructs users to edit ./src/config.json, but a user cannot obtain or edit that file until the 'Develop' section later explains cloning the repository. Within the Develop section itself the command sequence is logical, but the document has no introduction stating the target audience or workflow, and it inconsistently mixes a German section with an English one, making it harder to follow in the required order."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Commands are precise and commented (exact git URL, npm commands, localhost:8080, output at dist/), and the config table mostly gives exact values, ranges (zoom 0–22, overlay_opacity 0–1, maps 1–4) and concrete examples. However, there are ambiguities: 'layer' is defined twice with different meanings; the map_x row's explanation is syntactically garbled; the compactAttribution example shows a quoted string (false) while onlyOverlay shows an unquoted boolean, leaving the expected value type unclear; and formatting artifacts (backticks embedded in url/attribution examples) suggest broken rendering of several parameter values."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The setup steps themselves are short and easy to follow thanks to inline comments, and within the config table opaque concepts are explained where it counts (e.g., overlay_opacity as 0 transparent to 1 opaque). But the guide assumes considerable prior knowledge without explanation: WMS 1.3.0, OpenStreetMap XYZ-Tiles, EPSG 4326, npm, git, gh-pages, and webpack file-watching (the quoted NFS/Vagrant note says 'use polling' without explaining how). A reader unfamiliar with web development or GIS terminology is left to figure these out themselves."
+  }
+}

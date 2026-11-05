@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "Covers the happy path end to end (prerequisites with versions, clone, create .env, docker-compose up, access URLs), but the hardest parts are delegated: step 2 only says 'See Deployment README for required variables' without listing any of them; the admin URL is given with no credentials or setup; there are no verification steps or expected outcomes after startup; and the '<project>.qgs' placeholder in the QGIS Server URL is never explained. Adequate as an entry point to a doc set, not self-sufficient for install + configure + verify."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "Well organized: prerequisites come first, then numbered steps in the required order (clone → configure → start → access). The Deployment README link is placed inline exactly where the .env step needs it, and deeper guides are collected in one list at the end. Not a 5 because the local development prerequisites (Node.js 22+, Python 3.12+, uv) have no corresponding steps anywhere in this document — those paths dangle until the reader opens external READMEs."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "What is stated is mostly precise: versioned prerequisites and exact commands in code blocks ('cd deployment', 'docker-compose up -d --build'). But there are ambiguity gaps: '<repository-url>' is unexplained; 'http://localhost:5173 for local dev' doesn't say whether that port is served by the Compose stack or requires starting a dev server (no command given); no step states an expected outcome (e.g., what you should see after 'up'); the '*.localhost' hostnames imply certificate/proxy setup that isn't addressed; and configuration values — an explicit component of this criterion — are entirely absent."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The core steps are short and conventional, so anyone familiar with Git and Docker can follow easily. However, no terms or concepts are explained: it assumes knowledge of Docker Compose, .env files, and uv, and never says what QGIS Server, TileServer, or the WebDAV Files service are for. A newcomer would finish step 2 still not knowing what to put in the .env file or why the various service URLs exist."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "Covers the basic happy path (clone, .env, docker-compose up, access URLs), but essential information is missing or delegated elsewhere: the required .env variables are not listed (only a pointer to another README), there are no verification steps or expected outcomes after startup, no explanation of how HTTPS on *.localhost (TLS certificates) is handled, no default credentials for the /admin panel, no troubleshooting section, and no actual steps for the 'local dev' mode despite prerequisites mentioning Node.js/Python for it."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "Logically ordered flow (prerequisites → clone → config → run → access) with clear headings, numbered steps, and links to more detailed per-area READMEs. Slightly weakened by the mixed dev/production URL list and the fact that following the guide to completion requires jumping to external documents."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Commands are concrete (git clone, cd, docker-compose up -d --build) and prerequisites are version-pinned. However, key configuration values are unspecified ('required variables' never listed), placeholders like <repository-url> and <project>.qgs are unexplained (where do projects live? what is a valid name?), and it is ambiguous when the alternate localhost:5173/8000 URLs apply versus the *.localhost URLs. No expected output from the compose command is given."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "Steps are short and easy to follow for someone with Docker familiarity, but technical terms and concepts (WebDAV, QGIS Server, TileServer, uv, QGIS project files) are never explained. The relationship between the containerized quick start and the 'local development' environment mentioned in prerequisites is confusing and left unexplained."
+  }
+}

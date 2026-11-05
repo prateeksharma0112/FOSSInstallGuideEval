@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "Install and auth-token configuration for the backend and frontends are covered, but verification is almost entirely missing: there are no expected outcomes for starting Docker services or running the Spring app, no URLs/ports to check, and no description of what the docker-compose file actually starts. The relationship between the three components and which database/setup the backend needs is never explained."
+  },
+  "structure": {
+    "score": 3,
+    "reason": "Each section is internally well ordered (prerequisites → token setup → run), but the combined guide never states an overall installation order or which components are required vs. optional; the 'cms' section appears with no prerequisites of its own, and users must infer that backend should be set up before frontends."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Commands and version numbers are precise, but 'Navigate to the /docker directory' is ambiguous about the starting directory, the run options don't say whether docker-compose should run in a separate terminal or with -d, and the Gradle Kotlin DSL snippet is mislabeled as 'Example Maven Configuration'. No output or success indicator is given for any command except pnpm install."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "The token requirement is explained twice with why it's needed, symptoms (403/404), and which permissions the PAT requires; code samples include comments and multiple setup paths (IDE, Gradle, .npmrc, env vars) with per-OS commands. However, it assumes familiarity with Gradle/Nx/monorepo jargon without any definition or glossary."
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "chatcmpl-b195391ec1be1685",
+  "created": 1793876997,
+  "model": "RedHatAI/GLM-5.3-Flash-NVFP4",
+  "object": "chat.completion",
+  "system_fingerprint": "vllm-0.32.0-tp2-ep-40f27c6f",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "{\"completeness\":{\"score\":4,\"reason\":\"Covers prerequisites, setup, HTTPS and PWA configuration, service URLs, and database migration/seed steps, allowing a full install-and-verify workflow;…,\"},\"structure\":{\"score\":5,\"reason\":\"Well-organized sections (Quick Start, Setup, Requirements, Commands, Services, Configuration) and commands are presented in the order they should be run…, but some cross-references require the reader to jump between sections.\"},\"clarity\":{\"score\":4,\"reason\":\"Commands, ports, URLs, and env variables are precise; however, some terms (e.g., 'domain WASM bindings', 'Streamlet') and some generated values (`<ip>` placeholders, Porkbun DNS records) are not defined locally…\"},\"understandability\":{\"score\":3,\"reason\":\"Familiar terms (Docker, Traefik, Keycloak, Valhalla, Streamlet, MQTT) are used without explanation… \"}}",
+        "role": "assistant",
+        "tool_calls": null,
+        "function_call": null,
+        "provider_specific_fields": {
+          "reasoning": null,
+          "refusal": null
+        }
+      },
+      "provider_specific_fields": {
+        "token_ids": null,
+        "stop_reason": 154827,
+        "routed_experts": null
+      }
+    }
+  ],
+  "usage": {
+    "completion_tokens": 200,
+    "prompt_tokens": 2004,
+    "total_tokens": 2204,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens_details": null
+  },
+  "service_tier": null,
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "ec_transfer_params": null,
+  "metrics": null
+}

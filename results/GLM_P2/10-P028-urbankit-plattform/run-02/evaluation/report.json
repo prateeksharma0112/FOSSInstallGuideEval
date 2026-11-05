@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "Covers the main path end to end: env setup, build/run command, a verification step (docker compose ps / curl /api/health), DNS and reverse proxy config, production hardening, backups, updates, and demo seeding. However, several configuration needs are unaddressed: no TLS certificate provisioning despite 'listen 443 ssl' nginx blocks; verification exists only for the web service (none for hocuspucus/mongo or domain routing); no prerequisites (Docker/Compose versions, server requirements); creation of a real admin account is omitted (only read-only demo logins); and env values are deferred to a referenced file (docs/env-reference.md) rather than stated. The undefined 'uploads_data' volume in the backup section is also unexplained."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "Logically ordered: overview table → setup → domains/proxy → production override → backup/restore → updates → demo seeding, with clear headings, a service table, and cross-links (architecture.md). Minor ordering friction: production-only variables (MONGO_ROOT_USER/PASSWORD, DATABASE_URI) first appear after the basic setup, and the 'init only applies to an EMPTY mongo_data volume' caveat means a user following sections top-to-bottom on a first boot must backtrack to the manual createUser command; 'uploads_data' appearing late without introduction also hinders findability."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands, ports, filenames, and flags are concrete, and potentially confusing behaviors are called out explicitly (compose `:?` fail-fast, NEXT_PUBLIC_* baked at build time requiring rebuild, Host header must be forwarded, restore 'drops and replaces', read-only demo writes). Not fully unambiguous: the nginx config is admitted to be a 'sketch' (no certificate directives or HTTP→HTTPS redirect), 'wait for healthy' never states what healthy looks like, and the seed:demo line pairs shell-prefixed vars with -e flags in a way that is easy to misapply. Ellipsis/placeholder values are acceptable for secrets but leave some configuration underspecified."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "Helpful inline micro-explanations are present (Mongo is schemaless so no migrations, wss:// vs ws:// mixed content, empty-volume Mongo init behavior, mailpit parked behind a profile). Still, the guide assumes substantial prior knowledge: Docker Compose layering/overrides, nginx WebSocket proxying, DNS setup, mongosh/mongodump, and Payload-style env conventions are used rather than explained; terms like 'sidecar', 'authSource=admin', and 'compose profile' get no definition; and the terse maintainer-note style ('— intentional') assumes the reader already knows the surrounding context."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Covers bringing the stack up, instance Identity workflow URLs, troubleshooting (doctor/logs/reset/reset-auth etc.), commands and worktree-handling reasonably fully. Concern: verification is incomplete - appears to assume no explicit post-install verification steps, whereas the keycak instructions are given but there are no explicit acceptance/check steps to confirm the install is correct."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "Well organized: it follows a logical progression of bringing the stack up, then troubleshooting, then reference material, matching typical reader needs. Concern: some reference-like material (doctor/logs/reset details) is interleaved with the flow text, which mildly disrupts reading order."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Instructions are mostly specific and verifiable (concrete commands, expected URLs, command outputs). Concern: a few outcomes are stated probabilistically or contextually (e.g. races, timing) rather than as unambiguous instructions."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "Reasonable to follow with modern tooling familiarity, but assumes moderate prior knowledge of worktrees, Just, Keycloak and iOS toolchains without defining these, which could slow down newer developers."
+  }
+}

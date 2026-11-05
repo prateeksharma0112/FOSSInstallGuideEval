@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "Covers only the bare minimum for a fresh install (a single composer command) and delegates the rest to an external link. Requirements are vague ("
+  },
+  "structure": {
+    "score": 4,
+    "reason": "wellorganized"
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Commandsthemselves"
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "Assumesfamiliarity"
+  }
+}

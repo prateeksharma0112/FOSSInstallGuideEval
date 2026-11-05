@@ -1,0 +1,59 @@
+{
+  "run": {
+    "run_id": "GLM_P1__09-P024-openproject__run-03",
+    "experiment_id": "GLM_P1",
+    "run_number": 3,
+    "status": "completed",
+    "started_at": "2026-11-05T11:19:59.384018+01:00",
+    "finished_at": "2026-11-05T11:20:18.265143+01:00",
+    "duration_seconds": 18.891
+  },
+  "task": {
+    "task_id": "09-P024-openproject",
+    "dataset_id": "P024",
+    "project": {
+      "opencode_id": "8047",
+      "name": "OpenProject",
+      "description": "OpenProject is a web-based project management solution specifically tailored to the needs of public administration. It supports project planning, task management, agile workflows, time tracking, and project portfolio management.",
+      "catalogue_url": "https://opencode.de/de/software/open-project-8047",
+      "type": "Application",
+      "platforms": [
+        "web"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/bmi/opendesk/component-code/project-management/openproject/openproject",
+      "commit_sha": "27a58131fa8dc521cd02c92c0b8e6a4854599d80",
+      "license": "GPL-3.0-only"
+    },
+    "installation": {
+      "complexity": "Medium"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/bmi/opendesk/component-code/project-management/openproject/openproject/-/blob/27a58131fa8dc521cd02c92c0b8e6a4854599d80/docs/installation-and-operations/installation/docker/README.md",
+      "source": "Repository README",
+      "language": "English",
+      "word_count": 4511
+    }
+  },
+  "prompt": {
+    "template": "installguideeval/prompts/01_minimal.md"
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "model_name": "GLM-5.3-Flash-NVFP4",
+    "model_identifier": "hosted_vllm/RedHatAI/GLM-5.3-Flash-NVFP4",
+    "reasoning_effort": null,
+    "response_id": "chatcmpl-91ec72d6d1970306",
+    "input_tokens": 8871,
+    "output_tokens": 4717,
+    "total_tokens": 13588
+  },
+  "artifacts": {
+    "prompt": "evaluation/prompt.md",
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json"
+  }
+}

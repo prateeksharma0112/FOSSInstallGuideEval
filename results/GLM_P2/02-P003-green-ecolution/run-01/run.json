@@ -1,0 +1,59 @@
+{
+  "run": {
+    "run_id": "GLM_P2__02-P003-green-ecolution__run-01",
+    "experiment_id": "GLM_P2",
+    "run_number": 1,
+    "status": "completed",
+    "started_at": "2026-11-05T11:54:01.237823+01:00",
+    "finished_at": "2026-11-05T11:54:16.573321+01:00",
+    "duration_seconds": 15.344
+  },
+  "task": {
+    "task_id": "02-P003-green-ecolution",
+    "dataset_id": "P003",
+    "project": {
+      "opencode_id": "11929",
+      "name": "Green Ecolution",
+      "description": "Platform for smart irrigation and green space management in municipalities based on LoRaWAN sensor data and route optimization.",
+      "catalogue_url": "https://opencode.de/de/software/green-ecolution-11929",
+      "type": "Application",
+      "platforms": [
+        "web"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/green-ecolution/green-ecolution",
+      "commit_sha": "94229d0d6c84b3590827ee1c144d8e62c2180101",
+      "license": "AGPL-3.0-only"
+    },
+    "installation": {
+      "complexity": "High"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/green-ecolution/green-ecolution/-/blob/94229d0d6c84b3590827ee1c144d8e62c2180101/README.md",
+      "source": "Repository README",
+      "language": "English",
+      "word_count": 692
+    }
+  },
+  "prompt": {
+    "template": "installguideeval/prompts/02_structured.md"
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "model_name": "GLM-5.3-Flash-NVFP4",
+    "model_identifier": "hosted_vllm/RedHatAI/GLM-5.3-Flash-NVFP4",
+    "reasoning_effort": null,
+    "response_id": "chatcmpl-aeba07b16fb8b8c3",
+    "input_tokens": 2004,
+    "output_tokens": 3040,
+    "total_tokens": 5044
+  },
+  "artifacts": {
+    "prompt": "evaluation/prompt.md",
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json"
+  }
+}

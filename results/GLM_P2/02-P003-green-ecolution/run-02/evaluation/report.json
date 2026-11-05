@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Covers prerequisites, setup, HTTPS and PWA configuration, service URLs, and database migration/seed steps, allowing a full install-and-verify workflow;…,"
+  },
+  "structure": {
+    "score": 5,
+    "reason": "Well-organized sections (Quick Start, Setup, Requirements, Commands, Services, Configuration) and commands are presented in the order they should be run…, but some cross-references require the reader to jump between sections."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands, ports, URLs, and env variables are precise; however, some terms (e.g., 'domain WASM bindings', 'Streamlet') and some generated values (`<ip>` placeholders, Porkbun DNS records) are not defined locally…"
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "Familiar terms (Docker, Traefik, Keycloak, Valhalla, Streamlet, MQTT) are used without explanation…"
+  }
+}

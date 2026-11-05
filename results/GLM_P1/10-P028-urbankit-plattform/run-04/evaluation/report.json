@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Covers install/build, env vars (with pointer to env-reference.md), deployment, production hardening, domain and WebSocket configuration, reverse proxying, backup/restore, and updates, plus a health endpoint for verification. Two gaps keep it from a 5: no TLS/certificate setup despite requiring https and wss:// (the Nginx block says `listen 443 ssl;` but never shows how certs are obtained), and no code-acquisition/prerequisites step (the repo clone is implied only by `git pull` under Updates). Verification is limited to a liveness check — nothing on first-use validation such as creating the initial admin user, logging in, or confirming board WebSocket connectivity."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "Logical progression: architecture overview → quick start → build-arg caveat → external exposure (domains, proxy) → production hardening → ongoing ops (backup, updates) → demo seeding. Clear headings, an orientation table of services, and cross-links to architecture.md. Minor stumbles: the `uploads_data` volume appears in the backup section without prior introduction, readers who follow Setup before reaching Production override walk into the (admittedly flagged) empty-volume Mongo-init trap, and hardcoded personal paths plus a sibling-project reference interrupt the otherwise generalized flow."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands are exact and copy-pasteable; ports, paths, and env var names are explicit; and non-obvious behaviors are called out precisely — build-time baking of NEXT_PUBLIC_* requiring a rebuild rather than restart, `:?` fail-fast on missing vars, Mongo init applying only to an empty volume with a concrete manual createUser fallback, and the Host-header forwarding requirement. Kept from 5: the Nginx config is labeled a 'sketch' and omits ssl_certificate directives (copied verbatim it breaks), key details are deferred to placeholders ('…', 'see script header'), and the cron path contains an unexplained doubled directory segment."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "Perfectly followable if you already know Docker Compose, Nginx, DNS, and MongoDB — and the guide explains project-specific mechanics well (why Host must be forwarded, why ws:// is blocked as mixed content, what the prod override changes, how demo accounts are locked down). However, general technical terms ('sidecar', 'schemaless', 'build args', 'compose profile', 'authSource=admin') are used bare, the prose is terse and dense, and no background explanations are offered, so a less experienced operator would need outside knowledge to follow along."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "The guide lists prerequisites (Ruby, Node/yarn, PostgreSQL, Docker Compose) and a single setup command `bin/setup`, plus a verification step (open http://localhost:3000). However, it documents no configuration steps beyond running an undescribed script: nothing about how to install/launch PostgreSQL or Docker services, no environment variables, no database setup, and no troubleshooting. Even critical configuration values (the admin account) are not stated — the user is told to 'see output of above command for details,' leaving essential installation information hidden in an undocumented script rather than in the guide."
+  },
+  "structure": {
+    "score": 3,
+    "reason": "The minimal content that exists is in a logical order — requirements, setup, then verification — so a user can follow the intended flow. But it consists of only one section with a compressed bullet list rather than ordered steps; installing the requirements is left entirely to the reader, and configuration/verification are not separated into distinct, findable stages."
+  },
+  "clarity": {
+    "score": 2,
+    "reason": "A few items are concrete: the command `bin/setup`, the URL http://localhost:3000, and pointers to exact versions via `.ruby-version`/`.tools-version`. But key expected outcomes are vague: 'you should see your local samarbeid running' never says what success looks like, and credentials — a critical configuration value — are deferred to script output ('A initial admin user account is automatically generated'). The guide also never states versions itself, leaving readers to cross-reference other repo files, and doesn't explain how `.tools-version` relates to both Node.js and yarn."
+  },
+  "understandability": {
+    "score": 2,
+    "reason": "The steps are terse but the flow is simple to grasp (install prerequisites, run one command, open a browser). However, the guide explains essentially nothing: it assumes prior knowledge of asdf, `.ruby-version`/`.tools-version` conventions, Ruby/Node ecosystems, PostgreSQL, and Docker. The only link provided is for asdf; there is no explanation of what `bin/setup` does or what to expect while it runs, so a reader unfamiliar with these tools cannot proceed."
+  }
+}

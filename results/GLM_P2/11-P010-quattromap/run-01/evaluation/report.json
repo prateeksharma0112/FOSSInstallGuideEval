@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "The guide covers a developer workflow (git clone, npm install, npm start, npm run build, npm run deploy) and an extensive configuration reference table, but omits prerequisites entirely (no Node.js/npm/git versions or system requirements), has no verification steps (only the implied 'open the web browser on http://localhost:8080/'), and does not explain how to install or serve the built app (dist/) in production — deployment guidance is limited to a gh-pages branch. Troubleshooting is a single copied webpack note about NFS/Vagrant. Key installation knowledge (environment requirements, expected check, real deployment) is missing."
+  },
+  "structure": {
+    "score": 2,
+    "reason": "The 'Konfiguration' section comes first and links './src/config.json', yet configuration is only possible after completing the 'Develop' steps (clone, npm install) that appear later — the order conflicts with the actual workflow. There is no title, introduction, prerequisites section, or overview of the process. Within the 'Develop' section the commands are logically sequenced, but the parameter table mixes top-level keys (e.g., 'maps') with nested service keys, and 'layer' appears in three different meanings ('map_x'.layer, top-level 'layer': [..], and the service's layer list) without clear grouping, making it hard to know where each parameter belongs."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "The configuration table is largely precise: each parameter has an explanation, allowed values/ranges (zoom 0–22, overlay_opacity 0–1, format png/jpeg), defaults ('crosshair': black, 'maps': 4), and an example. The dev commands are unambiguous code blocks with comments and stated outcomes (autoreload on change, output at dist/, publish to gh-pages). However, clarity suffers from inconsistencies: the 'attribution' example contains garbled text ('Deutschland ? Zero ? Version 2.0'), 'compactAttribution' is described as a boolean but exemplified as a string (compactAttribution: 'false'), and the 'map_x' row is hard to parse syntactically. No explicit expected result (what should appear in the browser) is given beyond the localhost URL."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The config parameters are explained in fairly plain language, including defaults and value ranges, so a reader can grasp what each setting does. The dev steps themselves (clone, npm install, npm start) are simple and conventional. However, the guide assumes substantial prior knowledge without saying so or explaining terms: WMS 1.3.0, OpenStreetMap XYZ-Tiles, EPSG 4326, ''Dienste'/Abdeckungslayer', webpack, and gh-pages are used without definition (the webpack quote about NFS/Vagrant polling is pasted verbatim from external docs). The document also never introduces what QuattroMap is beyond a bare link, so a reader unfamiliar with web-mapping tools would struggle despite the well-explained table."
+  }
+}

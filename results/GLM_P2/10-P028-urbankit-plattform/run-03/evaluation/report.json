@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "A complete deployment path is documented: service topology with ports and volumes, .env setup, docker compose up -d --build, verification via docker compose ps and a health endpoint, production override, backup/restore with cron schedule, updates, and demo seeding. However, several pieces needed to actually carry out the install are missing or delegated: there is no step for obtaining the codebase (no clone before cp .env.example), no system prerequisites (Docker/Compose versions), and no TLS certificate provisioning even though the architecture depends on https/wss and the Nginx config uses listen 443 ssl. Key values are pushed to external documents (env-reference.md, architecture.md, 'script header'), and the production DATABASE_URI format and SMTP provider details are not specified."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide follows a logical progression — architecture overview → setup → domain/proxy configuration → production hardening → backup/restore → updates → optional demo seeding — and headed sections, plus a table, make items easy to find. Caveats are co-located with the relevant step (build-args note follows setup; the empty-volume caveat sits inside the production section). Deductions: steps are not numbered; NEXT_PUBLIC_HOCUSPOCUS_URL appears in Setup but its meaning and required value (wss://... proxied to port 1234) are only explained later under 'Domains', forcing back-tracking; and an unexplained cross-project reference ('Same pattern as the urban-kit-methodensammlung stack') interrupts the flow."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Instructions are mostly precise and copy-pasteable: exact ports, image tags (mongo:7), commands, env var names, expected outcome (curl the health endpoint), and explicit failure/destructive-action warnings — Compose fails fast on missing vars via ':?', restore 'drops and replaces the current database', Mongo root-user init applies only to an empty volume with an exact manual workaround command provided. Deductions: the Nginx blocks omit ssl_certificate directives, so the sketch is not directly usable despite using 'listen 443 ssl'; 'wait for healthy' implies healthchecks that are never documented; SMTP variable names and the prod DATABASE_URI string are left unspecified; several placeholders use ellipses (DEMO_PROJECT_SLUG=…) and one exact connection detail (authSource=admin) is mentioned only in passing."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "Several concepts are usefully explained inline — build args being baked into the client bundle (requiring rebuild, not restart), plain ws:// being blocked as mixed content on https pages, why the Host header must be forwarded unchanged, and why Mongo init only applies to an empty volume. But the guide assumes substantial prior knowledge and leaves many terms unexplained: 'sidecar', 'schemaless', 'authSource=admin', compose 'profile', the middleware domain-splitting mechanism, and the internal 'urban-kit-methodensammlung stack' reference. A reader without Docker, Nginx, MongoDB, DNS, and cron background would need to consult other material; for an experienced operator it is easy enough to follow."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "The core install path is covered (requirements with install commands, just setup/build, infra-up/migrate-up/run-dev, both HTTP and HTTPS modes, service URLs), and verification exists in minimal form ('Open http://localhost:3000', service availability tables). However, several pieces needed for a full install/configure/verify are missing: no repo-clone step; no tool versions or OS support; no guidance on first-run Keycloak setup or initial login credentials despite auth being part of the stack; seed data (just seed-up) is listed but not integrated into any flow; and configuration is only an overview that defers to .env.example and compose.yaml rather than stating actual values."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is logically arranged, moving from Quick Start, to Setup (Requirements → Installation → Common Commands → Services), to Architecture, PWA, and Configuration. Steps are numbered in the HTTPS section (1–5), and the commands table aids findability. Deductions for redundancy: the Porkbun/HTTPS procedure is described twice (in Quick Start and again in the PWA section) with slightly different framing, which could confuse about the canonical procedure."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands are precise and annotated (e.g., 'just infra-up    # Start infra (Postgres, Keycloak, Traefik, Valhalla, Streamlet)'), exact tool install commands are given (cargo install sqlx-cli --no-default-features --features rustls,postgres), URLs include exact ports, and conditions are stated precisely ('Backend API… needs run-dev / run-docker', service worker 'disabled in vite dev'). Deductions because configuration values are referenced but never shown (key areas like 'database.*' are listed without examples, deferring to compose.yaml), Porkbun key variable names are left to .env.example, and the origin of '<ip>' is only explained later in the PWA section ('auto-detected')."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The copy-paste commands with inline comments make the steps easy to execute, and some terms are explained (bacon — 'live reload'; wasm-pack — 'builds the domain WASM bindings'; Architecture section explains the portable domain crate). But multiple names and concepts are used without explanation: Valhalla and Streamlet are never described, Keycloak's role is only hinted at, Traefik is mentioned as a router with no context, and jargon such as 'DNS-01 challenge', 'HMR conflicts with Workbox precaching', and the APP_ prefix/ __ separator convention is assumed known."
+  }
+}

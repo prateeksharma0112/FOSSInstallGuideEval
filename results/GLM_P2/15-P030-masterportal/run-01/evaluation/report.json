@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "The guide does cover an end-to-end basic flow: download (Bitbucket link to examples.zip), hosting (move to a web server, e.g. Apache's htdocs folder, unpack), access (exact URL given), and configuration (duplicate the Basic folder, edit config.js/config.json with links to full reference docs). However, verification is thin: the only check offered is 'The portal should now be available by following this link,' with no description of the expected result, no error states, and no troubleshooting. Prerequisites are mentioned only in passing ('it's required to host the portal with a web server') with no version or environment requirements, and all configuration detail is delegated to externally linked documents rather than covered here."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is organized into two clearly labeled phases ('Host an example application on your server' and 'Configure example application') with numbered steps presented in the correct order (download → unpack → open URL → duplicate → edit configs → open new URL). The embedded folder-structure tree helps users orient themselves and locate the files referenced in later steps. Minor structural weaknesses: the instruction to possibly rename the 'examples' folder appears immediately before a URL that still reads 'examples/Basic', which is slightly confusing, and the lengthy directory listing interrupts the step flow."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Many elements are stated concretely: exact example paths (htdocs, Basic, my_portal), exact URLs with a clearly usable placeholder ([web-server-name]), and named files (config.js, config.json, services.json, rest-services.json). However, there are precision defects: the file tree lists 'style_v3.json' while the text refers to 'style.json' (an inconsistency that could mislead), the '[version]' placeholder in the mastercode tree is unexplained, and several instructions are vague ('If need be, change the global configuration files...', 'You may decide to change the name...'). Expected outcomes after opening the portal are not described, so the user cannot confirm success unambiguously."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "The core steps consist of simple, familiar operations (download, move, unpack, open URL, duplicate folder, edit config), and the guide explains the purpose of the key folders and files (e.g., mastercode contains 'the compressed JavaScript and CSS files', Basic 'comes with an example application providing the portal-specific configuration files'). Some technical terms are used without explanation—'layer tree', 'baselayers', 'global configuration files', 'rest-services'—instead relying on linked full documentation, and basic familiarity with web hosting is assumed. Still, none of these unexplained terms block completion of the quick-start steps, so overall the setup is easy to follow."
+  }
+}

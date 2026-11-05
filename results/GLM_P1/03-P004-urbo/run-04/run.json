@@ -1,0 +1,60 @@
+{
+  "run": {
+    "run_id": "GLM_P1__03-P004-urbo__run-04",
+    "experiment_id": "GLM_P1",
+    "run_number": 4,
+    "status": "completed",
+    "started_at": "2026-11-05T11:26:09.426999+01:00",
+    "finished_at": "2026-11-05T11:26:36.463645+01:00",
+    "duration_seconds": 27.031
+  },
+  "task": {
+    "task_id": "03-P004-urbo",
+    "dataset_id": "P004",
+    "project": {
+      "opencode_id": "11309",
+      "name": "URBO",
+      "description": "Urbo is an open source city app platform that aggregates services and information from various sources for citizens.",
+      "catalogue_url": "https://opencode.de/de/software/urbo-11309",
+      "type": "Application",
+      "platforms": [
+        "ios",
+        "android"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/urbo-community/urbo",
+      "commit_sha": "71cd0baf943270d1e1fad9d8a8b0485a79bbd4a2",
+      "license": "EUPL-1.2"
+    },
+    "installation": {
+      "complexity": "High"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/urbo-community/urbo/-/blob/71cd0baf943270d1e1fad9d8a8b0485a79bbd4a2/README.md",
+      "source": "Repository README",
+      "language": "English",
+      "word_count": 803
+    }
+  },
+  "prompt": {
+    "template": "installguideeval/prompts/01_minimal.md"
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "model_name": "GLM-5.3-Flash-NVFP4",
+    "model_identifier": "hosted_vllm/RedHatAI/GLM-5.3-Flash-NVFP4",
+    "reasoning_effort": null,
+    "response_id": "chatcmpl-98f6bfdb2654e7bf",
+    "input_tokens": 1603,
+    "output_tokens": 5031,
+    "total_tokens": 6634
+  },
+  "artifacts": {
+    "prompt": "evaluation/prompt.md",
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json"
+  }
+}

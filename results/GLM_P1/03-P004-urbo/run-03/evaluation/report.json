@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Covers setup (`just up`), configuration (instance identifier, `.urbo-instance`, `URBO_PROXY_PORT`, `GITHUB_TOKEN`), URL access, service list, and a full reset/teardown/reseed cycle, plus troubleshooting. Weaknesses: prerequisite installation (Docker, Node, pnpm, `just`) is only detected by `just doctor`, not explained here; no minimum versions; verification is implicit (URLs/`just status`) with no explicit acceptance check; first-run token setup is deferred entirely to `backend/README.md`."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "Logical progression for a one-command dev tool: quick start → URLs/concepts → troubleshooting (`just doctor`, recipe table) → advanced options and internals, with signposts like `just urls`, `just --list`, and `just ls`. Deductions: the hard-blocking prerequisite (`GITHUB_TOKEN`) appears only after several paragraphs of exposition, and other prerequisites surface only inside the `doctor` description — a brief prerequisites-first section would make top-down reading safer."
+  },
+  "clarity": {
+    "score": 5,
+    "reason": "Very precise: exact commands and flags, concrete default values (port 80), exact URL patterns, exact error strings to act on (`Invalid parameter: redirect_uri`), and sharply distinguished semantics for `down` vs. `reset` vs. `fresh` vs. `reset-auth`. Even known gaps are stated unambiguously ('Login does not work on Android... has not been verified'). Minor nit: the valid `<names>` for `--apps=<names>` are not enumerated, though inferable from the URLs."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "Explanation-dense in a good way: it explains `.localhost`, why a *secure context* is needed for Keycloak, why realm imports are silent no-ops, and why Android login fails — so the main flow (`just up`, enter an ID) needs no prior context. It assumes, however, developer familiarity with git worktrees, Docker, pnpm, and Keycloak basics (realm, client, issuer), and defers the proxy mechanics to a source-file header comment rather than explaining it in the guide."
+  }
+}

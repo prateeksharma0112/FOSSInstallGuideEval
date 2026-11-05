@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "The core path is covered — download the ZIP, deploy to a web server, open via URL, then customize via the config files — and deep links to full config documentation are provided. However, prerequisites are never stated (a running web server is only implied by the Apache/htdocs example), verification is minimal ('the portal should now be available' with no description of what a successful result looks like), and there is no troubleshooting guidance for the most likely failure points (wrong server directory, unreachable map services, browser errors)."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "Well organized for its purpose: a clear purpose statement up front, two logically ordered phases ('Host an example application' → 'Configure example application'), numbered steps within each, a folder tree to orient the user, and links to detailed config docs placed exactly where they become relevant. Not excellent only because there are no prerequisites/troubleshooting sections to navigate to and steps mix configuration advice into the deployment sequence."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Mostly precise: concrete file/folder names, URL templates with placeholders ([web-server-name], [version]), and specific actions per step. But there are ambiguity and consistency problems: the tree lists 'style_v3.json' while the text and link refer to 'style.json'; vague qualifiers like 'If need be' and repeated 'and so on' leave scope undefined; configuration instructions defer all specifics to linked docs without indicating which file governs which behavior; and no prerequisites or expected outcomes are stated precisely."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "Easy to follow for a reader with basic web-administration experience, and the guide does helpfully explain the role of each folder/file (Basic = portal-specific configs, resources = global configs, mastercode = app code). However, it requires prior knowledge it never explains: web hosting, document roots (htdocs), unpacking archives on a server, and GIS concepts like layers, layer trees, and baselayers are used without definition, so a less experienced reader is left to fill gaps themselves."
+  }
+}

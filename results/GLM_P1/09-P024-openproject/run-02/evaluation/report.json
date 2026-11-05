@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Covers the full flow well: prerequisites (link to Docker Engine install), image selection/tagging, quick start, data persistence, production configuration (HTTPS/HSTS, env vars), reverse proxy, plugins, custom CAs, air-gapped install, and swarm scaling. Verification is addressed both implicitly (success message with admin credentials, browser check at localhost:8080) and explicitly (image signature/SBOM/VEX verification). It falls short of 5 because hardware/system requirements and RAM sizing are never stated, the upgrade procedure is only hinted at (e.g., 'upgrades work just as usual', seeder/migrations mention), and troubleshooting is thin (only the pseudo-TTY note and the macOS mount note)."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The flow is logical and progressive (prerequisites → tags → quick start → production → advanced topics), headings are descriptive and navigable, and scenarios are clearly separated so users can follow the required order. Deductions: the 'Installation overview' appears only after several image/tag/verification sections, the plugins section is nested under 'Reverse Proxy Setup' despite being an unrelated topic, heading levels are inconsistent (major topics like reverse proxy and plugins appear as h3 subsections), and the guide is titled 'all-in-one container' but also covers a Compose-stack-based Swarm deployment that belongs partially to other methods."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Core instructions (quick start, production run, reverse proxy configs) are precise: every flag and environment variable is explained, placeholders like <your-secret-key-base> come with a generation command, and expected outcomes are stated. However, there are several concrete ambiguities/errors: the air-gapped section saves 'openproject-stable.tar.gz' but then loads 'openproject-12.tar.gz'; cosign examples use tag ':16' while everything else uses ':17'; the two swarm 'docker service ls' outputs show different Postgres versions (13 vs 10); and in the --mount example the inline comments placed after line-continuation backslashes would break the command if copied verbatim. Minor issues include the double slash in '/etc/ssl/crt//server.key', the 'npm add npm <package-name>*' typo, and grammar slips ('in separate of the following sections'). These inconsistencies force users to guess in places, so the score stays at 'Adequate' rather than 'Good'."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "The guide explains most concepts rather than assuming them: slim vs. all-in-one flavors, the floating/non-floating tag scheme, the meaning and consequences of each environment variable (SECRET_KEY_BASE persistence, OPENPROJECT_HOST__NAME, HTTPS/HSTS behavior, X-Forwarded-Proto), host-header risks, why the seeder shows 0/1 replicas, and why NFS/shared storage is needed for swarm. It is accessible to an admin with only basic Docker knowledge, helped by links to Docker documentation. It misses 5 because parts of the image-verification section (attestations, predicate types, keyless OIDC signing) are jargon-dense with limited explanation, and some steps assume familiarity with Rails, proxies, and Linux administration."
+  }
+}

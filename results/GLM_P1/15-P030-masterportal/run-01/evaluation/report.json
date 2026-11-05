@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 3,
+    "reason": "je hoofdinstallatie- en configuratiepad is aanwezig (download naar server pakket, host op een webserver, check URL, dupliceer map, edit config.js/config.json), en verdere configuratiedetails zijn gedelegeerd naar gekoppelde referentie docs; maar er bestaat geen prerequisites-sectie (server vereisten, browser support, HTTPS impliciet vereist maar nooit genoemd), verificatie beperkt zich tot 'the portal should now be available' zonder beschrijving van een succesvolle uitkomst of troubleshooting-stappen, en de '[version]' placeholder in de mastercode-boom is nooit uitgelegd."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "duidelijke logische artikelstroom (downloaden → hosten → initiële URL-check → dupliceer map → pas configuratiebestanden aan → finale URL-check) met genummerde stappen in afhankelijkheidsvolgorde, en contextuele links naar de volledige documentatie op het punt waar details nodig zijn; iets verzwakt door het ontbreken van een prerequisites-sectie bovenaan en een onregelmatig geneste folder-boom in stap 3 (bijv. de img/tools/draw-niveaus) die moeilijk te scannen is."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "vooral nauwkeurig (concrete paden zoals htdocs en examples/Basic/index.html, verdachte UI-placeholders/redenen zoals [web-server-name]); maar er is een naam inconsistencies tussen de boom (style_v3.json) en de gekoppelde tekst (style.json), hazelige/vage zinnen zoals 'If need be, change the global configuration files...' en 'The portal should now be available', geen expliciete verwachte uitkomsten (wat de browser zou moeten tonen na een succesvolle installatie), en geen concrete configuratiewaarden in de tekst zelf — alles is overgedragen aan gekoppelde docs."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "de stappen zelf zijn simpel en korte doelen beschrijvingen (portal-specifieke config.js/config.json vs globale services.json/rest-services.json, gecomprimeerde JS/CSS in mastercode) helpen; maar het gids vereist op momenten voorkennis die het niet voorziet: wat een webserver/htdocs is en hoe bestanden worden geresolved/geserveerd, wat de globale configuratiebestanden eigenlijk doen, en GIS-jargon (layer tree, baselayers, tools) dat zonder uitleg gebruikt wordt — bijna alle diepere uitleg is verplaatst naar gekoppelde documentatie."
+  }
+}

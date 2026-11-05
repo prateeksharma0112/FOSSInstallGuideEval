@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "The guide covers prerequisite checks (a venv check is described), system packages, the full SDK installation, first-launch verification, pricing verification via a sample quote, and UI tours—copilot, launchpad (with permission troubleshooting), polish, and diagnostics. It even links to CLI/docs. It falls short of 5 only because a few file outputs (`~/.freshbots/env-c`, `~/.freshbots/latest-install.json`) are never explained."
+  },
+  "structure": {
+    "score": 5,
+    "reason": "The guide is instage-by-stage (Stage 0 → Stage 5) in strict execution order, with a summary table up front, per-stage commands, and an ordered developer quick-start. It reads linearly and requires no reordering."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands and paths are unambiguous. However, some Python snippets are shown as literal output lines (e.g., `/home/YOUR_NAME/freshbots/bin/python3.12`) rather than as copy-paste commands, and the phrase `sys.path` at the top is replaced by a placeholder rather than a command, which slightly reduces clarity."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "New terms (venv, PEP 404, restriction-based fully-isolated builds, policy text, allow-list) are explained inline bij figures and explanations. The viewer is never assumed to know package managers beyond pip. A small gap: quite technical outputs like `~/.freshbots/logs/` and CRON audit internals are shown but not interpreted."
+  }
+}

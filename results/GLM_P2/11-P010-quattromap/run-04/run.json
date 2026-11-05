@@ -1,0 +1,59 @@
+{
+  "run": {
+    "run_id": "GLM_P2__11-P010-quattromap__run-04",
+    "experiment_id": "GLM_P2",
+    "run_number": 4,
+    "status": "completed",
+    "started_at": "2026-11-05T12:40:02.042742+01:00",
+    "finished_at": "2026-11-05T12:40:16.215916+01:00",
+    "duration_seconds": 14.172
+  },
+  "task": {
+    "task_id": "11-P010-quattromap",
+    "dataset_id": "P010",
+    "project": {
+      "opencode_id": "13015",
+      "name": "QuattroMap",
+      "description": "Browser tool for the synchronous display of up to four different map windows.",
+      "catalogue_url": "https://opencode.de/de/software/quattro-map-13015",
+      "type": "Application",
+      "platforms": [
+        "web"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/kreis-viersen/quattromap",
+      "commit_sha": "24041c041e0de1d41cbab9d9fac0c0cb1681b09f",
+      "license": "MIT"
+    },
+    "installation": {
+      "complexity": "Low"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/kreis-viersen/quattromap/-/blob/24041c041e0de1d41cbab9d9fac0c0cb1681b09f/README.md",
+      "source": "Repository README",
+      "language": "German and English",
+      "word_count": 443
+    }
+  },
+  "prompt": {
+    "template": "installguideeval/prompts/02_structured.md"
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "model_name": "GLM-5.3-Flash-NVFP4",
+    "model_identifier": "hosted_vllm/RedHatAI/GLM-5.3-Flash-NVFP4",
+    "reasoning_effort": null,
+    "response_id": "chatcmpl-95b0ad853a83b455",
+    "input_tokens": 1542,
+    "output_tokens": 2849,
+    "total_tokens": 4391
+  },
+  "artifacts": {
+    "prompt": "evaluation/prompt.md",
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json"
+  }
+}

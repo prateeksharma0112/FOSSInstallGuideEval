@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "Covers only the core happy path (clone, install, run, visit URL). Prerequisites are entirely absent (nothing states that Node.js or Yarn must be installed — a user without Yarn fails at step two with no guidance). There is no configuration guidance at all (the guide never says whether environment variables or a database are required). Verification is minimal: 'you should now be able to access' a URL, with no description of what a successful installation looks like, and no troubleshooting. The clone URL itself contains the placeholder 'your-username', so even obtaining the code may fail as written."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The steps are presented in the correct required order (clone → change directory → install → run) and sequencing is explicitly signposted with 'first', 'Then', and 'Finally', so the process can be followed cleanly top to bottom within a single 'Getting Started' section. It falls short of excellent because the steps are not numbered and there is no upfront prerequisites section or troubleshooting section to navigate to."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "What is stated is mostly precise: the yarn commands are concrete and copy-pasteable, and a specific expected outcome is given (http://localhost:3000). However, the first and most critical instruction contains an unfilled placeholder ('github.com/your-username/klimadashboard.git'), making it ambiguous which repository to clone, and no version numbers (Node, Yarn) are specified anywhere. Success is also described loosely rather than as a concrete, checkable result."
+  },
+  "understandability": {
+    "score": 3,
+    "reason": "The three steps are short, mechanical, and sequential, so they are easy to execute. However, the guide assumes the reader already knows Git cloning, Yarn, and Node-based development servers: terms like 'clone', 'dependencies', and 'development server' are never explained, and nothing tells the reader what the application is or what they should see at localhost:3000. Less experienced users get no conceptual support."
+  }
+}

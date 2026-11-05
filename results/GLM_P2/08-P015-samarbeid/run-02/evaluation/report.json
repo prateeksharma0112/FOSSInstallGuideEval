@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "Covers only the bare skeleton: a requirements list, a single command (bin/setup), and one verification step (open http://localhost:3000). Missing: how to install any prerequisite (Ruby, Node, yarn, PostgreSQL, Docker), how PostgreSQL or Docker are actually used, any configuration steps (environment variables, database setup), what bin/setup does, and any troubleshooting guidance. Version information is deferred entirely to repo files (.ruby-version, .tools-version) rather than stated in the guide."
+  },
+  "structure": {
+    "score": 3,
+    "reason": "What little exists is in a sensible order — requirements first, then setup command, then verification — so the sequence is followable. But the guide has only one heading ('Getting started') and no sections for setup details, configuration, or troubleshooting, limiting findability beyond the minimal happy path."
+  },
+  "clarity": {
+    "score": 2,
+    "reason": "Several statements are ambiguous or imprecise: 'bin/setup' is given with no explanation of what it does or what successful output looks like; the parenthetical '(see .tools-version (asdf))' requires the reader to infer which tool versions are recorded where; the expected outcome ('you should see your local samarbeid running') is vague; and 'see output of above command for details' leaves the admin account details loosely located. Minor errors ('A initial', 'Nodejs') further reduce polish."
+  },
+  "understandability": {
+    "score": 2,
+    "reason": "The guide explains no technical terms or concepts. It assumes the reader already knows what asdf is (only a link is provided), what a bin/setup script does, why Docker and Docker Compose are needed, and what PostgreSQL setup is expected. A reader unfamiliar with this stack could not successfully perform the installation from this guide alone."
+  }
+}

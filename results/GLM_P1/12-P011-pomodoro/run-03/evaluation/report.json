@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Covers prerequisites, install, launch, optional packaging and container deployment, sounds, and data locations. Expected outcomes ('opens the app window', 'dist/Pomodoro.dmg') serve as verification, but there is no explicit verification/troubleshooting step, and platform support is inconsistent — dev install says 'macOS' only, yet Windows and Linux data paths appear later."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "Logically ordered: core install → launch first, then clearly labeled optional paths ('If you'd rather…', 'The primary way… is still…'), then background info, with useful cross-references. Deduction: no overview telling readers which of the three install paths to pick, and app-usage content is mixed into the installation flow."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands, filenames, paths, env vars (POMODORO_SOUNDS_DIR, POMODORO_DATA_DIR), port/URL, and Gatekeeper steps are precise and unambiguous. Deductions: the placeholder `git clone <this repo>` must be resolved by the user, UI labels are given only in German without translation, and no macOS version is stated for the dev install (only for the bundled app)."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "Copy-pasteable commands and good glossing of consequences (graceful sound fallback, why code-signing is needed, why a volume mount is needed) make it easy to follow. Assumes familiarity with git/venv/pip and editable installs without brief explanation, and non-German speakers must guess what 'Einstellungen'/'Statistik' mean."
+  }
+}

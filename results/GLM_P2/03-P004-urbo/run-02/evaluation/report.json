@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Covers installation (single `just up` command with automated dependency install, seeding, and preflight checks including `GITHUB_TOKEN` with an up-front failure and fix), configuration (instance identifier in `.urbo-instance`, `URBO_PROXY_PORT`, realm re-import), and a broad troubleshooting/reset toolkit (`doctor`, `status`, `logs`, `sh`, `down`/`reset`/`fresh`/`prune`/`reset-auth`). Verification is only partially covered: URLs to visit are given, but there is no stated expected outcome after a successful `just up` or seeded credentials to confirm login end-to-end. Two needed details are delegated to other files (`backend/README.md` for token setup, and `scripts/urbo/services.mjs` mechanics), and no tool versions are listed (Docker, Node, pnpm, just)."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The flow is sensible and ordered for a first-time user: main entry command, URL/instance explanation, troubleshooting section, less common recipes in a scannable table, then optional configuration and deeper internals. The `GITHUB_TOKEN` prerequisite is surfaced in the main sequence before it becomes a mid-build surprise, and `just doctor`/`just --list` point the reader to a full source of truth. Deductions: no step-numbered quick-start or distinct prerequisites section (prerequisites are embedded in prose), and important caveats (the Android login gap, the proxy port note) are buried in a table cell and a late paragraph."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands, flags (`--fresh`, `--detach`, `--no-seed`, `--apps=<names>`, `--with-limesurvey`), configuration values, and prerequisites are stated precisely, e.g. 'classic PAT with `read:packages`', 'set `URBO_PROXY_PORT` before `just up`', an exact quoted error string (`Invalid parameter: redirect_uri`), and crisply differentiated semantics for `down` vs `reset` vs `fresh` vs `prune`. Minor ambiguities keep it from 5: the exact console output of a successful `just up` is not described, 'the three dev servers' in the `just serve` row must be inferred, the `--detach` explanation is phrased in reverse ('what `just up --detach` skips'), and no constraints are given for the instance identifier."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "The setup step itself is trivially easy (one command), and the guide proactively explains the non-obvious concepts that usually confuse people: why `.localhost` resolves to loopback, why a *secure context* is needed for `crypto.subtle`/Keycloak, why the Keycloak realm import is a silent no-op against an existing realm, the start-time race condition, and the Android emulator loopback/issuer issue. It falls short of excellent only because it assumes familiarity with git worktrees, PATs, realms, and container-based development without expanding them, and several dense, multi-clause sentences (e.g., the reset-auth explanation) require careful reading."
+  }
+}

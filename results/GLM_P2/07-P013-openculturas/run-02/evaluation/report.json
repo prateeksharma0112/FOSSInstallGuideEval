@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 2,
+    "reason": "Install/verify coverage is thin. The new-install path is a single composer command plus an external link, with no guidance on what happens next (how to access the site, log in, or perform initial setup). Verification steps are entirely absent — no expected output, success message, or URL to check; `drush uli` appears only as a ddev cheatsheet example. Requirements are vague: 'A bunch of drupal modules and external libraries' identifies nothing concrete, and 'PHP 8.4' is stated without saying whether it is a minimum or exact requirement. No troubleshooting (other than `patches-doctor` for patches) and no rollback/uninstall guidance. Updating covers patch and minor releases but not major upgrades."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is clearly organized: Requirements → Installation → Updating → Development, with consistent heading hierarchy, so sections are easy to find and the install steps are in a sensible order (clone → `ddev composer install` → `ddev drush site:install`). Patching guidance is also correctly sequenced ('Run `patches-relock` after adding or removing a patch...'). It falls short of 5 because the guide does not scope its audience upfront — a production installer cannot immediately tell that 'Development' does not apply to them — and core content is deferred to external documents (DEVELOPMENT.md, drupal.org, ddev docs), so the guide alone does not carry the full ordered flow."
+  },
+  "clarity": {
+    "score": 3,
+    "reason": "Commands are exact, copy-pasteable, and annotated with inline comments (e.g., the patch-release sequence with '# Review changes, then export and commit configuration'), which is the guide's main strength. However, several statements are ambiguous: 'Optionally update library versions in the inline package repositories' presupposes unexplained knowledge; the source of the 'latest database snapshot' for `ddev dbimport` is never defined; and no expected outcomes are given for any command (e.g., what a successful `site:install --existing-config` looks like). The difference between `ddev composer run cde` and `ddev drush cde module` is not explained. Prerequisite precision is weak ('PHP 8.4' with no range)."
+  },
+  "understandability": {
+    "score": 2,
+    "reason": "The guide assumes substantial prior knowledge and does not explain its terms: composer workflows (version constraints, '--with-dependencies', inline package repositories), drush (`updatedb`, `config:export`, `uli`), ddev, and Drupal concepts ('distribution', 'profile', 'existing-config'). The configuration section is the densest and most assume-heavy: it requires understanding config_devel, info-file synchronization, and the `_core`/`uuid` exception for views, explained only in one dense paragraph. External links provide some mitigation, but within the guide itself the concepts are not glossed, so a reader new to these tools would struggle to follow along."
+  }
+}

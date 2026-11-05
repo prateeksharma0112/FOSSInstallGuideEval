@@ -1,0 +1,59 @@
+{
+  "run": {
+    "run_id": "GLM_P2__14-P026-foederales-entwicklungsportal__run-04",
+    "experiment_id": "GLM_P2",
+    "run_number": 4,
+    "status": "completed",
+    "started_at": "2026-11-05T12:41:36.935044+01:00",
+    "finished_at": "2026-11-05T12:41:48.047363+01:00",
+    "duration_seconds": 11.125
+  },
+  "task": {
+    "task_id": "14-P026-foederales-entwicklungsportal",
+    "dataset_id": "P026",
+    "project": {
+      "opencode_id": "1875",
+      "name": "Föderales Entwicklungsportal",
+      "description": "Web portal for documentation, standards, APIs and other development resources of German administrative IT.",
+      "catalogue_url": "https://opencode.de/de/software/foderales-entwicklungsportal-1875",
+      "type": "Application",
+      "platforms": [
+        "web"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/fitko/docs/portal",
+      "commit_sha": "aada0a846d42d896535b6352d8cddad6c1c56efd",
+      "license": "EUPL-1.2"
+    },
+    "installation": {
+      "complexity": "Low"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/fitko/docs/portal/-/blob/aada0a846d42d896535b6352d8cddad6c1c56efd/README.md",
+      "source": "Repository README",
+      "language": "English",
+      "word_count": 132
+    }
+  },
+  "prompt": {
+    "template": "installguideeval/prompts/02_structured.md"
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "model_name": "GLM-5.3-Flash-NVFP4",
+    "model_identifier": "hosted_vllm/RedHatAI/GLM-5.3-Flash-NVFP4",
+    "reasoning_effort": null,
+    "response_id": "chatcmpl-b94bb417f8e3671f",
+    "input_tokens": 701,
+    "output_tokens": 2152,
+    "total_tokens": 2853
+  },
+  "artifacts": {
+    "prompt": "evaluation/prompt.md",
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json"
+  }
+}

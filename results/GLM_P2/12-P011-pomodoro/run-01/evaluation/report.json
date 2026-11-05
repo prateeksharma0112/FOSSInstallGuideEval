@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "Very strong coverage: prerequisites (Python 3.10+, macOS), exact install commands, app launch, timer configuration location, sound setup, data storage locations/files, and three usage modes (terminal, packaged .app, Docker) are all documented, including post-install steps like Gatekeeper bypass and the `--dmg` option. What keeps it from excellent: verification is limited to 'opens the app window' with no explicit pre-launch check (e.g., a version/`--help` command or expected `pip install` outcome), and there is no troubleshooting section for common failures (pip/build/Docker issues). There's also a scope ambiguity: the install section says 'Requires... macOS', yet the storage section lists Linux and Windows paths with no native install instructions for them."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide uses descriptive task-oriented headings in a sensible order: install → run → optionally package as an app → add sounds → container → configuration/data, so a reader can follow top-to-bottom and also jump to a section. Cross-references exist but are slightly vague ('see the two sections below' without naming them), and configuration is split uneasily between 'Starting it' (timer values in the 'Einstellungen' panel) and 'Configuration & data storage' (persistence), so someone looking up 'configuration' may not find the timer settings there."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands are precise and copy-pasteable (`pip install -e .`, `docker run --rm -p 6080:6080 -v ...`), expected outcomes are stated ('This opens the app window', the noVNC URL), exact filenames are given in a table, and environment variables, port, path, and Gatekeeper steps are unambiguous. Minor deductions: `git clone <this repo>` uses a placeholder the user must resolve themselves; UI labels are given untranslated in German ('Einstellungen', 'Statistik'), which may confuse non-German readers; and no default values for Focus/Break minutes or round count are stated."
+  },
+  "understandability": {
+    "score": 4,
+    "reason": "The guide is easy to follow and unusually good at explaining consequences and rationale inline: why ad-hoc signing is needed on Apple Silicon, exactly how to get past Gatekeeper, what happens if sound files are missing (terminal-beep fallback), how the container renders the Qt window via VNC/noVNC ('no separate web version'), and why a volume mount is needed for persistence. However, it presupposes working knowledge of basics it never explains — virtual environments (`python3 -m venv`, `source .venv/bin/activate`), editable installs, git, and shell usage — and terms like Qt, PyInstaller, and SQLite are presented without definition, so a reader without that background would need prior knowledge."
+  }
+}

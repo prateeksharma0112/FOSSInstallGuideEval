@@ -1,0 +1,18 @@
+{
+  "completeness": {
+    "score": 4,
+    "reason": "The core install path is fully covered: starting with one command (`just up`), first-run configuration with `just up` handled automatically (including setup verified via URLs, names like `app.<instance>.localhost`, and Keycloak login noted as a working outcome). The GITHUB_TOKEN prerequisite is documented (classic PAT with `read:packages`) and preflight-checked, but its setup steps are only referenced in the backend/README.md, and instructions for installing anything (not covered) — beyond prerequisites, concrete verification is delegated to `just doctor`'s fixes for the repo/`.urbo-instance` file, `URBO_PROXY_PORT` configuration, and proxy mechanics are deferred to `scripts/urbo/services.mjs`."
+  },
+  "structure": {
+    "score": 4,
+    "reason": "The guide is well ordered: the primary command (`just up`) comes first, followed by what it does, then an explicit troubleshooting section ('When something doesn't come up'), then supplementary recipes in a scannable table, plus flags and configuration overrides. Commands are easy to locate, and the table/sectioning supports skimming. Additionally, a run-on command statement ('A `just up` run ... there is no lockfile') is hard to parse, and the 'Other recipes' table assumes familiarity with `.urbo-`-prefixed domain pattern elsewhere, which could slow a first-time reader."
+  },
+  "clarity": {
+    "score": 4,
+    "reason": "Commands are given verbatim in code blocks with precise parameters (e.g., `just logs spring-app`, `--apps=<names>`, setting `URBO_PROXY_PORT` before `just up`). Failure modes are described concretely, including exact error text (`Invalid parameter: redirect_uri`) with an exact remedy (`just reset-auth`), and expected outcomes (URLs, login works, first-run prompts) are stated. Some sentences, like the concurrency-race warning ('not guarded against each other — ... judged not worth a lockfile'), are dense and lack a step-definite behavior a user should take, keeping it from being excellent."
+  },
+  "understandability": {
+    "score": 5,
+    "reason": "The guide actively explains non-obvious technical concepts rather than assuming them: why `.localhost` is used (reserved TLD, browser secure-context rationale for `crypto.subtle`/Keycloak), why Keycloak's realm-import behavior can be a silent no-op, what `just down/reset/fresh` each do differently, and clear failure-specific巍 signs for the system-level (e.g., login broken = check proxy). The recipes give purpose ('for a fast edit/restart loop'). One could follow it without prior knowledge of this stack; only basic general conventions (worktrees, browser dev tools) are assumed."
+  }
+}
