@@ -1,0 +1,61 @@
+project_id,project_name,criterion,run_1,run_2,run_3,run_4
+P001,Liquio,Completeness,3,3,4,4
+P001,Liquio,Structure,4,4,5,4
+P001,Liquio,Clarity,3,3,3,3
+P001,Liquio,Understandability,3,3,4,3
+P002,Green Ecolution,Completeness,4,4,3,4
+P002,Green Ecolution,Structure,4,4,4,4
+P002,Green Ecolution,Clarity,4,4,3,4
+P002,Green Ecolution,Understandability,3,4,3,4
+P003,URBO,Completeness,4,4,4,4
+P003,URBO,Structure,4,4,4,4
+P003,URBO,Clarity,4,4,4,4
+P003,URBO,Understandability,3,3,4,4
+P004,Erlebnis.Stadt Menden,Completeness,3,3,3,3
+P004,Erlebnis.Stadt Menden,Structure,3,4,3,3
+P004,Erlebnis.Stadt Menden,Clarity,3,3,3,3
+P004,Erlebnis.Stadt Menden,Understandability,3,3,4,3
+P005,Qonnectra,Completeness,2,2,2,2
+P005,Qonnectra,Structure,4,4,4,4
+P005,Qonnectra,Clarity,3,3,3,3
+P005,Qonnectra,Understandability,3,3,3,3
+P006,GeospatialAnalyzer,Completeness,4,4,4,4
+P006,GeospatialAnalyzer,Structure,4,4,4,4
+P006,GeospatialAnalyzer,Clarity,3,3,3,3
+P006,GeospatialAnalyzer,Understandability,4,3,3,3
+P007,OpenCulturas,Completeness,2,2,2,2
+P007,OpenCulturas,Structure,3,3,3,4
+P007,OpenCulturas,Clarity,3,2,2,3
+P007,OpenCulturas,Understandability,2,2,3,2
+P008,Samarbeid,Completeness,2,2,2,2
+P008,Samarbeid,Structure,3,3,3,3
+P008,Samarbeid,Clarity,2,2,2,2
+P008,Samarbeid,Understandability,2,2,2,2
+P009,OpenProject,Completeness,5,4,4,4
+P009,OpenProject,Structure,4,4,4,5
+P009,OpenProject,Clarity,3,3,3,3
+P009,OpenProject,Understandability,4,4,4,4
+P010,UrbanKIT Plattform,Completeness,4,4,3,4
+P010,UrbanKIT Plattform,Structure,4,4,4,4
+P010,UrbanKIT Plattform,Clarity,4,3,3,3
+P010,UrbanKIT Plattform,Understandability,3,3,3,3
+P011,QuattroMap,Completeness,2,3,3,3
+P011,QuattroMap,Structure,3,3,3,3
+P011,QuattroMap,Clarity,3,3,3,2
+P011,QuattroMap,Understandability,2,2,3,2
+P012,Pomodoro,Completeness,4,4,4,4
+P012,Pomodoro,Structure,5,4,5,5
+P012,Pomodoro,Clarity,4,4,4,4
+P012,Pomodoro,Understandability,4,4,4,4
+P013,Klimadashboard Münster,Completeness,2,2,2,2
+P013,Klimadashboard Münster,Structure,4,4,4,4
+P013,Klimadashboard Münster,Clarity,3,3,3,3
+P013,Klimadashboard Münster,Understandability,3,3,3,3
+P014,Föderales Entwicklungsportal,Completeness,3,3,3,3
+P014,Föderales Entwicklungsportal,Structure,4,4,4,4
+P014,Föderales Entwicklungsportal,Clarity,3,3,4,4
+P014,Föderales Entwicklungsportal,Understandability,3,3,3,4
+P015,Masterportal,Completeness,3,3,3,3
+P015,Masterportal,Structure,4,4,4,4
+P015,Masterportal,Clarity,3,3,3,3
+P015,Masterportal,Understandability,3,4,3,4

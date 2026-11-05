@@ -1,0 +1,19 @@
+{
+  "experiment_id": "GLM_P1",
+  "model_name": "GLM-5.3-Flash-NVFP4",
+  "model_identifier": "hosted_vllm/RedHatAI/GLM-5.3-Flash-NVFP4",
+  "prompt_template": "installguideeval/prompts/01_minimal.md",
+  "mapped_projects": 15,
+  "completed_runs": 60,
+  "failed_attempts_retained": 0,
+  "llm_rating_rows": 240,
+  "llm_score_rows": 60,
+  "placeholder_reasons": 96,
+  "criteria": [
+    "Completeness",
+    "Structure",
+    "Clarity",
+    "Understandability"
+  ],
+  "validation_status": "passed_with_reason_warnings"
+}
