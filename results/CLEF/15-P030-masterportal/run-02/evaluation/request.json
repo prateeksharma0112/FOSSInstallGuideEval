@@ -1,0 +1,50 @@
+{
+  "model": "clef",
+  "state": "# Quick-Start Guide\n\nThis guide describes how to set up the Masterportal on your server and how to configure it to become your custom portal.\n\n## Host an example application on your server\n\n1. To set up your portal, please download the **[last stable version from Bitbucket](https://bitbucket.org/geowerkstatt-hamburg/masterportal/downloads/examples.zip)** by clicking the link provided.\n\n2. To publish your portal (e.g. to the Internet) it's required to host the portal with a web server. For this purpose, move the ZIP file to your web server (e.g. to the `htdocs` folder of an Apache server) and unpack the archive.\n\n3. The folder `examples` holds the following file and folder structure:\n\n    - Basic/\n        - resources/\n            - img/\n                - ...\n            - rest-services.json\n            - services.json\n            - style_v3.json\n        - config.js\n        - config.json\n        - index.html\n    - mastercode/\n        - [version]/\n            - css/\n                - masterportal.css\n            - img/\n                - tools\n                    - draw\n                        - ... (svg files used by the draw tool)\n                - Logo_Masterportal.svg\n                - ajax-loader.gif\n                - mapMarker.svg\n            - js/\n                - masterportal.js\n            - locales/\n\n    The folder *Basic* comes with an example application providing the portal-specific configuration files **[config.js](../User/Portal-Config/config.js.md)**, **[config.json](../User/Portal-Config/config.json.md)**, and the index.html.\n\n    Also contained is the folder *resources* providing the global configuration files **[services.json](../User/Global-Config/services.json.md)**, **[rest-services.json](../User/Global-Config/rest-services.json.md)**, and **[style.json](../User/Global-Config/style.json.md)**, as well as the required images (folder *img*) of this portal instance.\n\n     The folder *mastercode* contains the compressed JavaScript and CSS files of the Masterportal. Here, the folder *img* holds the logo and svg files used in the draw tool.\n\n4. You may decide to change the name of the folder *examples*. Should you decide to do so, also change \"examples\" to your new folder name in the URLs that follow. The portal should now be available by following this link.\n    - https://[web-server-name]/examples/Basic/index.html\n\n## Configure example application\n\nBy following these steps you can modify the example application to become your custom portal:\n\n1. If need be, change the global configuration files in the folder *resources* to add aerial view images of other regions, to add icons, to modify existing icons, and so on.\n\n2. Please subsequently duplicate the folder *Basic* and rename it to your portal name, e.g. *my_portal*.\n\n3. You may now modify the configuration files **[config.js](../User/Portal-Config/config.js.md)** and **[config.json](../User/Portal-Config/config.json.md)** within this new folder *my_portal*. For example, you may define which layers are to appear in the layer tree, configure the tools required, customize the baselayers, change the display name of the portal, and so on. For all options, please refer to the full documentation of the **[config.js](../User/Portal-Config/config.js.md)** and **[config.json](../User/Portal-Config/config.json.md)** files.\n\n4. Your new portal may now be opened by navigating to the URL:\n    - https://[web-server-name]/examples/my_portal/index.html",
+  "questions": {
+    "completeness": {
+      "type": "score",
+      "instructions": "How would you rate the guide's coverage of the information needed to install, configure where required, and verify the software?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "structure": {
+      "type": "score",
+      "instructions": "Is the installation guide arranged so that the user can find what is needed and follow the installation process in the required order?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "clarity": {
+      "type": "score",
+      "instructions": "Are instructions, commands, prerequisites, configuration values, and expected outcomes stated precisely and without ambiguity?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "understandability": {
+      "type": "score",
+      "instructions": "How easy was it to understand the installation or setup steps? Consider whether the guide explained the technical terms and concepts or required you to know them beforehand.",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    }
+  }
+}

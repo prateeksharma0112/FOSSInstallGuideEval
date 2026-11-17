@@ -1,0 +1,61 @@
+{
+  "run": {
+    "run_id": "CLEF__09-P024-openproject__run-04",
+    "experiment_id": "CLEF",
+    "run_number": 4,
+    "status": "completed",
+    "started_at": "2026-11-17T16:28:20.257289+01:00",
+    "finished_at": "2026-11-17T16:28:23.677299+01:00",
+    "duration_seconds": 3.422
+  },
+  "task": {
+    "task_id": "09-P024-openproject",
+    "dataset_id": "P024",
+    "project": {
+      "opencode_id": "8047",
+      "name": "OpenProject",
+      "description": "OpenProject is a web-based project management solution specifically tailored to the needs of public administration. It supports project planning, task management, agile workflows, time tracking, and project portfolio management.",
+      "catalogue_url": "https://opencode.de/de/software/open-project-8047",
+      "type": "Application",
+      "platforms": [
+        "web"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/bmi/opendesk/component-code/project-management/openproject/openproject",
+      "commit_sha": "27a58131fa8dc521cd02c92c0b8e6a4854599d80",
+      "license": "GPL-3.0-only"
+    },
+    "installation": {
+      "complexity": "Medium"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/bmi/opendesk/component-code/project-management/openproject/openproject/-/blob/27a58131fa8dc521cd02c92c0b8e6a4854599d80/docs/installation-and-operations/installation/docker/README.md",
+      "source": "Repository README",
+      "language": "English",
+      "word_count": 4511
+    }
+  },
+  "prompt": {
+    "interface": "clef",
+    "template": null
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "provider": "clef",
+    "model_name": "CLEF",
+    "model_identifier": "clef",
+    "reasoning_effort": null,
+    "response_id": "decision-bfda5d91f6b8c3d6",
+    "input_tokens": 9680,
+    "output_tokens": 0,
+    "total_tokens": 9680
+  },
+  "artifacts": {
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json",
+    "request": "evaluation/request.json"
+  }
+}

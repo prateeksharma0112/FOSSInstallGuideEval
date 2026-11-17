@@ -1,0 +1,61 @@
+{
+  "run": {
+    "run_id": "CLEF__11-P010-quattromap__run-02",
+    "experiment_id": "CLEF",
+    "run_number": 2,
+    "status": "completed",
+    "started_at": "2026-11-17T16:22:51.665708+01:00",
+    "finished_at": "2026-11-17T16:22:52.453792+01:00",
+    "duration_seconds": 0.782
+  },
+  "task": {
+    "task_id": "11-P010-quattromap",
+    "dataset_id": "P010",
+    "project": {
+      "opencode_id": "13015",
+      "name": "QuattroMap",
+      "description": "Browser tool for the synchronous display of up to four different map windows.",
+      "catalogue_url": "https://opencode.de/de/software/quattro-map-13015",
+      "type": "Application",
+      "platforms": [
+        "web"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/kreis-viersen/quattromap",
+      "commit_sha": "24041c041e0de1d41cbab9d9fac0c0cb1681b09f",
+      "license": "MIT"
+    },
+    "installation": {
+      "complexity": "Low"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/kreis-viersen/quattromap/-/blob/24041c041e0de1d41cbab9d9fac0c0cb1681b09f/README.md",
+      "source": "Repository README",
+      "language": "German and English",
+      "word_count": 443
+    }
+  },
+  "prompt": {
+    "interface": "clef",
+    "template": null
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "provider": "clef",
+    "model_name": "CLEF",
+    "model_identifier": "clef",
+    "reasoning_effort": null,
+    "response_id": "decision-935db1b6e176a9e7",
+    "input_tokens": 1749,
+    "output_tokens": 0,
+    "total_tokens": 1749
+  },
+  "artifacts": {
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json",
+    "request": "evaluation/request.json"
+  }
+}

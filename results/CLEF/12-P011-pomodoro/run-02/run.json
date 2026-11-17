@@ -1,0 +1,62 @@
+{
+  "run": {
+    "run_id": "CLEF__12-P011-pomodoro__run-02",
+    "experiment_id": "CLEF",
+    "run_number": 2,
+    "status": "completed",
+    "started_at": "2026-11-17T16:23:01.784671+01:00",
+    "finished_at": "2026-11-17T16:23:02.688243+01:00",
+    "duration_seconds": 0.906
+  },
+  "task": {
+    "task_id": "12-P011-pomodoro",
+    "dataset_id": "P011",
+    "project": {
+      "opencode_id": "12891",
+      "name": "Pomodoro",
+      "description": "Local focus timer for greater efficiency in everyday administrative work: fixed work blocks, conscious breaks and honest time tracking that also counts interrupted focus sessions.",
+      "catalogue_url": "https://opencode.de/de/software/pomodoro-12891",
+      "type": "Application",
+      "platforms": [
+        "mac",
+        "linux"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/frederic/pomodoro",
+      "commit_sha": "54320075112b92c70ae0dbb00633ab01f8b600ce",
+      "license": "MIT"
+    },
+    "installation": {
+      "complexity": "Low"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/frederic/pomodoro/-/blob/54320075112b92c70ae0dbb00633ab01f8b600ce/README.md",
+      "source": "Repository README",
+      "language": "English",
+      "word_count": 702
+    }
+  },
+  "prompt": {
+    "interface": "clef",
+    "template": null
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "provider": "clef",
+    "model_name": "CLEF",
+    "model_identifier": "clef",
+    "reasoning_effort": null,
+    "response_id": "decision-a07eb8c326a7a923",
+    "input_tokens": 1963,
+    "output_tokens": 0,
+    "total_tokens": 1963
+  },
+  "artifacts": {
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json",
+    "request": "evaluation/request.json"
+  }
+}

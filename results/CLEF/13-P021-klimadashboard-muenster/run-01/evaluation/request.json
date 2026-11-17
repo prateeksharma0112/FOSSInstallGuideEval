@@ -1,0 +1,50 @@
+{
+  "model": "clef",
+  "state": "## Getting Started\n\nTo run the Klimadashboard application on your local machine, first clone the repository:\n\n> git clone https://github.com/your-username/klimadashboard.git\n> cd klimadashboard\n\nThen, install the dependencies:\n\n> yarn install\n\nFinally, start the development server:\n\n> yarn dev\n\nYou should now be able to access the application at `http://localhost:3000`.",
+  "questions": {
+    "completeness": {
+      "type": "score",
+      "instructions": "How would you rate the guide's coverage of the information needed to install, configure where required, and verify the software?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "structure": {
+      "type": "score",
+      "instructions": "Is the installation guide arranged so that the user can find what is needed and follow the installation process in the required order?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "clarity": {
+      "type": "score",
+      "instructions": "Are instructions, commands, prerequisites, configuration values, and expected outcomes stated precisely and without ambiguity?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "understandability": {
+      "type": "score",
+      "instructions": "How easy was it to understand the installation or setup steps? Consider whether the guide explained the technical terms and concepts or required you to know them beforehand.",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    }
+  }
+}

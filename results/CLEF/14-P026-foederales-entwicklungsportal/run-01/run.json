@@ -1,0 +1,61 @@
+{
+  "run": {
+    "run_id": "CLEF__14-P026-foederales-entwicklungsportal__run-01",
+    "experiment_id": "CLEF",
+    "run_number": 1,
+    "status": "completed",
+    "started_at": "2026-11-17T16:20:38.590410+01:00",
+    "finished_at": "2026-11-17T16:20:39.224039+01:00",
+    "duration_seconds": 0.625
+  },
+  "task": {
+    "task_id": "14-P026-foederales-entwicklungsportal",
+    "dataset_id": "P026",
+    "project": {
+      "opencode_id": "1875",
+      "name": "Föderales Entwicklungsportal",
+      "description": "Web portal for documentation, standards, APIs and other development resources of German administrative IT.",
+      "catalogue_url": "https://opencode.de/de/software/foderales-entwicklungsportal-1875",
+      "type": "Application",
+      "platforms": [
+        "web"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/fitko/docs/portal",
+      "commit_sha": "aada0a846d42d896535b6352d8cddad6c1c56efd",
+      "license": "EUPL-1.2"
+    },
+    "installation": {
+      "complexity": "Low"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/fitko/docs/portal/-/blob/aada0a846d42d896535b6352d8cddad6c1c56efd/README.md",
+      "source": "Repository README",
+      "language": "English",
+      "word_count": 132
+    }
+  },
+  "prompt": {
+    "interface": "clef",
+    "template": null
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "provider": "clef",
+    "model_name": "CLEF",
+    "model_identifier": "clef",
+    "reasoning_effort": null,
+    "response_id": "decision-af7d5bf85aa526b8",
+    "input_tokens": 936,
+    "output_tokens": 0,
+    "total_tokens": 936
+  },
+  "artifacts": {
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json",
+    "request": "evaluation/request.json"
+  }
+}

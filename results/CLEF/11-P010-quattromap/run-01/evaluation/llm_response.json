@@ -1,0 +1,107 @@
+{
+  "id": "decision-b3fc306883d0d487",
+  "object": "structured_decision",
+  "created": 1794928807,
+  "model": "clef",
+  "answers": {
+    "completeness": {
+      "type": "score",
+      "score": 2.423342689871788,
+      "legend": {
+        "0": "1 - Very poor",
+        "1": "2 - Poor",
+        "2": "3 - Adequate",
+        "3": "4 - Good",
+        "4": "5 - Excellent"
+      },
+      "probabilities": {
+        "0": 0.029188847169280052,
+        "1": 0.055390700697898865,
+        "2": 0.46017149090766907,
+        "3": 0.37338680028915405,
+        "4": 0.08186215162277222
+      },
+      "confidence": 0.46017149090766907
+    },
+    "structure": {
+      "type": "score",
+      "score": 2.3109013214707375,
+      "legend": {
+        "0": "1 - Very poor",
+        "1": "2 - Poor",
+        "2": "3 - Adequate",
+        "3": "4 - Good",
+        "4": "5 - Excellent"
+      },
+      "probabilities": {
+        "0": 0.036216773092746735,
+        "1": 0.07259055227041245,
+        "2": 0.48837560415267944,
+        "3": 0.3497086763381958,
+        "4": 0.05310838297009468
+      },
+      "confidence": 0.48837560415267944
+    },
+    "clarity": {
+      "type": "score",
+      "score": 2.5088546872138977,
+      "legend": {
+        "0": "1 - Very poor",
+        "1": "2 - Poor",
+        "2": "3 - Adequate",
+        "3": "4 - Good",
+        "4": "5 - Excellent"
+      },
+      "probabilities": {
+        "0": 0.04550920054316521,
+        "1": 0.055759042501449585,
+        "2": 0.3579576015472412,
+        "3": 0.42591625452041626,
+        "4": 0.11485791951417923
+      },
+      "confidence": 0.42591625452041626
+    },
+    "understandability": {
+      "type": "score",
+      "score": 1.8906254172325134,
+      "legend": {
+        "0": "1 - Very poor",
+        "1": "2 - Poor",
+        "2": "3 - Adequate",
+        "3": "4 - Good",
+        "4": "5 - Excellent"
+      },
+      "probabilities": {
+        "0": 0.10907047986984253,
+        "1": 0.16631260514259338,
+        "2": 0.48030248284339905,
+        "3": 0.2135496288537979,
+        "4": 0.030764739960432053
+      },
+      "confidence": 0.48030248284339905
+    }
+  },
+  "usage": {
+    "input_tokens": 1749,
+    "output_tokens": 0
+  },
+  "diagnostics": {
+    "completeness": {
+      "label_mass": 1.0,
+      "argmax_is_label": true
+    },
+    "structure": {
+      "label_mass": 1.0,
+      "argmax_is_label": true
+    },
+    "clarity": {
+      "label_mass": 1.0,
+      "argmax_is_label": true
+    },
+    "understandability": {
+      "label_mass": 1.0,
+      "argmax_is_label": true
+    }
+  },
+  "joint": null
+}

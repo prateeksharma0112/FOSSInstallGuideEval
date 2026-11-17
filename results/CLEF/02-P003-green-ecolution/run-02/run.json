@@ -1,0 +1,61 @@
+{
+  "run": {
+    "run_id": "CLEF__02-P003-green-ecolution__run-02",
+    "experiment_id": "CLEF",
+    "run_number": 2,
+    "status": "completed",
+    "started_at": "2026-11-17T16:21:10.671030+01:00",
+    "finished_at": "2026-11-17T16:21:11.918786+01:00",
+    "duration_seconds": 1.25
+  },
+  "task": {
+    "task_id": "02-P003-green-ecolution",
+    "dataset_id": "P003",
+    "project": {
+      "opencode_id": "11929",
+      "name": "Green Ecolution",
+      "description": "Platform for smart irrigation and green space management in municipalities based on LoRaWAN sensor data and route optimization.",
+      "catalogue_url": "https://opencode.de/de/software/green-ecolution-11929",
+      "type": "Application",
+      "platforms": [
+        "web"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/green-ecolution/green-ecolution",
+      "commit_sha": "94229d0d6c84b3590827ee1c144d8e62c2180101",
+      "license": "AGPL-3.0-only"
+    },
+    "installation": {
+      "complexity": "High"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/green-ecolution/green-ecolution/-/blob/94229d0d6c84b3590827ee1c144d8e62c2180101/README.md",
+      "source": "Repository README",
+      "language": "English",
+      "word_count": 692
+    }
+  },
+  "prompt": {
+    "interface": "clef",
+    "template": null
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "provider": "clef",
+    "model_name": "CLEF",
+    "model_identifier": "clef",
+    "reasoning_effort": null,
+    "response_id": "decision-9de07c55898438f2",
+    "input_tokens": 2329,
+    "output_tokens": 0,
+    "total_tokens": 2329
+  },
+  "artifacts": {
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json",
+    "request": "evaluation/request.json"
+  }
+}

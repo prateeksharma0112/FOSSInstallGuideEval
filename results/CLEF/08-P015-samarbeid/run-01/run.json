@@ -1,0 +1,61 @@
+{
+  "run": {
+    "run_id": "CLEF__08-P015-samarbeid__run-01",
+    "experiment_id": "CLEF",
+    "run_number": 1,
+    "status": "completed",
+    "started_at": "2026-11-17T16:19:29.193384+01:00",
+    "finished_at": "2026-11-17T16:19:29.686188+01:00",
+    "duration_seconds": 0.5
+  },
+  "task": {
+    "task_id": "08-P015-samarbeid",
+    "dataset_id": "P015",
+    "project": {
+      "opencode_id": "7647",
+      "name": "Samarbeid",
+      "description": "Samarbeid is a web-based collaboration solution specifically designed for teams and small organizations that work on a case-by-case basis. With Samarbeid, a wide variety of workflows can be digitized without the need for IT specialists. This includes task management, flexible workflows, and the capture and utilization of all data and documents generated during these processes.",
+      "catalogue_url": "https://opencode.de/de/software/samarbeid-7647",
+      "type": "Application",
+      "platforms": [
+        "web"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/samarbeid/samarbeid",
+      "commit_sha": "25cce0af912bb5b99552fa4414764e14f53305ae",
+      "license": "MIT"
+    },
+    "installation": {
+      "complexity": "Medium"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/samarbeid/samarbeid/-/blob/25cce0af912bb5b99552fa4414764e14f53305ae/README.md",
+      "source": "Repository README",
+      "language": "English",
+      "word_count": 47
+    }
+  },
+  "prompt": {
+    "interface": "clef",
+    "template": null
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "provider": "clef",
+    "model_name": "CLEF",
+    "model_identifier": "clef",
+    "reasoning_effort": null,
+    "response_id": "decision-b74cf8033ba71c4d",
+    "input_tokens": 733,
+    "output_tokens": 0,
+    "total_tokens": 733
+  },
+  "artifacts": {
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json",
+    "request": "evaluation/request.json"
+  }
+}

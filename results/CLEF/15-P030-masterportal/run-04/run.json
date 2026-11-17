@@ -1,0 +1,61 @@
+{
+  "run": {
+    "run_id": "CLEF__15-P030-masterportal__run-04",
+    "experiment_id": "CLEF",
+    "run_number": 4,
+    "status": "completed",
+    "started_at": "2026-11-17T16:29:27.276135+01:00",
+    "finished_at": "2026-11-17T16:29:27.981376+01:00",
+    "duration_seconds": 0.703
+  },
+  "task": {
+    "task_id": "15-P030-masterportal",
+    "dataset_id": "P030",
+    "project": {
+      "opencode_id": "12551",
+      "name": "Masterportal",
+      "description": "The Masterportal is a flexible modular system for geoportals on the web.",
+      "catalogue_url": "https://opencode.de/de/software/masterportal-12551",
+      "type": "Application",
+      "platforms": [
+        "web"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/lgvhh/urban-data-solutions/masterportal",
+      "commit_sha": "410dc25f07b22213fa85d37622a76f614e859eb8",
+      "license": "MIT"
+    },
+    "installation": {
+      "complexity": "Low"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/lgvhh/urban-data-solutions/masterportal/-/blob/410dc25f07b22213fa85d37622a76f614e859eb8/docs/Setup/setup.md",
+      "source": "Repository documentation",
+      "language": "English",
+      "word_count": 420
+    }
+  },
+  "prompt": {
+    "interface": "clef",
+    "template": null
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "provider": "clef",
+    "model_name": "CLEF",
+    "model_identifier": "clef",
+    "reasoning_effort": null,
+    "response_id": "decision-b0163a89eb6dc853",
+    "input_tokens": 1403,
+    "output_tokens": 0,
+    "total_tokens": 1403
+  },
+  "artifacts": {
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json",
+    "request": "evaluation/request.json"
+  }
+}

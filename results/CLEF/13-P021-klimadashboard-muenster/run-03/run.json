@@ -1,0 +1,61 @@
+{
+  "run": {
+    "run_id": "CLEF__13-P021-klimadashboard-muenster__run-03",
+    "experiment_id": "CLEF",
+    "run_number": 3,
+    "status": "completed",
+    "started_at": "2026-11-17T16:25:51.721648+01:00",
+    "finished_at": "2026-11-17T16:25:52.166922+01:00",
+    "duration_seconds": 0.453
+  },
+  "task": {
+    "task_id": "13-P021-klimadashboard-muenster",
+    "dataset_id": "P021",
+    "project": {
+      "opencode_id": "629",
+      "name": "Klimadashboard Münster",
+      "description": "The Münster Climate Dashboard visualizes real-time information about the city of Münster's climate footprint. The dashboard displays data with various graphs in a tile-based layout, with separate pages for each of the four categories. The data comes from many different providers, including the City of Münster's open data portal, the German Meteorological Service (DWD), and BrightSky.",
+      "catalogue_url": "https://opencode.de/de/software/klimadashboard-munster-629",
+      "type": "Application",
+      "platforms": [
+        "web"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/smart-city-muenster/klimadashboard-muenster/klimadashboard-muenster",
+      "commit_sha": "ffb429f03b5b63ee97bca85bb9fce1ec0de91769",
+      "license": "AGPL-3.0-or-later"
+    },
+    "installation": {
+      "complexity": "Low"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/smart-city-muenster/klimadashboard-muenster/klimadashboard-muenster/-/blob/ffb429f03b5b63ee97bca85bb9fce1ec0de91769/README.md",
+      "source": "Repository README",
+      "language": "English",
+      "word_count": 44
+    }
+  },
+  "prompt": {
+    "interface": "clef",
+    "template": null
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "provider": "clef",
+    "model_name": "CLEF",
+    "model_identifier": "clef",
+    "reasoning_effort": null,
+    "response_id": "decision-8f853fc1038746f8",
+    "input_tokens": 719,
+    "output_tokens": 0,
+    "total_tokens": 719
+  },
+  "artifacts": {
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json",
+    "request": "evaluation/request.json"
+  }
+}

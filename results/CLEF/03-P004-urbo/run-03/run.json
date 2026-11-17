@@ -1,0 +1,62 @@
+{
+  "run": {
+    "run_id": "CLEF__03-P004-urbo__run-03",
+    "experiment_id": "CLEF",
+    "run_number": 3,
+    "status": "completed",
+    "started_at": "2026-11-17T16:24:05.603728+01:00",
+    "finished_at": "2026-11-17T16:24:06.487598+01:00",
+    "duration_seconds": 0.875
+  },
+  "task": {
+    "task_id": "03-P004-urbo",
+    "dataset_id": "P004",
+    "project": {
+      "opencode_id": "11309",
+      "name": "URBO",
+      "description": "Urbo is an open source city app platform that aggregates services and information from various sources for citizens.",
+      "catalogue_url": "https://opencode.de/de/software/urbo-11309",
+      "type": "Application",
+      "platforms": [
+        "ios",
+        "android"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/urbo-community/urbo",
+      "commit_sha": "71cd0baf943270d1e1fad9d8a8b0485a79bbd4a2",
+      "license": "EUPL-1.2"
+    },
+    "installation": {
+      "complexity": "High"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/urbo-community/urbo/-/blob/71cd0baf943270d1e1fad9d8a8b0485a79bbd4a2/README.md",
+      "source": "Repository README",
+      "language": "English",
+      "word_count": 803
+    }
+  },
+  "prompt": {
+    "interface": "clef",
+    "template": null
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "provider": "clef",
+    "model_name": "CLEF",
+    "model_identifier": "clef",
+    "reasoning_effort": null,
+    "response_id": "decision-abbc9c315e63b317",
+    "input_tokens": 1966,
+    "output_tokens": 0,
+    "total_tokens": 1966
+  },
+  "artifacts": {
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json",
+    "request": "evaluation/request.json"
+  }
+}

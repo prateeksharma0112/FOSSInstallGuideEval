@@ -1,0 +1,50 @@
+{
+  "model": "clef",
+  "state": "## Quick Start\n\nFor a development setup with hot reload:\n\n```bash\njust infra-up    # Start infra (Postgres, Keycloak, Traefik, Valhalla, Streamlet)\njust migrate-up  # Apply database migrations\njust run-dev     # Run backend (hot reload) + frontend\n```\n\nOpen [http://localhost:3000](http://localhost:3000).\n\nTo run everything in containers with a single command (infra + app + migrations), use `just run-docker` instead.\n\n### With HTTPS (Let's Encrypt)\n\nFor valid TLS certificates (required for PWA testing on mobile), you need a domain with DNS API access on [Porkbun](https://porkbun.com). Either ask the `green-ecolution.dev` domain owner for API keys, or register your own domain on Porkbun and set `DOMAIN=your-domain.dev` in `.env`.\n\n1. Copy `.env.example` to `.env` and add your Porkbun API keys (and optionally `DOMAIN`)\n2. Create DNS records: `just dns-setup`\n3. Start infra: `just infra-up`\n4. Apply migrations: `just migrate-up`\n5. Start dev environment: `just run-dev`\n\nOpen `https://<your-ip>.green-ecolution.dev:3443` (or your custom domain).\n\n## Setup\n\n### Requirements\n\n- Rust toolchain (rustup, includes cargo)\n- WASM target (`rustup target add wasm32-unknown-unknown`) — required for WASM builds used by the domain bindings\n- Node.js + pnpm (`corepack enable`)\n- Docker + Docker Compose\n- [`just`](https://github.com/casey/just) — command runner (`cargo install just`)\n- [`wasm-pack`](https://github.com/rustwasm/wasm-pack) (`cargo install wasm-pack`) — builds the domain WASM bindings, required by `just build`\n- [`bacon`](https://github.com/Canop/bacon) (`cargo install bacon`) — live reload, required by `just run-dev`\n- [`sqlx-cli`](https://crates.io/crates/sqlx-cli) (`cargo install sqlx-cli --no-default-features --features rustls,postgres`) for migrations and offline-cache regeneration\n\n### Installation\n\n```bash\njust setup       # cargo fetch + pnpm install + build frontend workspace packages + domain WASM\njust build       # Build frontend + backend\n```\n\n### Common Commands\n\n| Command | Description |\n|---------|-------------|\n| `just run-dev` | Backend + frontend dev via Traefik (bacon live reload) |\n| `just run-docker` | Full stack via Docker Compose |\n| `just infra-up` | Start infrastructure only |\n| `just test` | Run all tests (Rust workspace + frontend) |\n| `just lint` | Lint Rust workspace + frontend |\n| `just generate-sqlx` | Refresh sqlx offline query cache |\n| `just migrate-up` | Apply database migrations |\n| `just migrate-new <name>` | Create new migration |\n| `just seed-up` | Apply seed data on top of the migrated DB |\n\n> For a reproducible dev environment, you can also use `nix develop`.\n\n### Services\n\n`just infra-up` starts these services and routes them via Traefik. The Backend API is not part of the infra stack — it becomes available once you run `just run-dev` or `just run-docker`.\n\n**Without Porkbun keys** (HTTP on port 3000):\n\n| Service | URL |\n|---------|-----|\n| Backend API | <http://localhost:3000/api> (needs `run-dev` / `run-docker`) |\n| Keycloak | <http://auth.localhost:3000> |\n| pgAdmin | <http://pgadmin.localhost:3000> |\n| Valhalla | <http://valhalla.localhost:3000> |\n| Streamlet | <http://streamlet.localhost:3000> |\n\n**With Porkbun keys** (HTTPS on port 3443, valid Let's Encrypt certs):\n\n| Service | URL |\n|---------|-----|\n| Backend API | `https://<ip>.green-ecolution.dev:3443/api` (needs `run-dev` / `run-docker`) |\n| Keycloak | `https://auth.<ip>.green-ecolution.dev:3443` |\n| pgAdmin | `https://pgadmin.<ip>.green-ecolution.dev:3443` |\n| Valhalla | `https://valhalla.<ip>.green-ecolution.dev:3443` |\n| Streamlet | `https://streamlet.<ip>.green-ecolution.dev:3443` |\n\n## Architecture\n\n```\nbackend/  → Rust (axum, sqlx, tokio) - REST API, MQTT subscriber, auth\nfrontend/    → React (Vite, TanStack Router/Query, Zustand, Tailwind)\n```\n\nThe backend is a Cargo workspace with two crates: a portable `domain` crate\n(no sqlx/axum/tokio dependencies, reusable on WASM / mobile targets) and a\n`server` crate that wires up the Postgres adapters, Keycloak integration,\nMQTT subscriber, and the axum HTTP layer.\n\n## PWA\n\nThe frontend is installable as a Progressive Web App with offline support via a Workbox service worker.\n\n### HTTPS with valid certificates\n\nPWA features like service workers require HTTPS. The project uses [Let's Encrypt](https://letsencrypt.org/) with DNS-01 challenge via [Porkbun](https://porkbun.com) to obtain valid TLS certificates for local development.\n\n```bash\n# 1. Add Porkbun API keys to .env (see .env.example)\n# 2. Create DNS records pointing to your local IP\njust dns-setup\n\n# 3. Start dev environment (HTTPS on port 3443)\njust run-dev\n```\n\nYour local IP is auto-detected. Access the app at `https://<ip>.green-ecolution.dev:3443`.\n\n### Mobile testing\n\nWith HTTPS enabled, the app is accessible from any device on the local network. No certificate installation needed since Let's Encrypt certs are trusted by default.\n\n- Frontend: `https://<ip>.green-ecolution.dev:3443`\n- Auth: `https://auth.<ip>.green-ecolution.dev:3443`\n\n### Without HTTPS\n\nWithout Porkbun API keys, the dev environment runs on plain HTTP (port 3000). PWA install and service workers won't work, but general development is unaffected.\n\n```bash\njust run-dev   # HTTP on localhost:3000\n```\n\n### Testing the service worker\n\nThe service worker is **disabled in `vite dev`** (`devOptions.enabled: false` in `vite.config.ts`) to avoid HMR conflicts with Workbox precaching. To verify PWA behavior (install prompt, update flow, offline fallback), build and serve the production bundle:\n\n```bash\ncd frontend/app && pnpm build && pnpm preview\n```\n\n…or run the full Docker stack via `just run-docker`.\n\n## Configuration\n\nAll settings via environment variables (prefix `APP_`, separator `__`) or YAML files in `backend/config/` (`base.yaml`, `local.yaml`, `production.yaml`). The active profile is selected by `APP_ENVIRONMENT`.\n\nKey areas: `application.*`, `database.*`, `auth.*`, `mqtt.*`, `log.*`\n\nSee the `backend` service in `compose.yaml` for examples.",
+  "questions": {
+    "completeness": {
+      "type": "score",
+      "instructions": "How would you rate the guide's coverage of the information needed to install, configure where required, and verify the software?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "structure": {
+      "type": "score",
+      "instructions": "Is the installation guide arranged so that the user can find what is needed and follow the installation process in the required order?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "clarity": {
+      "type": "score",
+      "instructions": "Are instructions, commands, prerequisites, configuration values, and expected outcomes stated precisely and without ambiguity?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "understandability": {
+      "type": "score",
+      "instructions": "How easy was it to understand the installation or setup steps? Consider whether the guide explained the technical terms and concepts or required you to know them beforehand.",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    }
+  }
+}

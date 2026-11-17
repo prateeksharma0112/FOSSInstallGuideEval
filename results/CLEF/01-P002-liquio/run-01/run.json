@@ -1,0 +1,66 @@
+{
+  "run": {
+    "run_id": "CLEF__01-P002-liquio__run-01",
+    "experiment_id": "CLEF",
+    "run_number": 1,
+    "status": "completed",
+    "started_at": "2026-11-17T16:17:56.090745+01:00",
+    "finished_at": "2026-11-17T16:17:57.212876+01:00",
+    "duration_seconds": 1.125
+  },
+  "task": {
+    "task_id": "01-P002-liquio",
+    "dataset_id": "P002",
+    "project": {
+      "opencode_id": "7613",
+      "name": "Liquio",
+      "description": "Liquio is an innovative GovTech platform that leverages artificial intelligence and a low-code approach to drive the digital transformation of public services. It enables rapid creation, configuration, and deployment of a wide range of IT solutions, and web and mobile applications for government agencies and local governments.",
+      "catalogue_url": "https://opencode.de/de/software/liquio-7613",
+      "type": "Application",
+      "platforms": [
+        "web",
+        "windows",
+        "mac",
+        "linux",
+        "ios",
+        "android"
+      ]
+    },
+    "repository": {
+      "url": "https://gitlab.opencode.de/govstack/kitsoft/liquio",
+      "commit_sha": "399b8b10f9776e5253a5daf02019551db4ee5d0e",
+      "license": "AGPL-3.0-only"
+    },
+    "installation": {
+      "complexity": "High"
+    },
+    "installation_guide": {
+      "url": "https://gitlab.opencode.de/govstack/kitsoft/liquio/-/blob/399b8b10f9776e5253a5daf02019551db4ee5d0e/CONTRIBUTING.md",
+      "source": "Repository contributing guide",
+      "language": "English",
+      "word_count": 700
+    }
+  },
+  "prompt": {
+    "interface": "clef",
+    "template": null
+  },
+  "criteria": {
+    "version": "1.0"
+  },
+  "llm": {
+    "provider": "clef",
+    "model_name": "CLEF",
+    "model_identifier": "clef",
+    "reasoning_effort": null,
+    "response_id": "decision-86a4acc6e47fb358",
+    "input_tokens": 2212,
+    "output_tokens": 0,
+    "total_tokens": 2212
+  },
+  "artifacts": {
+    "llm_response": "evaluation/llm_response.json",
+    "report": "evaluation/report.json",
+    "request": "evaluation/request.json"
+  }
+}

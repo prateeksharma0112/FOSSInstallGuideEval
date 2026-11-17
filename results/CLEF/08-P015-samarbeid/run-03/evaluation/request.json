@@ -1,0 +1,50 @@
+{
+  "model": "clef",
+  "state": "## Getting started\n\n- Requirements: \n  - Ruby (see `.ruby-version` for exact version)\n  - Nodejs and yarn package manager (see `.tools-version` ([asdf](https://asdf-vm.com/)))\n  - PostgreSQL\n  - Docker & Docker Compose\n- `bin/setup`\n\nOpen http://localhost:3000 and you should see your local samarbeid running. A initial admin user account is automatically generated (see output of above command for details).",
+  "questions": {
+    "completeness": {
+      "type": "score",
+      "instructions": "How would you rate the guide's coverage of the information needed to install, configure where required, and verify the software?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "structure": {
+      "type": "score",
+      "instructions": "Is the installation guide arranged so that the user can find what is needed and follow the installation process in the required order?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "clarity": {
+      "type": "score",
+      "instructions": "Are instructions, commands, prerequisites, configuration values, and expected outcomes stated precisely and without ambiguity?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "understandability": {
+      "type": "score",
+      "instructions": "How easy was it to understand the installation or setup steps? Consider whether the guide explained the technical terms and concepts or required you to know them beforehand.",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    }
+  }
+}

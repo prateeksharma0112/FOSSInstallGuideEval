@@ -1,0 +1,50 @@
+{
+  "model": "clef",
+  "state": "## Requirements\n* https://www.drupal.org/docs/system-requirements for Drupal\n  * PHP 8.4\n* A bunch of drupal modules and external libraries.\n\n## Installation\n\n### New installation\n\nUse the composer project template:\n\n```bash\ncomposer create-project --remove-vcs drupal/openculturas_project example.org\n```\n\nFor more information go to https://www.drupal.org/project/openculturas_project.\n\n### Updating\n\n#### Patch release\n\nOptionally update library versions in the inline package repositories in `composer.json`, then:\n\n```bash\ncomposer update openculturas/openculturas-distribution \"drupal/core-*\" drupal/core --with-dependencies --minimal-changes\ndrush updatedb --yes\n# Review changes, then export and commit configuration\ndrush config:export --yes\n```\n\n#### Minor release\n\nManually increase the version constraints for `drupal/core-*` and `openculturas/openculturas-distribution` to the next minor version in `composer.json`, then follow the same steps as a patch release.\n\n\n## Development\n\nPlease read the [Development guidelines](DEVELOPMENT.md) before you start.\n\nWe recommend using https://ddev.com for development.\n\n### Installation (with ddev)\n\n* Clone this repository\n* Install dependencies\n  * `ddev composer install`\n* Install OpenCulturas distribution\n  * `ddev drush site:install --yes --existing-config`\n\n### DDEV\n\nCheatsheet:\n\n* Start project `ddev start`\n* Run composer commands `ddev composer COMMAND` e.g. `ddev composer install`\n* Run drush commands `ddev drush COMMAND` e.g. `ddev drush uli`\n* Import latest database snapshot `ddev dbimport`\n\nMore information about ddev cli command https://ddev.readthedocs.io/en/stable/users/basics/cli-usage/.\n\n### Patching\n\nPatches are managed with [cweagans/composer-patches](https://docs.cweagans.net/composer-patches/) v2 and tracked in `patches.lock.json`.\n\n```bash\nddev composer patches-relock   # Re-discover patches in composer.json and rewrite patches.lock.json\nddev composer patches-repatch  # Delete, re-download and re-apply patches for all affected packages\nddev composer patches-doctor   # Diagnose common patching issues\n```\n\nRun `patches-relock` after adding or removing a patch in `composer.json`. Run `patches-repatch` when a patch fails to apply or a package needs a clean re-install.\n\n### PHP Quality Checks\n\n```bash\nddev composer run php:lint        # PHP parallel lint\nddev composer run php:cs          # PHPCS\nddev composer run php:cs-fix      # Auto-fix PHPCS issues\nddev composer run php:phpstan     # Static analysis\nddev composer run php:rector      # Rector dry-run\nddev composer run php:rector-fix  # Rector auto-fix\n```\n\n### JS/CSS Linting\n\nAll linting commands run inside the DDEV container:\n\n```bash\nddev exec npm run lint:js         # ESLint JavaScript (entire project)\nddev exec npm run lint:yaml       # ESLint YAML\nddev exec npm run lint:css        # stylelint CSS (profile/modules)\nddev exec npm run lint:css:fix    # Auto-fix CSS\nddev exec npm run lint:scss       # stylelint SCSS (openculturas_base theme)\nddev exec npm run lint:scss:fix   # Auto-fix SCSS\nddev exec npm run prettier        # Prettier JavaScript\nddev exec npm run prettier:css    # Prettier CSS\nddev exec npm run prettier:scss   # Prettier SCSS\n```\n\nTo lint specific JS files:\n\n```bash\nddev exec npx eslint --ext .js --no-ignore path/to/file.js\n```\n\n### Configuration files\n\nAll configurations are managed via [config_devel](https://www.drupal.org/project/config_devel).\nEach configuration is listed in the info file of the profile or module.\nTherefore, any changes to the configuration must also be made in the info file.\n\nAfter that, enable config_devel and run `ddev composer run cde` or `ddev drush cde module`.\n\nThis command updates all configuration listed in the info file and removes the key `_core` and `uuid` except for\nviews configuration. The uuid is needed because the uuid is used in other configuration as a default value, without this\nthe default value would be not set/broken.",
+  "questions": {
+    "completeness": {
+      "type": "score",
+      "instructions": "How would you rate the guide's coverage of the information needed to install, configure where required, and verify the software?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "structure": {
+      "type": "score",
+      "instructions": "Is the installation guide arranged so that the user can find what is needed and follow the installation process in the required order?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "clarity": {
+      "type": "score",
+      "instructions": "Are instructions, commands, prerequisites, configuration values, and expected outcomes stated precisely and without ambiguity?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "understandability": {
+      "type": "score",
+      "instructions": "How easy was it to understand the installation or setup steps? Consider whether the guide explained the technical terms and concepts or required you to know them beforehand.",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "model": "clef",
+  "state": "# Deployment\n\nDocker Compose with three services (see `docker-compose.yml`):\n\n| Service | Image / build | Host port | Notes |\n|---|---|---|---|\n| `web` | `Dockerfile` | `127.0.0.1:3020` | runs `next start` directly (no migrations — Mongo is schemaless) |\n| `hocuspocus` | `hocuspocus/Dockerfile` | `127.0.0.1:1234` | realtime sidecar for the Board module |\n| `mongo` | `mongo:7` | `127.0.0.1:27019` | volume `mongo_data` |\n\nMedia uploads live on the `media_data` volume (`/app/media`) — no external\nobject storage.\n\n## Setup\n\n```bash\ncp .env.example .env\n# set at minimum: PAYLOAD_SECRET, HOCUSPOCUS_SECRET, NEXT_PUBLIC_HOCUSPOCUS_URL,\n# NEXT_PUBLIC_SERVER_URL  (see docs/env-reference.md)\n\ndocker compose up -d --build\ndocker compose ps          # wait for healthy\ncurl http://localhost:3020/api/health\n```\n\nCompose fails fast on missing required vars (`:?` syntax) — intentional.\n\n**Build-time args:** `NEXT_PUBLIC_SERVER_URL` and `NEXT_PUBLIC_HOCUSPOCUS_URL`\nare baked into the client bundle at build time (Docker build args). Changing\nthem requires a rebuild, not just a restart.\n\n## Domains\n\nOne deployment serves both hosts; `src/middleware.ts` splits them (see\n[architecture.md](./architecture.md)):\n\n- `urbankit.de` → public portal\n- `app.urbankit.de` → logged-in workspace\n\nPoint both DNS records at the same server. The board WebSocket needs its own\npublic endpoint: set `NEXT_PUBLIC_HOCUSPOCUS_URL` to a `wss://` URL (e.g.\n`wss://ws.urbankit.de`) proxied to port 1234 — plain `ws://` is blocked as\nmixed content on https pages.\n\n### Nginx sketch\n\n```nginx\n# portal + app → next\nserver {\n    listen 443 ssl;\n    server_name urbankit.de app.urbankit.de;\n    location / {\n        proxy_pass http://127.0.0.1:3020;\n        proxy_set_header Host $host;\n        proxy_set_header X-Forwarded-Proto $scheme;\n    }\n}\n\n# board websocket\nserver {\n    listen 443 ssl;\n    server_name ws.urbankit.de;\n    location / {\n        proxy_pass http://127.0.0.1:1234;\n        proxy_http_version 1.1;\n        proxy_set_header Upgrade $http_upgrade;\n        proxy_set_header Connection \"upgrade\";\n    }\n}\n```\n\n`Host` must be forwarded unchanged — the middleware's domain routing and the\nlogin \"open workspace in new tab\" flow depend on it.\n\n## Production override\n\nSame pattern as the urban-kit-methodensammlung stack: `docker-compose.prod.yml`\nhardens the base compose for the VPS.\n\n```bash\n# additionally set in .env: MONGO_ROOT_USER, MONGO_ROOT_PASSWORD\ndocker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build\n```\n\nWhat it changes:\n\n- **MongoDB root auth** — `MONGO_INITDB_ROOT_*` creates the root user on first\n  boot, `web` connects with a credentialed `DATABASE_URI` (`authSource=admin`).\n  NOTE: init only applies to an EMPTY `mongo_data` volume. For an existing\n  volume, create the user once by hand:\n  `docker compose exec mongo mongosh --eval 'db.getSiblingDB(\"admin\").createUser({user: \"…\", pwd: \"…\", roles: [\"root\"]})'`\n- Mongo publishes **no host port** at all (base maps `127.0.0.1:27019`).\n- `restart: always` for web/hocuspocus/mongo.\n- The **mailpit** dev mailcatcher is parked behind a compose profile and never\n  starts — point `SMTP_*` at a real provider.\n\n## Backup & restore\n\n`scripts/backup.sh` dumps the database (`mongodump --archive --gzip`) and tars\nthe `media_data` + `uploads_data` volumes into `../backups/` (rotating after 14\ndays). Run it from cron on the server:\n\n```cron\n30 3 * * * /root/projects/urban-kit-plattform/urban-kit-plattform/scripts/backup.sh \\\n           >> /root/projects/urban-kit-plattform/backups/backup.log 2>&1\n```\n\nRestore a DB archive (drops and replaces the current database):\n\n```bash\nscripts/restore.sh ../backups/db_2026-08-20_0330.archive.gz\n```\n\nBoth scripts read `MONGO_ROOT_USER`/`MONGO_ROOT_PASSWORD` from `.env`.\n\n## Updates\n\n```bash\ngit pull\ndocker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build web hocuspocus\n```\n\n## Demo accounts (public prototype logins)\n\nTwo read-only test accounts (citizen + project lead) can be shown on the login\npage while the prototype notice is on:\n\n```bash\ndocker compose exec web npm run seed:demo          # defaults, see script header\nDEMO_PROJECT_SLUG=… DEMO_PASSWORD=… docker compose exec -e DEMO_PROJECT_SLUG -e DEMO_PASSWORD web npm run seed:demo\n```\n\nThe script flags the users `isDemo`, puts them into the project and fills\n`platform-settings.prototypeDemoAccounts` (only if empty). Writes from these\naccounts are refused platform-wide; the board is read-only (the `hocuspocus`\nimage must be rebuilt after updating — it sets `connection.readOnly`).",
+  "questions": {
+    "completeness": {
+      "type": "score",
+      "instructions": "How would you rate the guide's coverage of the information needed to install, configure where required, and verify the software?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "structure": {
+      "type": "score",
+      "instructions": "Is the installation guide arranged so that the user can find what is needed and follow the installation process in the required order?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "clarity": {
+      "type": "score",
+      "instructions": "Are instructions, commands, prerequisites, configuration values, and expected outcomes stated precisely and without ambiguity?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "understandability": {
+      "type": "score",
+      "instructions": "How easy was it to understand the installation or setup steps? Consider whether the guide explained the technical terms and concepts or required you to know them beforehand.",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    }
+  }
+}

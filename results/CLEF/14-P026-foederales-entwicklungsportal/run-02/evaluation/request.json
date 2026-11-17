@@ -1,0 +1,50 @@
+{
+  "model": "clef",
+  "state": "## How to build\n\nTo build the developer portal locally [yarn package manager](https://yarnpkg.com/) is recommended.\n\n### Preconditions\nTo install yarn:\n```sh\nnpm install --global yarn\n```\n\nBefore proceeding, double check that yarn is installed correctly:\n```sh\nyarn --version\n```\n\n### Environment Variables\nThe application uses the following environment variables for configuration:\n\n#### Plausible Analytics\n- `NEXT_PUBLIC_PLAUSIBLE_DOMAIN`: The domain for Plausible analytics tracking (default: `docs.fitko.de`)\n- `NEXT_PUBLIC_PLAUSIBLE_ANALYTICS_URL`: The URL for the Plausible analytics dashboard (default: `https://plausible.io/docs.fitko.de`)\n\nTo override these values, create a `.env.local` file in the root directory:\n```bash\n# .env.local\nNEXT_PUBLIC_PLAUSIBLE_DOMAIN=your-domain.com\nNEXT_PUBLIC_PLAUSIBLE_ANALYTICS_URL=https://plausible.io/your-domain.com\n```\n\n### Start development environment\nLet's start the integrated Next.js development server:\n```sh\nyarn install\nyarn dev\n```\n\nBy default, the server runs on [http://localhost:3000](http://localhost:3000)\n\n### Production build\nBuild a fully deployable export with:\n```sh\nyarn install\nyarn export\n```\n\nThe result is stored in the `build` directory.",
+  "questions": {
+    "completeness": {
+      "type": "score",
+      "instructions": "How would you rate the guide's coverage of the information needed to install, configure where required, and verify the software?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "structure": {
+      "type": "score",
+      "instructions": "Is the installation guide arranged so that the user can find what is needed and follow the installation process in the required order?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "clarity": {
+      "type": "score",
+      "instructions": "Are instructions, commands, prerequisites, configuration values, and expected outcomes stated precisely and without ambiguity?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "understandability": {
+      "type": "score",
+      "instructions": "How easy was it to understand the installation or setup steps? Consider whether the guide explained the technical terms and concepts or required you to know them beforehand.",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    }
+  }
+}

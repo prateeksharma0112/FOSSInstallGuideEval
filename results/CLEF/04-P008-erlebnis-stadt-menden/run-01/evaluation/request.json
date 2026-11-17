@@ -1,0 +1,50 @@
+{
+  "model": "clef",
+  "state": "# Menden CMS Backend\n\nSource: [backend/README.md](https://gitlab.opencode.de/stadt-menden/erlebnis.stadt/-/blob/e5a8336a130b9e379db54b4b8d6fa21cfd38dd58/backend/README.md)\n\n## Requirements\n\nBefore you begin, please ensure you have the following installed:\n\n* [Docker](https://www.docker.com/products/docker-desktop)\n* [JDK 21](https://jdk.java.net/21/) (required only if you are not using Docker to run the Spring application.)\n* **GitHub Personal Access Token**: Required to access certain dependencies hosted in the GitHub Packages repository.\n\n### Why a GitHub Token is Required\n\nThe application depends on certain Maven packages hosted in a private GitHub Packages repository. To authenticate and\ndownload these dependencies, a GitHub Personal Access Token is necessary. The token can be set either in the environment\nor directly in the build configuration file.\n\n#### Example Maven Configuration:\n\n```kotlin\nrepositories {\n    mavenCentral()\n    maven {\n        url = uri(\"https://maven.pkg.github.com/sw-code/Urbo\")\n        credentials {\n            username = \"\" // Your GitHub username (can remain empty)\n            password = System.getenv(\"GITHUB_TOKEN\") ?: \"your-github-token\" // The GitHub token\n        }\n    }\n}\n```\n\n### How to Set the GitHub Token\n\nYou can set the token in one of the following ways:\n\n1. **Set the token in the build script**:\n    - Open the `buildSrc/src/main/kotlin/io/swcode/menden/common-conventions.gradle.kts` file and set the token\n      directly:\n    ```kotlin\n    repositories {\n        mavenCentral()\n        maven {\n            url = uri(\"https://maven.pkg.github.com/sw-code/Urbo\")\n            credentials {\n                username = \"\" // Your GitHub username (can remain empty)\n                password = \"your-personal-access-token\" // Replace with your token\n            }\n        }\n    }\n    ```\n\n2. **Set the token as an environment variable**:\n    - Export the token in your terminal session:\n    ```shell\n    export GITHUB_TOKEN=your-personal-access-token\n    ```\n\n## Setting Up Docker\n\n1. **Docker Setup**: Before running the application, start the necessary Docker containers:\n\n    * Navigate to the `/docker` directory:\n\n    ```shell\n    cd docker\n    ```\n\n    * To start the containers without the Spring application:\n\n    ```shell\n    docker-compose up\n    ```\n   > **Caution:** Ensure Docker containers are completely started and all services are up before proceeding to run the\n   application. Some services might take longer to initialize, so be patient.\n\n\n2. **Running the Application**: You have two options:\n    * **Using Your IDE**:\n        * Locate the class `io.swcode.menden.cms.app.MendenCmsApplication`.\n        * Execute the `main` method within the class.\n\n    * **Using Gradle**:\n        * Run the application using the Gradle wrapper command:\n\n    ```shell\n    ./gradlew :menden-app:bootRun\n    ```\n\n---\n\n# AngularMonorepo\n\nSource: [app/README.md](https://gitlab.opencode.de/stadt-menden/erlebnis.stadt/-/blob/e5a8336a130b9e379db54b4b8d6fa21cfd38dd58/app/README.md)\n\n## Prerequisites\n\nBefore you begin, ensure you have met the following requirements:\n\n- Node.js (version 20.17.0 or higher) installed\n- pnpm (version 9.12.3 or higher) installed\n- Nx CLI `nx` installed (`pnpm install -g nx`)\n\n### Prerequisites for Using Private GitHub Packages\n\nThis project uses private packages hosted on the **GitHub Package Registry**. To install dependencies and work with these private packages, you'll need to authenticate with GitHub using a **Personal Access Token (PAT)**. This token is required to grant your system permission to access the private registry.\n\n#### Why is this needed?\n\n- Private packages are stored in the GitHub Package Registry, which requires authentication for access.\n- The **Personal Access Token (PAT)** allows the package manager to authenticate with GitHub securely.\n- Without this token, you will encounter errors like `403 Forbidden` or `404 Not Found` when trying to install packages.\n\n---\n\n#### How to Set Up Authentication\n\nThere are two ways to provide the authentication token:\n\n---\n\n#### 1. Add It to Your `.npmrc` File\n\nAdd the following lines to the root-level `.npmrc` file of your workspace or your user-level `.npmrc` file (`~/.npmrc`):\n\n```\n\nstrict-peer-dependencies=false\nauto-install-peers=true\n\n@sw-code:registry=https://npm.pkg.github.com\n//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}\n```\n\n**Note:** Replace `${GITHUB_TOKEN}` with your actual GitHub **Personal Access Token** if you're not using an environment variable.\n\n---\n\n#### 2. Set It as an Environment Variable\n\nAlternatively, you can define the `GITHUB_TOKEN` environment variable on your system. This method is more secure since the token is not stored in plaintext on disk.\n\n- On **Windows**:\n\n  ```\n  setx GITHUB_TOKEN your_personal_access_token\n  ```\n\n- On **macOS/Linux**:\n\n  ```\n  export GITHUB_TOKEN=your_personal_access_token\n  ```\n\nMake sure the environment variable is accessible in the shell or terminal session where you're running Nx commands.\n\n---\n\n#### Verify Setup\n\nOnce the token is configured, run the following command to verify it works:\n\n```\npnpm install\n```\n\nIf the setup is correct, the dependencies should install without errors. If you encounter issues, ensure:\n\n- Your token has the correct permissions (`read:packages` and optionally `repo` for private repos).\n- The `.npmrc` or environment variable is correctly configured.\n\n## Run tasks\n\nTo run the dev server for your app, use:\n\n```sh\npnpm nx serve erlebnis.stadt\n```\n\nTo create a production bundle:\n\n```sh\npnpm nx build erlebnis.stadt\n```\n\nTo see all available targets to run for a project, run:\n\n```sh\npnpm nx show project erlebnis.stadt\n```\n\nThese targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.\n\n[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)\n\n---\n\n# Cms\n\nSource: [cms/README.md](https://gitlab.opencode.de/stadt-menden/erlebnis.stadt/-/blob/e5a8336a130b9e379db54b4b8d6fa21cfd38dd58/cms/README.md)\n\n## Run tasks\n\nTo run the dev server for your app, use:\n\n```sh\npnpm start\n```\n\nThese targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.\n\n[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)",
+  "questions": {
+    "completeness": {
+      "type": "score",
+      "instructions": "How would you rate the guide's coverage of the information needed to install, configure where required, and verify the software?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "structure": {
+      "type": "score",
+      "instructions": "Is the installation guide arranged so that the user can find what is needed and follow the installation process in the required order?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "clarity": {
+      "type": "score",
+      "instructions": "Are instructions, commands, prerequisites, configuration values, and expected outcomes stated precisely and without ambiguity?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "understandability": {
+      "type": "score",
+      "instructions": "How easy was it to understand the installation or setup steps? Consider whether the guide explained the technical terms and concepts or required you to know them beforehand.",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    }
+  }
+}

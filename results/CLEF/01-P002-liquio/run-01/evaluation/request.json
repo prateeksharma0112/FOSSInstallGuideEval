@@ -1,0 +1,50 @@
+{
+  "model": "clef",
+  "state": "## Getting Started\n\n### Prerequisites\n\n- [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/)\n- [Node.js](https://nodejs.org/) (v18 or higher)\n- [Git](https://git-scm.com/)\n- Basic understanding of JavaScript/TypeScript and Node.js\n\n### Fork and Clone\n\n1. Fork the repository on GitHub\n2. Clone your fork locally:\n   ```bash\n   git clone https://github.com/YOUR_USERNAME/liquio-opensource.git\n   cd liquio-opensource\n   ```\n3. Add the upstream repository:\n   ```bash\n   git remote add upstream https://github.com/ORIGINAL_OWNER/liquio-opensource.git\n   ```\n\n### Initial Setup\n\n#### Docker Compose Setup\n\n**Basic requirements**\n\nTo deploy the Liquio platform locally, ensure you have Docker and Docker Compose installed on your system. You can find the official Docker Compose installation guide [here](https://docs.docker.com/compose/). Additionally, make sure you have the necessary permissions to execute shell scripts. The included shell scripts, such as `./scripts/init.sh`, are used to generate configuration files required for the platform's operation. Docker Compose is then utilized to set up and manage the containerized environment, simplifying the deployment process.\n\n**Access control**\n\nThe basic local deployment includes an automatically generated Central Authority certificate and user X.509 certificates in PKCS#12 format, simplifying the initial setup process. These certificates are essential for secure communication and authentication within the platform. For production deployments, you can integrate your existing Public Key Infrastructure (PKI) to replace the auto-generated certificates, ensuring compliance with organizational security policies and standards.\n\n**Local startup**\n\n1. Run `./scripts/init.sh` to generate configuration files from templates.\n2. Run `docker compose up -d` to setup Docker Compose environment.\n3. Navigate to http://localhost:8082 to enter the admin panel.\n4. Use the generated key file for admin located in config/admin.p12. The default password is 'admin'.\n5. Logout and navigate to http://localhost:8081 to enter the cabinet.\n6. Use the generated key file for demo user located in config/demo.p12. The default password is 'demo'.\n7. Use the `./scripts/generate-user.sh` to create more user key files.\n\n**Example process**\n\n1. To deploy an example process, let's open the admin panel via admin key.\n2. Navigate to Register list page: http://localhost:8082/registry\n3. Click \"Import\" and select \"examples/register-100-100.dat\". Then confirm the import. This will import the register schema for students.\n4. Do the same for \"examples/register-100-101.dat\" and \"examples/register-100-102.dat\". This will import the register schemas for institutions and groups.\n5. Let's navigate to Workflow list: http://localhost:8082/workflow\n6. Click import, continue without skipping the validation, and select \"examples/workflow-1000.bpmn\" file for import. Confirm to continue.\n7. You can now open the workflow configuration page and play with it: http://localhost:8082/workflow/1000\n8. Let's log out and open the cabinet: http://localhost:8081. Use the demo key this time.\n9. Click \"Order a service\" and select \"Student editing\".\n\n**Running Tests**\n\nAfter the environment is set up, you can run Playwright tests:\n\n```bash\ncd test\n\n# Run tests in headless mode\nnpm run test\n\n# Run tests in headed mode (see browser automation)\nnpm run test:headed\n\n# Run tests with Playwright UI\nnpm run test:ui\n```\n\n## Kubernetes Setup\n\nFor Kubernetes development and testing:\n\n1. Install prerequisites:\n   - [minikube](https://minikube.sigs.k8s.io/docs/start/)\n   - [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)\n   - [helm](https://helm.sh/docs/intro/install/)\n2. Start minikube: `minikube start`.\n3. Add ingress addon: `minikube addons enable ingress`.\n4. Patch ingress controller to use LoadBalancer type: `kubectl patch svc ingress-nginx-controller -n ingress-nginx -p '{\"spec\": {\"type\": \"LoadBalancer\"}}'`.\n5. Install the Helm chart: `helm install liquio ./helm-chart -f ./helm-chart/values.yaml --create-namespace --namespace liquio`.\n   > Images are pulled automatically from `ghcr.io/liquio` — no local build step required.\n   > **For local development:** if you have made code changes and need to rebuild images, point your shell at minikube's Docker daemon and run the build script before installing:\n   > ```bash\n   > eval $(minikube docker-env)\n   > ./scripts/build-images.sh --registry ghcr.io/liquio --tag 0.1.0\n   > # or rebuild a single service:\n   > ./scripts/build-images.sh --registry ghcr.io/liquio --tag 0.1.0 --image cabinet-api\n   > ```\n   > Then install with `image.pullPolicy=IfNotPresent` so Kubernetes uses the locally built images instead of pulling from the registry:\n   > ```bash\n   > helm install liquio ./helm-chart -f ./helm-chart/values.yaml --create-namespace --namespace liquio \\\n   >   --set image.pullPolicy=IfNotPresent\n   > ```\n6. Set default namespace: `kubectl config set-context --current --namespace=liquio`\n7. Wait for the deployment to be ready: `kubectl get pods -w`.\n8. Setup domain name resolution:\n    8.1. Start minikube tunnel (in a separate terminal, keep it running): `minikube tunnel`\n    8.2. Get the LoadBalancer ClusterIP: `CLUSTER_IP=$(kubectl get svc ingress-nginx-controller -n ingress-nginx -o jsonpath='{.spec.clusterIP}')`\n    8.3. Add service domain names to hosts file (mapped to ClusterIP): `echo \"$CLUSTER_IP admin.liquio.local admin-api.liquio.local cabinet.liquio.local cabinet-api.liquio.local id.liquio.local id-api.liquio.local\" | sudo tee -a /etc/hosts`\n9. Generate user keys:\n    9.1. `./scripts/generate-user.sh --k8s-secret \"liquio-ca-certs\" --first-name \"Admin\" --last-name \"Liquio\" --serial-number \"0000000001\" --password \"admin\" --output admin.p12`\n    9.2. `./scripts/generate-user.sh --k8s-secret \"liquio-ca-certs\" --first-name \"Demo\" --last-name \"Liquio\" --serial-number \"3123456789\" --password \"demo\" --output demo.p12`\n10. Access http://admin.liquio.local from the browser.",
+  "questions": {
+    "completeness": {
+      "type": "score",
+      "instructions": "How would you rate the guide's coverage of the information needed to install, configure where required, and verify the software?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "structure": {
+      "type": "score",
+      "instructions": "Is the installation guide arranged so that the user can find what is needed and follow the installation process in the required order?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "clarity": {
+      "type": "score",
+      "instructions": "Are instructions, commands, prerequisites, configuration values, and expected outcomes stated precisely and without ambiguity?",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    },
+    "understandability": {
+      "type": "score",
+      "instructions": "How easy was it to understand the installation or setup steps? Consider whether the guide explained the technical terms and concepts or required you to know them beforehand.",
+      "criteria": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Adequate",
+        "4 - Good",
+        "5 - Excellent"
+      ]
+    }
+  }
+}
