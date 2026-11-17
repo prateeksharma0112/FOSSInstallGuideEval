@@ -10,7 +10,7 @@ os.environ.setdefault("LITELLM_LOCAL_MODEL_COST_MAP", "True")
 import litellm
 
 from installguideeval.config import settings
-from installguideeval.models import EvaluationReport
+from installguideeval.models import EvaluationCriteria, EvaluationReport, EvaluationTask
 
 
 @dataclass(frozen=True)
@@ -23,6 +23,7 @@ class LLMEvaluationResult:
     input_tokens: int | None
     output_tokens: int | None
     total_tokens: int | None
+    request_payload: dict[str, Any] | None = None
 
 
 class LLMResponseError(RuntimeError):
@@ -41,7 +42,13 @@ class LLMClient:
             raise ValueError("EVALUATION_LLM_MODEL must be configured.")
         self.model_name = settings.evaluation_llm_model
 
-    def evaluate(self, prompt: str) -> LLMEvaluationResult:
+    def evaluate(
+        self,
+        prompt: str,
+        *,
+        task: EvaluationTask | None = None,
+        criteria: EvaluationCriteria | None = None,
+    ) -> LLMEvaluationResult:
         response = litellm.completion(**self._request_parameters(prompt))
         llm_response = response.model_dump(mode="json")
         choice = response.choices[0]

@@ -6,6 +6,7 @@ from datetime import datetime
 from typing import Any
 
 from installguideeval.config import settings
+from installguideeval.clef import CLEFClient
 from installguideeval.inputs import build_prompt, load_criteria, load_task
 from installguideeval.llm import LLMClient, LLMEvaluationResult, LLMResponseError
 from installguideeval.models import EvaluationCriteria, EvaluationTask
@@ -20,8 +21,14 @@ class EvaluationRunner:
         llm: LLMClient | None = None,
         show_progress: Callable[[str], None] | None = None,
     ) -> None:
-        self.llm = llm or LLMClient()
+        self.llm = llm or self._create_client()
         self.show_progress = show_progress or (lambda message: None)
+
+    @staticmethod
+    def _create_client() -> LLMClient | CLEFClient:
+        if settings.evaluation_provider == "clef":
+            return CLEFClient()
+        return LLMClient()
 
     def run(self, task_id: str) -> dict[str, Any]:
         # Start the timer.
@@ -32,16 +39,21 @@ class EvaluationRunner:
         task = load_task(task_id)
         criteria = load_criteria()
 
-        self.show_progress("[2/5] Building evaluation prompt")
-        prompt = build_prompt(task, criteria)
+        if settings.evaluation_provider == "clef":
+            self.show_progress("[2/5] Preparing structured CLEF evaluation")
+            prompt = ""
+        else:
+            self.show_progress("[2/5] Building evaluation prompt")
+            prompt = build_prompt(task, criteria)
 
         self.show_progress("[3/5] Preparing result files")
         layout = create_run_layout(task.task_id)
-        write_text(layout.evaluation_dir / "prompt.md", prompt)
+        if prompt:
+            write_text(layout.evaluation_dir / "prompt.md", prompt)
 
         self.show_progress(f"[4/5] Evaluating guide with {self.llm.model_name}")
         try:
-            llm_result = self.llm.evaluate(prompt)
+            llm_result = self.llm.evaluate(prompt, task=task, criteria=criteria)
         except Exception as exc:
             self.show_progress("[5/5] Saving failed run")
             return self._save_failure(
@@ -76,6 +88,10 @@ class EvaluationRunner:
         # Save the complete response and the validated report.
         write_json(layout.evaluation_dir / "llm_response.json", llm_result.llm_response)
         write_json(layout.evaluation_dir / "report.json", llm_result.report.model_dump(mode="json"))
+        if llm_result.request_payload is not None:
+            write_json(
+                layout.evaluation_dir / "request.json", llm_result.request_payload
+            )
 
         # Save information about the completed run.
         run_record = self._run_record(
@@ -88,10 +104,13 @@ class EvaluationRunner:
             llm_result=llm_result,
         )
         run_record["artifacts"] = {
-            "prompt": "evaluation/prompt.md",
             "llm_response": "evaluation/llm_response.json",
             "report": "evaluation/report.json",
         }
+        if settings.evaluation_provider == "clef":
+            run_record["artifacts"]["request"] = "evaluation/request.json"
+        else:
+            run_record["artifacts"]["prompt"] = "evaluation/prompt.md"
         write_json(layout.run_dir / "run.json", run_record)
         return run_record
 
@@ -124,10 +143,9 @@ class EvaluationRunner:
             status="failed",
             error=error_data,
         )
-        run_record["artifacts"] = {
-            "prompt": "evaluation/prompt.md",
-            "error": "evaluation/error.json",
-        }
+        run_record["artifacts"] = {"error": "evaluation/error.json"}
+        if settings.evaluation_provider != "clef":
+            run_record["artifacts"]["prompt"] = "evaluation/prompt.md"
         if llm_response is not None:
             run_record["artifacts"]["llm_response"] = "evaluation/llm_response.json"
         write_json(layout.run_dir / "run.json", run_record)
@@ -147,6 +165,7 @@ class EvaluationRunner:
     ) -> dict[str, Any]:
         # Add details from a successful response.
         llm_details = {
+            "provider": settings.evaluation_provider,
             "model_name": settings.evaluation_model_name,
             "model_identifier": self.llm.model_name,
             "reasoning_effort": settings.evaluation_llm_reasoning_effort,
@@ -176,7 +195,14 @@ class EvaluationRunner:
         return {
             "run": run,
             "task": {"task_id": task.task_id, **task.metadata},
-            "prompt": {"template": settings.evaluation_prompt_path.as_posix()},
+            "prompt": {
+                "interface": settings.evaluation_provider,
+                "template": (
+                    None
+                    if settings.evaluation_provider == "clef"
+                    else settings.evaluation_prompt_path.as_posix()
+                ),
+            },
             "criteria": {"version": criteria.criteria_version},
             "llm": llm_details,
         }

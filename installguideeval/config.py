@@ -20,6 +20,9 @@ class Settings(BaseSettings):
     # Name used to group runs from the same experiment.
     experiment_id: str
 
+    # Select which evaluation interface runs for one invocation.
+    evaluation_provider: Literal["litellm", "clef"] = "litellm"
+
     # Connection details used by LiteLLM.
     evaluation_model_name: str
     evaluation_llm_model: str
